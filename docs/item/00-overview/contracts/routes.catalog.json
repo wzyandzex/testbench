@@ -1,0 +1,1733 @@
+{
+  "contract_version": "2026-03-09.v4",
+  "generated_at": "2026-03-09",
+  "source": "internal/api/router/router.go",
+  "base": "/api/v1",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/admin/users",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "List users"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users/:id/lock",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Lock user"
+    },
+    {
+      "method": "PUT",
+      "path": "/admin/users/:id/role",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Update user role"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users/:id/unlock",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Unlock user"
+    },
+    {
+      "method": "GET",
+      "path": "/agents",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List agents"
+    },
+    {
+      "method": "POST",
+      "path": "/agents",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create agent"
+    },
+    {
+      "method": "DELETE",
+      "path": "/agents/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Delete agent"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get agent"
+    },
+    {
+      "method": "PUT",
+      "path": "/agents/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Update agent"
+    },
+    {
+      "method": "POST",
+      "path": "/agents/:id/execute",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Execute task"
+    },
+    {
+      "method": "POST",
+      "path": "/agents/:id/execute/stream",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Execute task stream"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/:id/health",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Check agent health"
+    },
+    {
+      "method": "GET",
+      "path": "/agents/:id/stats",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get agent stats"
+    },
+    {
+      "method": "POST",
+      "path": "/agents/:id/sync",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Sync agent"
+    },
+    {
+      "method": "GET",
+      "path": "/analyzer/comparisons",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List analyzer comparisons"
+    },
+    {
+      "method": "GET",
+      "path": "/analyzer/reports",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List analyzer reports"
+    },
+    {
+      "method": "GET",
+      "path": "/analyzer/reports/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get analyzer report"
+    },
+    {
+      "method": "GET",
+      "path": "/analyzer/trends",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List analyzer trends"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/avatar",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Update avatar"
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/delete",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Delete account"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Send email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify/confirm",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Confirm email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "User login"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Logout"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Current user"
+    },
+    {
+      "method": "PUT",
+      "path": "/auth/password",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Change password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Request password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset/confirm",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Confirm password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/refresh",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Refresh token"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Register"
+    },
+    {
+      "method": "GET",
+      "path": "/batch-executions",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List batches"
+    },
+    {
+      "method": "POST",
+      "path": "/batch-executions",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create batch"
+    },
+    {
+      "method": "GET",
+      "path": "/batch-executions/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get batch"
+    },
+    {
+      "method": "POST",
+      "path": "/batch-executions/:id/cancel",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Cancel batch"
+    },
+    {
+      "method": "GET",
+      "path": "/batch-executions/:id/report",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get batch report"
+    },
+    {
+      "method": "GET",
+      "path": "/batch-executions/:id/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get batch tasks"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List benchmarks"
+    },
+    {
+      "method": "POST",
+      "path": "/benchmarks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create benchmark"
+    },
+    {
+      "method": "DELETE",
+      "path": "/benchmarks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Delete benchmark"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get benchmark"
+    },
+    {
+      "method": "PUT",
+      "path": "/benchmarks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Update benchmark"
+    },
+    {
+      "method": "POST",
+      "path": "/benchmarks/:id/fork",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Fork benchmark"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/forks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List benchmark forks"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/quality/history",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List quality reports"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/quality/latest",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get latest quality report"
+    },
+    {
+      "method": "POST",
+      "path": "/benchmarks/:id/quality/llm-checks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Trigger LLM quality check"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/quality/llm-checks/:job_id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get LLM quality check job"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/quality/llm-reports/history",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List LLM quality reports"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/quality/llm-reports/latest",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get latest LLM quality report"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/:id/stats",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get benchmark stats"
+    },
+    {
+      "method": "PATCH",
+      "path": "/benchmarks/:id/status",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Update benchmark status"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/my-forks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List my forks"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/pending",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List pending approvals"
+    },
+    {
+      "method": "GET",
+      "path": "/benchmarks/tags",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List benchmark tags"
+    },
+    {
+      "method": "POST",
+      "path": "/benchmarks/tags",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create benchmark tag"
+    },
+    {
+      "method": "DELETE",
+      "path": "/benchmarks/tags/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Delete benchmark tag"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/alerts",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache alerts"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/kpi",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache KPI snapshot"
+    },
+    {
+      "method": "POST",
+      "path": "/cache/kpi/reset",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Reset cache KPI"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats by prefix"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/history",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache history"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/latency",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache latency"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/topkeys",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Top cache keys"
+    },
+    {
+      "method": "POST",
+      "path": "/cache/stats/reset/:prefix",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Reset cache stats by prefix"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/summary",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache summary"
+    },
+    {
+      "method": "GET",
+      "path": "/collector/audit-logs",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List collector audit logs"
+    },
+    {
+      "method": "GET",
+      "path": "/collector/cleanup-reports",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List collector cleanup reports"
+    },
+    {
+      "method": "GET",
+      "path": "/collector/cleanup-reports/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get collector cleanup report"
+    },
+    {
+      "method": "POST",
+      "path": "/cost/calculate",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Calculate execution cost"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/execution/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get execution cost"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/models",
+      "consumer": "shared",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List model costs"
+    },
+    {
+      "method": "POST",
+      "path": "/cost/models",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Create model cost"
+    },
+    {
+      "method": "DELETE",
+      "path": "/cost/models/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Delete model cost"
+    },
+    {
+      "method": "PUT",
+      "path": "/cost/models/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Update model cost"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/statistics",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get cost statistics"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/summary",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get cost summary"
+    },
+    {
+      "method": "GET",
+      "path": "/executions",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List executions"
+    },
+    {
+      "method": "POST",
+      "path": "/executions",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create execution"
+    },
+    {
+      "method": "DELETE",
+      "path": "/executions/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Cancel execution"
+    },
+    {
+      "method": "GET",
+      "path": "/executions/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get execution"
+    },
+    {
+      "method": "GET",
+      "path": "/executions/:id/trace",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get execution trace"
+    },
+    {
+      "method": "GET",
+      "path": "/executions/summary",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get execution summary"
+    },
+    {
+      "method": "POST",
+      "path": "/export/batch",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Export batch"
+    },
+    {
+      "method": "POST",
+      "path": "/export/executions/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Export execution"
+    },
+    {
+      "method": "POST",
+      "path": "/export/executions/direct",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Export execution (direct)"
+    },
+    {
+      "method": "GET",
+      "path": "/export/formats",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List export formats"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "API health check"
+    },
+    {
+      "method": "GET",
+      "path": "/history",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Query notification history"
+    },
+    {
+      "method": "GET",
+      "path": "/history/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get history by id"
+    },
+    {
+      "method": "PUT",
+      "path": "/history/:id/acknowledge",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Acknowledge history item"
+    },
+    {
+      "method": "PUT",
+      "path": "/history/:id/reject",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Reject history item"
+    },
+    {
+      "method": "POST",
+      "path": "/history/bulk-acknowledge",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Bulk acknowledge history"
+    },
+    {
+      "method": "POST",
+      "path": "/history/export",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Export history"
+    },
+    {
+      "method": "GET",
+      "path": "/history/pending-count",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get pending count"
+    },
+    {
+      "method": "GET",
+      "path": "/history/stats",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get history stats"
+    },
+    {
+      "method": "POST",
+      "path": "/import/benchmarks/batch",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import benchmarks in batch"
+    },
+    {
+      "method": "POST",
+      "path": "/import/benchmarks/file",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import benchmarks from file"
+    },
+    {
+      "method": "POST",
+      "path": "/import/benchmarks/json",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import benchmarks from JSON"
+    },
+    {
+      "method": "GET",
+      "path": "/import/benchmarks/sources",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List benchmark import sources"
+    },
+    {
+      "method": "POST",
+      "path": "/import/benchmarks/url",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import benchmarks from URL"
+    },
+    {
+      "method": "POST",
+      "path": "/import/benchmarks/yaml",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import benchmarks from YAML"
+    },
+    {
+      "method": "GET",
+      "path": "/import/codecomplete/datasets",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List CodeComplete datasets"
+    },
+    {
+      "method": "POST",
+      "path": "/import/codecomplete/file/:dataset",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import CodeComplete from file"
+    },
+    {
+      "method": "POST",
+      "path": "/import/codecomplete/huggingface/:dataset",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import CodeComplete from HuggingFace"
+    },
+    {
+      "method": "POST",
+      "path": "/import/codecomplete/json/:dataset",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import CodeComplete from JSON"
+    },
+    {
+      "method": "POST",
+      "path": "/import/codecomplete/url/:dataset",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import CodeComplete from URL"
+    },
+    {
+      "method": "GET",
+      "path": "/import/humaneval/datasets",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List HumanEval datasets"
+    },
+    {
+      "method": "POST",
+      "path": "/import/humaneval/file",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import HumanEval from file"
+    },
+    {
+      "method": "POST",
+      "path": "/import/humaneval/huggingface",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import HumanEval from HuggingFace"
+    },
+    {
+      "method": "POST",
+      "path": "/import/humaneval/json",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import HumanEval from JSON"
+    },
+    {
+      "method": "POST",
+      "path": "/import/humaneval/url",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import HumanEval from URL"
+    },
+    {
+      "method": "GET",
+      "path": "/import/swebench/datasets",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List SWE-bench datasets"
+    },
+    {
+      "method": "POST",
+      "path": "/import/swebench/file",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import SWE-bench from file"
+    },
+    {
+      "method": "POST",
+      "path": "/import/swebench/huggingface",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import SWE-bench from HuggingFace"
+    },
+    {
+      "method": "POST",
+      "path": "/import/swebench/json",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import SWE-bench from JSON"
+    },
+    {
+      "method": "POST",
+      "path": "/import/swebench/url",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Import SWE-bench from URL"
+    },
+    {
+      "method": "GET",
+      "path": "/import/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List import tasks"
+    },
+    {
+      "method": "POST",
+      "path": "/import/tasks/:dataset",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create async import task"
+    },
+    {
+      "method": "POST",
+      "path": "/import/tasks/:dataset/upload",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Upload import file"
+    },
+    {
+      "method": "GET",
+      "path": "/import/tasks/:task_id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get import task status"
+    },
+    {
+      "method": "POST",
+      "path": "/import/tasks/:task_id/cancel",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Cancel import task"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/consumers",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka consumers"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/health",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka health"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/producers",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka producers"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/stats",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka stats"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/topics",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "List Kafka topics"
+    },
+    {
+      "method": "POST",
+      "path": "/kafka/topics",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Create Kafka topic"
+    },
+    {
+      "method": "DELETE",
+      "path": "/kafka/topics/:topic",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Delete Kafka topic"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/topics/:topic",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka topic details"
+    },
+    {
+      "method": "GET",
+      "path": "/languages",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List languages"
+    },
+    {
+      "method": "GET",
+      "path": "/languages/:name",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get language"
+    },
+    {
+      "method": "GET",
+      "path": "/languages/:name/docker-command",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get docker command"
+    },
+    {
+      "method": "GET",
+      "path": "/languages/:name/extensions",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get language extensions"
+    },
+    {
+      "method": "POST",
+      "path": "/languages/:name/reload",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Reload language config"
+    },
+    {
+      "method": "GET",
+      "path": "/languages/:name/test-command",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get test command"
+    },
+    {
+      "method": "GET",
+      "path": "/metrics",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List metrics"
+    },
+    {
+      "method": "POST",
+      "path": "/metrics/aggregated",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create aggregated metrics"
+    },
+    {
+      "method": "GET",
+      "path": "/metrics/comparison",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Compare metrics"
+    },
+    {
+      "method": "GET",
+      "path": "/metrics/execution/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get execution metrics"
+    },
+    {
+      "method": "GET",
+      "path": "/metrics/ranking",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get metrics ranking"
+    },
+    {
+      "method": "GET",
+      "path": "/metrics/report/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get metrics report"
+    },
+    {
+      "method": "GET",
+      "path": "/org-templates",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "List organization templates"
+    },
+    {
+      "method": "POST",
+      "path": "/org-templates",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Create organization template"
+    },
+    {
+      "method": "DELETE",
+      "path": "/org-templates/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Delete organization template"
+    },
+    {
+      "method": "GET",
+      "path": "/org-templates/:id",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Get organization template"
+    },
+    {
+      "method": "POST",
+      "path": "/org-templates/:template_id/create-org",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Create organization with template"
+    },
+    {
+      "method": "GET",
+      "path": "/organizations",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "List organizations"
+    },
+    {
+      "method": "POST",
+      "path": "/organizations",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Create organization"
+    },
+    {
+      "method": "DELETE",
+      "path": "/organizations/:id",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Delete organization"
+    },
+    {
+      "method": "GET",
+      "path": "/organizations/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get organization"
+    },
+    {
+      "method": "PUT",
+      "path": "/organizations/:id",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Update organization"
+    },
+    {
+      "method": "GET",
+      "path": "/organizations/:id/invitations",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List invitations"
+    },
+    {
+      "method": "POST",
+      "path": "/organizations/:id/invitations",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Invite member"
+    },
+    {
+      "method": "DELETE",
+      "path": "/organizations/:id/invitations/:invitation_id",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Cancel invitation"
+    },
+    {
+      "method": "POST",
+      "path": "/organizations/:id/invitations/:invitation_id/resend",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Resend invitation"
+    },
+    {
+      "method": "POST",
+      "path": "/organizations/:id/join",
+      "consumer": "user-app",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Join organization"
+    },
+    {
+      "method": "GET",
+      "path": "/organizations/:id/members",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List organization members"
+    },
+    {
+      "method": "DELETE",
+      "path": "/organizations/:id/members/:user_id",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Remove member"
+    },
+    {
+      "method": "PUT",
+      "path": "/organizations/:id/members/:user_id/role",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Update member role"
+    },
+    {
+      "method": "GET",
+      "path": "/organizations/:id/quota",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get organization quota"
+    },
+    {
+      "method": "PUT",
+      "path": "/organizations/:id/settings",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Update organization settings"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/llm/capabilities",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get LLM quality capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/llm/policies/organization",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get organization LLM quality policy"
+    },
+    {
+      "method": "PUT",
+      "path": "/quality/llm/policies/organization",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Upsert organization LLM quality policy"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/policies/effective",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get effective quality policy"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/policies/organization",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get organization quality policy"
+    },
+    {
+      "method": "PUT",
+      "path": "/quality/policies/organization",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "Upsert organization quality policy"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/policies/organization/audits",
+      "consumer": "user-app",
+      "scope": "org_admin",
+      "requires_org": true,
+      "description": "List quality policy audits"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduled-tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List scheduled tasks"
+    },
+    {
+      "method": "POST",
+      "path": "/scheduled-tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create scheduled task"
+    },
+    {
+      "method": "DELETE",
+      "path": "/scheduled-tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Delete scheduled task"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduled-tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get scheduled task"
+    },
+    {
+      "method": "PUT",
+      "path": "/scheduled-tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Update scheduled task"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduled-tasks/:id/runs",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get scheduled task runs"
+    },
+    {
+      "method": "PATCH",
+      "path": "/scheduled-tasks/:id/status",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Set scheduled task status"
+    },
+    {
+      "method": "POST",
+      "path": "/scheduled-tasks/:id/trigger",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Trigger scheduled task"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduler/stats",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get scheduler stats"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduler/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List scheduler tasks"
+    },
+    {
+      "method": "POST",
+      "path": "/scheduler/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Submit scheduler task"
+    },
+    {
+      "method": "GET",
+      "path": "/scheduler/tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get scheduler task"
+    },
+    {
+      "method": "POST",
+      "path": "/scheduler/tasks/:id/cancel",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Cancel scheduler task"
+    },
+    {
+      "method": "DELETE",
+      "path": "/swenbench/repo/cache",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Delete SWE repo cache"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/repo/cache",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "List SWE repo cache"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List SWE tasks"
+    },
+    {
+      "method": "POST",
+      "path": "/swenbench/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Create SWE task"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get SWE task"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/tasks/:id/export",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Export SWE task"
+    },
+    {
+      "method": "POST",
+      "path": "/swenbench/tasks/:id/fix",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Fix SWE task"
+    },
+    {
+      "method": "POST",
+      "path": "/swenbench/tasks/:id/retry",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Retry SWE task"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/tasks/:id/test-options",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Get SWE task test options"
+    },
+    {
+      "method": "POST",
+      "path": "/swenbench/tasks/:id/test-strategy",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Set SWE task test strategy"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/tasks/:id/ws",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "SWE task websocket"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/ws",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "SWE global websocket"
+    },
+      {
+        "method": "GET",
+        "path": "/swenbench/ws/stats",
+        "consumer": "admin-app",
+        "scope": "sys_admin",
+        "requires_org": true,
+        "description": "SWE websocket stats"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/insights/summary",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation insight summary"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/insights/trends",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation insight trends"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/policies/effective",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get effective project evaluation policy"
+      },
+      {
+        "method": "PUT",
+        "path": "/project-evals/policies/organization",
+        "consumer": "user-app",
+        "scope": "org_admin",
+        "requires_org": true,
+        "description": "Upsert organization project evaluation policy"
+      },
+      {
+        "method": "POST",
+        "path": "/project-evals/runs",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Create project evaluation run"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/capabilities",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation capabilities"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/runs/:id",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation run"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/runs/:id/plan",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation plan"
+      },
+      {
+        "method": "GET",
+        "path": "/project-evals/runs/:id/report",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Get project evaluation report"
+      },
+      {
+        "method": "POST",
+        "path": "/project-evals/sources",
+        "consumer": "user-app",
+        "scope": "org",
+        "requires_org": true,
+        "description": "Create project evaluation source"
+      },
+      {
+        "method": "POST",
+        "path": "/user/current-organization",
+        "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Switch current organization"
+    }
+  ],
+  "optional_routes": [
+    {
+      "prefix": "/export/*",
+      "condition": "exportHandler != nil",
+      "note": "Export routes are absent when export handler is not wired."
+    },
+    {
+      "prefix": "/collector/*",
+      "condition": "collectorHandler != nil",
+      "note": "Collector module is optional by deployment."
+    },
+    {
+      "prefix": "/analyzer/*",
+      "condition": "analyzerHandler != nil",
+      "note": "Analyzer module is optional by deployment."
+    },
+    {
+      "prefix": "/import/benchmarks/*",
+      "condition": "benchmarkImportHandler != nil",
+      "note": "Benchmark import module is optional by deployment."
+    },
+    {
+      "prefix": "/import/humaneval/*",
+      "condition": "humanEvalImportHandler != nil",
+      "note": "HumanEval import module is optional by deployment."
+    },
+    {
+      "prefix": "/import/swebench/*",
+      "condition": "sweBenchImportHandler != nil",
+      "note": "SWE-bench import module is optional by deployment."
+    },
+    {
+      "prefix": "/import/codecomplete/*",
+      "condition": "codeCompleteImportHandler != nil",
+      "note": "CodeComplete import module is optional by deployment."
+    }
+  ],
+  "compatibility_routes": [
+    {
+      "method": "POST",
+      "path": "/import/tasks",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Legacy: create import task without path dataset"
+    },
+    {
+      "method": "GET",
+      "path": "/import/tasks/:id",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Legacy alias of /import/tasks/:task_id"
+    },
+    {
+      "method": "POST",
+      "path": "/import/tasks/:id/cancel",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Legacy alias of /import/tasks/:task_id/cancel"
+    },
+    {
+      "method": "POST",
+      "path": "/import/tasks/upload",
+      "consumer": "user-app",
+      "scope": "org",
+      "requires_org": true,
+      "description": "Legacy upload path without dataset in URL"
+    }
+  ],
+  "notes": [
+    "Scope order: public < authenticated < org < org_admin < sys_admin.",
+    "requires_org=true means send X-Org-ID (X-Organization-Id is backward-compatible).",
+    "Frontend allow-listing is advisory; backend authorization is authoritative."
+  ],
+  "source_commit": "65e5999"
+}

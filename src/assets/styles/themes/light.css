@@ -1,0 +1,52 @@
+/**
+ * 浅色主题
+ */
+:root {
+  /* 主色 */
+  --color-primary: #1890ff;
+  --color-primary-hover: #40a9ff;
+  --color-primary-active: #096dd9;
+  --color-primary-bg: #e6f4ff;
+
+  /* 功能色 */
+  --color-success: #52c41a;
+  --color-success-hover: #73d13d;
+  --color-success-bg: #f6ffed;
+  --color-success-border: #b7eb8f;
+
+  --color-warning: #faad14;
+  --color-warning-hover: #ffc53d;
+  --color-warning-bg: #fffbe6;
+  --color-warning-border: #ffe58f;
+
+  --color-error: #ff4d4f;
+  --color-error-hover: #ff7875;
+  --color-error-bg: #fff1f0;
+  --color-error-border: #ffccc7;
+
+  --color-info: #1890ff;
+  --color-info-hover: #40a9ff;
+  --color-info-bg: #e6f4ff;
+  --color-info-border: #91caff;
+
+  /* 中性色 */
+  --color-text-primary: rgba(0, 0, 0, 0.85);
+  --color-text-secondary: rgba(0, 0, 0, 0.65);
+  --color-text-tertiary: rgba(0, 0, 0, 0.45);
+  --color-text-disabled: rgba(0, 0, 0, 0.25);
+
+  /* 边框 */
+  --color-border: #d9d9d9;
+  --color-border-light: #f0f0f0;
+  --color-border-dark: #bfbfbf;
+
+  /* 背景 */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fafafa;
+  --color-bg-tertiary: #f5f5f5;
+  --color-bg-quaternary: #f0f2f5;
+
+  /* 组件背景 */
+  --color-component-bg: #ffffff;
+  --color-component-hover: #fafafa;
+}

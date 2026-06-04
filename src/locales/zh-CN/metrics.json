@@ -1,0 +1,142 @@
+{
+  "title": "指标分析",
+  "workbench": "指标记录",
+  "loadFailed": {
+    "catalog": "加载关联目录失败",
+    "records": "加载指标记录失败",
+    "ranking": "加载排行失败",
+    "report": "加载报告失败",
+    "compare": "执行对比失败"
+  },
+  "notices": {
+    "trendNotImpl": "趋势图暂未实现",
+    "trendDesc": "当前后端没有组织级趋势序列接口，无法提供真实的分时趋势图。该能力已进入延期方案，待 2026-04-25 之后按真实后端 contract 实施。",
+    "trendNote": "当前可用的真实能力已经整合进新的指标工作台：记录列表、Agent 排行、执行对比、执行报告、管理员聚合重算。",
+    "reportNotImpl": "报告中心暂未实现",
+    "reportDesc": "当前后端只支持按 execution_id 即时生成分析报告，不支持独立的报告列表、报告下载中心或异步报告任务。请在指标工作台中直接打开执行报告抽屉。",
+    "reportNote": "更完整的报告中心需要真正的持久化报告、状态流转和导出存储能力，本轮不做假实现。",
+    "adminNotImpl": "系统管理暂未扩展",
+    "adminDesc": "当前后端只提供管理员手动触发聚合重算，不存在清理报告、审计日志或系统清理 API。相关操作已从实际工作台中剔除，避免误导用户。",
+    "adminNote": "如需扩展为真正的管理中心，应先新增明确的后端审计、任务状态和清理边界，再设计前端入口。"
+  },
+  "hero": {
+    "tag": "backend-truth metrics workspace",
+    "title": "指标工作台",
+    "desc1": "当前页面只保留后端真实支持的能力：记录检索、Agent 排行、执行对比、执行报告、管理员聚合重算。",
+    "desc2": "之前那套 overview / analytics / export / cleanup 假能力已经被移除。",
+    "aggregationTitle": "管理员聚合重算",
+    "aggregationDesc": "手动触发 `/metrics/aggregated`。默认不传时间范围时，由后端使用 UTC 当日窗口。",
+    "submit": "提交聚合任务",
+    "adminOnly": "仅系统管理员可触发该操作。"
+  },
+  "table": {
+    "executionId": "执行 ID",
+    "benchmark": "Benchmark",
+    "agent": "Agent",
+    "overallScore": "综合得分",
+    "funcEffQual": "功能 / 效率 / 质量",
+    "stabReas": "稳定 / 推理",
+    "totalDuration": "总耗时",
+    "createdAt": "创建时间",
+    "action": "操作",
+    "setAsReference": "设为参考",
+    "setAsTarget": "设为目标",
+    "viewReport": "查看报告",
+    "tagFunc": "功",
+    "tagEff": "效",
+    "tagQual": "质",
+    "tagStab": "稳",
+    "tagReas": "推",
+    "rowSummary": "当前页 {{current}} 条 / 总计 {{total}} 条"
+  },
+  "sort": {
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "score": "综合得分",
+    "funcScore": "功能得分",
+    "effScore": "效率得分",
+    "qualScore": "质量得分",
+    "stabScore": "稳定性得分",
+    "reasScore": "推理得分"
+  },
+  "filter": {
+    "executionId": "执行 ID",
+    "executionIdPlaceholder": "精确匹配 execution_id",
+    "agentPlaceholder": "按 Agent 筛选",
+    "benchmarkPlaceholder": "按 Benchmark 筛选",
+    "minScore": "最低得分",
+    "maxScore": "最高得分",
+    "dateRange": "创建时间范围",
+    "sortField": "排序字段",
+    "searchBtn": "查询记录",
+    "resetBtn": "重置",
+    "refreshBtn": "刷新"
+  },
+  "stats": {
+    "matchCount": "匹配记录数",
+    "pageAvgScore": "当前页均分",
+    "rankingTop": "排行榜首",
+    "pageAvgDuration": "当前页平均耗时",
+    "points": "分"
+  },
+  "aggregation": {
+    "daily": "按天",
+    "weekly": "按周",
+    "monthly": "按月",
+    "submitted": "聚合重算任务已提交"
+  },
+  "ranking": {
+    "title": "Agent 排行",
+    "subtitle": "忽略 execution_id 和单个 agent 过滤，避免排行失真",
+    "records": "条",
+    "loading": "正在加载排行…",
+    "noData": "暂无排行数据"
+  },
+  "compare": {
+    "title": "执行对比",
+    "refPlaceholder": "参考执行 ID",
+    "targetPlaceholder": "目标执行 ID",
+    "executeBtn": "执行对比",
+    "placeholder": "可直接从下方表格把记录设为参考 / 目标。",
+    "requireIds": "请先填写参考执行 ID 和目标执行 ID",
+    "dim": {
+      "score": "综合",
+      "func": "功能",
+      "eff": "效率",
+      "qual": "质量",
+      "stab": "稳定",
+      "reas": "推理"
+    }
+  },
+  "distribution": {
+    "title": "当前页得分分布",
+    "noRecords": "当前页暂无记录"
+  },
+  "report": {
+    "title": "执行报告",
+    "titleWithId": "执行报告 · {{id}}",
+    "loading": "报告加载中…",
+    "executionId": "Execution ID",
+    "generatedAt": "生成时间",
+    "overallEval": "整体评价",
+    "overallScore": "综合得分",
+    "totalDuration": "总耗时",
+    "dimensionScores": "维度得分",
+    "strengthsWeaknesses": "优势 / 短板",
+    "strengths": "优势",
+    "weaknesses": "短板",
+    "diagnostics": "诊断与建议",
+    "recommendations": "推荐动作",
+    "category": "分类：{{category}}",
+    "dimFunc": "功能",
+    "dimEff": "效率",
+    "dimQual": "质量",
+    "dimStab": "稳定",
+    "dimReas": "推理",
+    "noData": "暂无",
+    "noDiagnostics": "暂无诊断项",
+    "noSuggestion": "暂无建议",
+    "noActions": "暂无推荐动作",
+    "notSelected": "未选择报告"
+  }
+}

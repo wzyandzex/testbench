@@ -1,0 +1,7 @@
+{
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "小寒coding",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "小寒coding",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "小寒coding"
+  }
+}

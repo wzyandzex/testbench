@@ -1,0 +1,244 @@
+{
+  "title": "调度管理",
+  "page": "调度中心",
+  "subtitle": "新建、启停、手动触发和运行回看都以后端真实能力为准。",
+  "actions": {
+    "create": "新建任务",
+    "refresh": "刷新",
+    "cancel": "取消",
+    "remove": "删除",
+    "edit": "编辑",
+    "enable": "启用",
+    "disable": "暂停",
+    "trigger": "立即执行",
+    "history": "历史",
+    "save": "保存修改",
+    "submit": "创建任务"
+  },
+  "filters": {
+    "search": "按名称、Cron、Agent、Benchmark 搜索",
+    "all": "全部",
+    "active": "运行中",
+    "paused": "已暂停",
+    "archived": "已归档",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "cards": "卡片",
+    "table": "表格"
+  },
+  "stats": {
+    "total": "任务总数",
+    "enabled": "已启用",
+    "paused": "已暂停",
+    "notify": "已配置通知"
+  },
+  "table": {
+    "task": "任务",
+    "schedule": "调度",
+    "resource": "资源",
+    "lastRun": "最近运行",
+    "nextRun": "下次执行",
+    "action": "操作",
+    "totalLabel": "共",
+    "itemLabel": "条"
+  },
+  "messages": {
+    "noTasks": "当前筛选条件下暂无调度任务",
+    "loadFail": "加载调度任务失败",
+    "catalogFail": "资源目录加载失败，但不影响查看现有调度任务。",
+    "actionFail": "操作失败，请稍后重试",
+    "createOk": "调度任务已创建",
+    "updateOk": "调度任务已更新",
+    "toggleOk": "启用状态已更新",
+    "triggerOk": "已提交手动触发",
+    "deleteOk": "调度任务已删除",
+    "deleteTitle": "确认删除调度任务",
+    "deleteText": "删除后将无法恢复：",
+    "archivedBlocked": "归档任务不支持启停或手动触发",
+    "noUpcoming": "当前没有即将执行的任务",
+    "noChannels": "未发现可用通知通道",
+    "nextRunPending": "等待调度器刷新",
+    "nextRunStale": "调度时间已过期，等待刷新"
+  },
+  "sidebar": {
+    "upcoming": "即将执行",
+    "channels": "通知通道",
+    "runs": "运行历史"
+  },
+  "runColumns": {
+    "status": "状态",
+    "scheduled": "计划时间",
+    "lifecycle": "启动 / 结束",
+    "result": "执行结果",
+    "retry": "重试",
+    "error": "错误",
+    "totalTasks": "总任务",
+    "completed": "完成",
+    "failed": "失败",
+    "nextRetry": "下次重试",
+    "none": "未配置"
+  },
+  "status": {
+    "running": "运行中",
+    "paused": "已暂停",
+    "disabled": "已禁用",
+    "enabled": "启用",
+    "closed": "关闭"
+  },
+  "priority": {
+    "p1": "P1 (高)",
+    "p2": "P2 (中)",
+    "p3": "P3 (低)"
+  },
+  "days": {
+    "short": ["日", "一", "二", "三", "四", "五", "六"],
+    "full": ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+  },
+  "modal": {
+    "createTitle": "新建调度任务",
+    "editTitle": "编辑调度任务",
+    "subtitle": "基于后端实际能力配置定时评测、资源选择、重试和通知规则。",
+    "cronOnly": "固定时间与间隔调度",
+    "userScheduleHint": "普通模式按用户可理解的时间配置，系统会自动转换为后端调度规则。",
+    "scheduleBackendTag": "后端支持：Cron / Interval",
+    "advancedCronMessage": "高级模式适合已经熟悉 Cron 的用户。普通场景请优先使用每天、每周或间隔调度。",
+    "lockedScheduleMessage": "当前任务使用暂未开放编辑的调度类型。为避免前端误改后端规则，这里仅保留原有表达式，可继续编辑其他配置。",
+    "resourcePending": "资源目录正在加载，你可以先填写调度规则和执行参数。",
+    "resourceUnavailable": "当前未读取到可用的 Agent 或 Benchmark 目录，新建任务可能无法正常提交。",
+    "notificationUnavailable": "未读取到可用通知通道，依然可以先保存任务，后续再补充通知配置。",
+    "sections": {
+      "basic": "基础信息",
+      "schedule": "调度规则",
+      "resources": "执行资源",
+      "execution": "执行参数",
+      "retry": "重试策略",
+      "notification": "通知策略"
+    },
+    "fields": {
+      "name": "任务名称",
+      "description": "任务说明",
+      "createEnabled": "创建后立即启用",
+      "currentEnabled": "当前启用状态",
+      "editEnabledHint": "编辑任务时不直接修改 enabled，启停操作请在列表中快速切换。",
+      "scheduleMode": "调度模式",
+      "runTime": "执行时间",
+      "runDays": "执行日期",
+      "intervalValue": "每隔",
+      "intervalUnit": "时间单位",
+      "cronExpression": "Cron",
+      "cronPlaceholder": "例如：0 0 9 * * 1-5",
+      "cronHint": "后端 Cron 解析器要求 6 段表达式，对应顺序为：",
+      "preset": "快速预设",
+      "benchmark": "Benchmark",
+      "agent": "Agent",
+      "benchmarkPlaceholder": "选择需要调度的 Benchmark",
+      "agentPlaceholder": "选择执行 Agent",
+      "namePlaceholder": "例如：工作日回归评测",
+      "descriptionPlaceholder": "补充调度目的、覆盖范围和运维说明",
+      "priority": "优先级",
+      "timeoutSeconds": "超时（秒）",
+      "maxSteps": "最大步数",
+      "temperature": "温度",
+      "maxTokens": "最大 Tokens",
+      "retryEnabled": "启用重试",
+      "retryAttempts": "最大重试次数",
+      "retryStrategy": "退避策略",
+      "retryInitial": "初始退避（秒）",
+      "retryMax": "最大退避（秒）",
+      "notificationEnabled": "启用通知",
+      "notificationChannels": "通知通道",
+      "notificationEvents": "通知事件",
+      "channelsPlaceholder": "选择实际可用的通知通道",
+      "eventsPlaceholder": "选择何时发送通知"
+    },
+    "validation": {
+      "nameRequired": "请输入任务名称",
+      "nameTooLong": "任务名称不能超过 255 个字符",
+      "descriptionTooLong": "任务说明过长",
+      "cronRequired": "请输入 Cron 表达式",
+      "cronInvalid": "请使用 6 段 Cron 表达式",
+      "benchmarkRequired": "至少选择 1 个 Benchmark",
+      "agentRequired": "至少选择 1 个 Agent",
+      "channelRequired": "启用通知后至少选择 1 个通道",
+      "eventRequired": "启用通知后至少选择 1 个事件",
+      "timeRequired": "请选择执行时间",
+      "dayRequired": "至少选择 1 个执行日期",
+      "intervalRequired": "请输入间隔时间"
+    },
+    "scheduleModes": {
+      "weekly": "每周固定时间",
+      "daily": "每天固定时间",
+      "interval": "按间隔重复",
+      "advanced": "高级 Cron"
+    },
+    "intervalUnits": {
+      "minutes": "分钟",
+      "hours": "小时",
+      "days": "天"
+    },
+    "events": {
+      "started": "开始",
+      "completed": "完成",
+      "failed": "失败",
+      "cancelled": "取消"
+    },
+    "retryStrategies": {
+      "exponential": "指数退避",
+      "linear": "线性退避",
+      "fixed": "固定间隔"
+    },
+    "resourceSummaryPrefix": "已选",
+    "unhealthySuffix": "（异常）",
+    "preservedSuffix": "（已保存）",
+    "unknownResource": "当前资源不在最新目录中，提交时将保留原值。"
+  },
+  "panels": {
+    "command": {
+      "header": "命令指令",
+      "taskName": "任务代号",
+      "taskDesc": "任务描述",
+      "namePlaceholder": "例如：每日回归测试",
+      "descPlaceholder": "描述调度任务的用途和目标..."
+    },
+    "asset": {
+      "header": "资源部署",
+      "benchmarks": "评测任务",
+      "agents": "执行 Agent"
+    },
+    "execution": {
+      "header": "执行参数",
+      "expand": "展开配置选项",
+      "priority": "优先级",
+      "timeout": "超时(秒)",
+      "maxSteps": "最大步数",
+      "hintPriority": "<strong>优先级</strong>：P1 为最高优先级，优先分配资源",
+      "hintTimeout": "<strong>超时</strong>：单次执行的最大时长，超时将被终止",
+      "hintMaxSteps": "<strong>步数</strong>：Agent 允许的最大思考轮次"
+    },
+    "schedule": {
+      "nextRun": "下次执行：{{when}}"
+    },
+    "wheel": {
+      "header": "时间轮盘"
+    }
+  },
+  "statusBar": {
+    "systemRunning": "系统运行中",
+    "activeTasks": "{{count}} 个活跃任务"
+  },
+  "form": {
+    "nameRequired": "请输入任务代号",
+    "nameLength": "任务代号长度为 2-50 个字符",
+    "namePlaceholder": "例如：每日回归测试",
+    "descPlaceholder": "描述调度任务的用途和目标..."
+  },
+  "noTimeMatch": "未找到匹配时间",
+  "cronDesc": {
+    "everyDay": "每天 {{time}}",
+    "weekday": "工作日 {{time}}",
+    "range": "{{start}}-{{end}} {{time}}",
+    "list": "{{days}} {{time}}",
+    "single": "{{day}} {{time}}",
+    "listSeparator": "、"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "title": "Data Import",
+  "page": {
+    "datasetTitle": "Import Dataset",
+    "datasetSubtitle": "HumanEval, MBPP, SWE-bench and Benchmark config imports all happen here, but Benchmark import now uses the real direct-create backend contract.",
+    "benchmarkTitle": "Import Benchmark Config",
+    "benchmarkSubtitle": "This workspace is dedicated to Benchmark config imports, keeping the entrypoint in the Benchmark creation main flow.",
+    "openWizardBtn": "Open Import Wizard",
+    "openBenchmarkBtn": "Open Benchmark Import",
+    "preselectedSource": "Preselected source: {{source}}",
+    "quickSelectTitle": "Quick Select Dataset",
+    "backToBenchmarkCreate": "Back to creation flow",
+    "backToBenchmarkList": "Back to Benchmark list"
+  },
+  "alerts": {
+    "benchmarkInCreateTitle": "Benchmark import is now part of the Benchmark creation flow",
+    "benchmarkInCreateDesc": "File, URL, JSON, YAML imports of Benchmark definitions are dedicated direct-create actions, so this route stays under `/benchmarks/create` instead of the generic data import page.",
+    "benchmarkSeparateTitle": "Benchmark import has a dedicated workspace",
+    "benchmarkSeparateDesc": "Use the Benchmark creation entry for Benchmark definition imports instead of the generic data import page."
+  },
+  "capability": {
+    "loadingTitle": "Loading Benchmark import capability",
+    "loadingDesc": "Fetching the backend-declared direct-import capability boundary.",
+    "loadFailedTitle": "Unable to fetch Benchmark import capability for now",
+    "loadFailedFallback": "Capability metadata could not be loaded right now.",
+    "cardTitle": "Benchmark Import Capability",
+    "cardDesc": "Benchmark import uses the backend direct-create path. The boundaries below are the actual API capability limits.",
+    "formatsLabel": "Supported formats",
+    "maxSizeLabel": "Max size:",
+    "whitelistLabel": "Allowed domains",
+    "noneSelected": "Pick a Benchmark import method to see the corresponding backend constraints and allowed domains."
+  },
+  "sourceHints": {
+    "fileTitle": "Upload a Benchmark definition file",
+    "fileDesc": "Supported formats: {{formats}}. {{maxSize}}",
+    "fileMaxSize": "Max {{size}}.",
+    "urlTitle": "URL import is limited by backend allowed domains",
+    "urlAllowed": "Allowed domains: {{whitelist}}.",
+    "urlGeneric": "Enter a reachable Benchmark definition URL.",
+    "rawTitle": "Paste a {{format}} Benchmark definition",
+    "rawDesc": "This entry accepts only a single definition document. Submission creates a Benchmark directly, not a batch import."
+  },
+  "methods": {
+    "fileUpload": "File Upload",
+    "fileUploadDesc": "Upload local JSON or YAML files.",
+    "urlImport": "URL Import",
+    "urlImportDesc": "Pull import content from a remote URL."
+  },
+  "urlImporter": {
+    "placeholder": "Enter dataset URL, e.g. https://example.com/dataset.json",
+    "invalidUrl": "Please enter a valid URL",
+    "validateAndImport": "Validate & Import"
+  },
+  "uploader": {
+    "fileTitle": "Drag and drop a Benchmark config file here, or click to upload",
+    "fileHint": "Supported formats: {{formats}}. {{maxSize}}",
+    "defaultTitle": "Drag files here, or click to upload",
+    "defaultHint": "Supported formats: {{formats}}. Max {{maxSize}}.",
+    "unsupportedType": "Unsupported file type. Allowed: {{formats}}",
+    "tooLarge": "File size cannot exceed {{maxSize}}.",
+    "uploading": "Uploading..."
+  },
+  "form": {
+    "urlPlaceholder": "Enter dataset URL, e.g. https://example.com/dataset.json",
+    "tags": "Tags",
+    "tagsPlaceholder": "Press Enter to add tags",
+    "hfRepoLabel": "HuggingFace repo",
+    "hfFilenameLabel": "Filename"
+  },
+  "table": {
+    "source": "Source",
+    "status": "Status",
+    "progress": "Progress",
+    "result": "Result",
+    "createdAt": "Created At",
+    "action": "Actions",
+    "viewDetail": "View Details",
+    "retry": "Retry",
+    "dataset": "Dataset",
+    "header": "Import Task History",
+    "refresh": "Refresh",
+    "totalRecords": "{{count}} records",
+    "datasetCustom": "Custom",
+    "sourceFile": "File",
+    "sourceUrl": "URL"
+  },
+  "status": {
+    "importing": "Importing...",
+    "progress": "Progress"
+  },
+  "datasetSelector": {
+    "samples": "{{count}} samples"
+  },
+  "sourceOptions": {
+    "fileName": "File Upload",
+    "fileDesc": "Upload a local JSON or YAML file.",
+    "urlName": "URL Import",
+    "urlDesc": "Fetch content from a remote URL.",
+    "hfName": "HuggingFace",
+    "hfDesc": "Import from a HuggingFace dataset repo.",
+    "jsonName": "Paste JSON",
+    "jsonDesc": "Paste raw JSON content directly.",
+    "yamlName": "Paste YAML",
+    "yamlDesc": "Paste raw YAML content directly."
+  },
+  "config": {
+    "autoCreate": "Auto-create Benchmark",
+    "autoCreateTooltip": "Auto-create the corresponding evaluation task after import",
+    "autoCreateHint": "Auto-create eval task after import",
+    "requireApproval": "Require Approval",
+    "requireApprovalTooltip": "When enabled, imported data needs admin approval before use",
+    "requireApprovalHint": "Imported data needs admin approval",
+    "descLabel": "Description",
+    "descPlaceholder": "Add a description for this import..."
+  },
+  "progress": {
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "importing": "Importing...",
+    "progress": "Progress",
+    "logsLabel": "Import log",
+    "logStart": "Starting import of {{type}} dataset",
+    "logProcessing": "Processing data... ({{current}}/{{total}})",
+    "logComplete": "Import done! Success: {{success}}, Failed: {{failed}}, Skipped: {{skipped}}",
+    "logFailed": "Import failed"
+  },
+  "statusLabels": {
+    "pending": "Pending",
+    "running": "Importing",
+    "completed": "Completed",
+    "failed": "Failed",
+    "cancelled": "Cancelled"
+  },
+  "detail": {
+    "title": "Import Task Details",
+    "cancelTask": "Cancel Task"
+  },
+  "wizard": {
+    "modalTitle": "Import Wizard",
+    "modalTitleBenchmark": "Benchmark Import",
+    "stepDataset": "Dataset",
+    "stepDatasetDesc": "Choose the dataset to import.",
+    "stepSource": "Source",
+    "stepSourceDescGeneric": "Choose the data import source.",
+    "stepSourceDescBenchmark": "Choose the Benchmark config import method.",
+    "stepConfirm": "Confirm",
+    "stepConfirmDescGeneric": "Confirm the import mode then submit.",
+    "stepConfirmDescBenchmark": "Confirm the direct-import outcome before submitting.",
+    "stepProgress": "Progress",
+    "stepProgressDesc": "Track async import task progress.",
+    "selectDataset": "Select Dataset",
+    "selectSource": "Select Import Source",
+    "sourceInput": "Source Input",
+    "confirmBenchmarkDirect": "Confirm Benchmark Direct Import",
+    "confirmOptions": "Import Options",
+    "benchmarkNotice": "Benchmark import creates a Benchmark immediately",
+    "benchmarkNoticeP1": "This path does not create a `/import/tasks` task record.",
+    "benchmarkNoticeP2": "File upload supports JSON and YAML Benchmark config files.",
+    "benchmarkNoticeP3": "URL, raw JSON, raw YAML all call the Benchmark import API directly and redirect to the new Benchmark detail page on success.",
+    "importSummary": "Import Summary",
+    "summaryDataset": "Dataset",
+    "summarySource": "Source",
+    "summarySubmit": "On submit",
+    "summarySubmitValue": "Create Benchmark immediately",
+    "summaryAfter": "After done",
+    "summaryAfterValue": "Redirect to Benchmark detail",
+    "progressTitle": "Import Progress",
+    "completedTip": "Import complete.",
+    "jsonInvalid": "Invalid JSON format.",
+    "jsonValidationFailed": "JSON validation failed"
+  },
+  "warnings": {
+    "chooseDataset": "Please select a dataset first.",
+    "chooseSource": "Please select an import source first.",
+    "benchmarkNoHF": "Benchmark import does not support HuggingFace.",
+    "chooseFile": "Please choose a file first.",
+    "inputUrl": "Please enter the source URL first.",
+    "pasteJson": "Please paste JSON content first.",
+    "pasteYaml": "Please paste YAML content first.",
+    "chooseBenchmarkFile": "Choose a Benchmark file first.",
+    "unsupportedBenchmark": "Benchmark import only supports file, URL, JSON and YAML."
+  },
+  "successes": {
+    "benchmarkImported": "Benchmark imported successfully.",
+    "taskCreated": "Import task created.",
+    "taskCancelled": "Import task cancelled.",
+    "taskDeleted": "Import task deleted."
+  },
+  "errors": {
+    "benchmarkImportFailed": "Benchmark import failed."
+  },
+  "actions": {
+    "cancelConfirm": "Cancel this import task?",
+    "deleteConfirm": "Delete this task?",
+    "deleteDesc": "Cannot be recovered after deletion",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "back": "Back",
+    "nextStep": "Next",
+    "startImport": "Start Import",
+    "createBenchmark": "Create Benchmark Now",
+    "uploading": "Uploading...",
+    "done": "Done"
+  },
+  "datasets": {
+    "humaneval": "OpenAI programming test set with 164 Python problems",
+    "mbpp": "Mostly Basic Python Problems with 974 basic programming problems",
+    "swebench": "Real GitHub Issues + code repository test set",
+    "codeCompletion": "Code completion dataset",
+    "custom": "Import custom evaluation dataset",
+    "customName": "Custom Benchmark"
+  },
+  "category": {
+    "codeGen": "Code Generation",
+    "codeFix": "Code Fix",
+    "codeCompletion": "Code Completion",
+    "custom": "Custom"
+  },
+  "loadFailed": {
+    "list": "Failed to load import tasks",
+    "detail": "Failed to load import task details",
+    "create": "Failed to create import task",
+    "cancel": "Failed to cancel import task",
+    "delete": "Failed to delete import task",
+    "batchDelete": "Failed to batch delete import tasks"
+  }
+}

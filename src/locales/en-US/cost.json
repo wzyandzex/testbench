@@ -1,0 +1,95 @@
+{
+  "title": "Cost Analysis",
+  "description": "Rebuilt on real backend capabilities: main view from `/cost/statistics` and `/cost/summary`.",
+  "stats": {
+    "totalCost": "Total Cost",
+    "totalTokens": "Total Tokens",
+    "execCount": "Executions",
+    "avgCost": "Avg Cost per Execution"
+  },
+  "timeRange": {
+    "label": "Time Range",
+    "today": "Today",
+    "week": "Last 7 Days",
+    "month": "Last 30 Days"
+  },
+  "granularity": {
+    "label": "Trend Aggregation",
+    "day": "Daily",
+    "week": "Weekly",
+    "month": "Monthly"
+  },
+  "trend": {
+    "title": "Cost Trend",
+    "noData": "No trend data",
+    "loading": "Loading chart..."
+  },
+  "optimization": {
+    "title": "Optimization Suggestions",
+    "noData": "No optimization suggestions",
+    "canSave": "Can save"
+  },
+  "modelDistribution": {
+    "title": "Cost by Model",
+    "noData": "No model data"
+  },
+  "benchmarkRanking": {
+    "title": "Benchmark Ranking",
+    "totalCost": "Total Cost",
+    "totalTokens": "Total Tokens",
+    "execCount": "Executions",
+    "noData": "No benchmark data"
+  },
+  "dimensionNotice": "Dimensions changed to backend-supported: agent / benchmark / model",
+  "dimensionNoticeDesc": "Previous budget and project dimensions don't exist in backend. Now driven by statistics API.",
+  "pricing": {
+    "title": "Model Pricing",
+    "inputPrice": "Input Price",
+    "outputPrice": "Output Price",
+    "status": "Status",
+    "effectiveDate": "Effective Date",
+    "action": "Actions",
+    "noData": "No model pricing configured",
+    "createTitle": "Create Model Pricing",
+    "editTitle": "Edit Model Pricing",
+    "createOk": "Create",
+    "editOk": "Save Changes",
+    "editHint": "Edit mode only updates price and status",
+    "createHint": "After creation, continue editing in the table",
+    "providerRequired": "Please enter provider",
+    "providerPlaceholder": "e.g. OpenAI",
+    "modelRequired": "Please enter model name",
+    "modelPlaceholder": "e.g. gpt-4.1-mini",
+    "inputPriceRequired": "Please enter input price",
+    "outputPriceRequired": "Please enter output price",
+    "currencyRequired": "Please enter currency",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "created": "Model pricing created",
+    "updated": "Model pricing updated",
+    "deleteTitle": "Delete Model Pricing",
+    "deleteOk": "Delete",
+    "deleted": "Model pricing deleted",
+    "deleteConfirm": "Confirm deletion of pricing for {{provider}} / {{model}}?"
+  },
+  "estimate": {
+    "title": "Quick Cost Estimate",
+    "inputTokens": "Input Tokens",
+    "inputTokensRequired": "Please enter input tokens",
+    "outputTokens": "Output Tokens",
+    "outputTokensRequired": "Please enter output tokens",
+    "estimatedCost": "Estimated Total Cost",
+    "hint": "Enter parameters to see backend calculation results",
+    "success": "Cost estimation complete"
+  },
+  "loadFailed": {
+    "stats": "Failed to load cost statistics",
+    "summary": "Failed to load cost summary",
+    "pricing": "Failed to load model pricing",
+    "refresh": "Failed to refresh cost data",
+    "create": "Failed to create model pricing",
+    "update": "Failed to update model pricing",
+    "delete": "Failed to delete model pricing"
+  },
+  "refreshed": "Cost data refreshed"
+}

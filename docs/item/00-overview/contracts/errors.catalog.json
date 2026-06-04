@@ -1,0 +1,100 @@
+{
+  "contract_version": "2026-03-05.v2",
+  "error_codes": [
+    {
+      "code": "401001",
+      "http": 401,
+      "category": "auth",
+      "message": "未提供认证令牌",
+      "retryable": false
+    },
+    {
+      "code": "401002",
+      "http": 401,
+      "category": "auth",
+      "message": "访问令牌无效",
+      "retryable": false
+    },
+    {
+      "code": "401003",
+      "http": 401,
+      "category": "auth",
+      "message": "访问令牌已过期",
+      "retryable": true
+    },
+    {
+      "code": "401004",
+      "http": 401,
+      "category": "auth",
+      "message": "刷新令牌无效或已撤销",
+      "retryable": false
+    },
+    {
+      "code": "403001",
+      "http": 403,
+      "category": "permission",
+      "message": "无权限执行该操作",
+      "retryable": false
+    },
+    {
+      "code": "404001",
+      "http": 404,
+      "category": "scope",
+      "message": "资源不存在或不在当前作用域内",
+      "retryable": false
+    },
+    {
+      "code": "409001",
+      "http": 409,
+      "category": "benchmark",
+      "message": "基准名称冲突（create-only 策略）",
+      "retryable": false
+    },
+    {
+      "code": "429001",
+      "http": 429,
+      "category": "rate_limit",
+      "message": "请求过于频繁",
+      "retryable": true
+    },
+    {
+      "code": "429004",
+      "http": 429,
+      "category": "rate_limit",
+      "message": "超出导入频率限制",
+      "retryable": true
+    },
+    {
+      "code": "2103",
+      "http": 400,
+      "category": "import",
+      "message": "URL 协议不被允许",
+      "retryable": false
+    },
+    {
+      "code": "2104",
+      "http": 400,
+      "category": "import",
+      "message": "URL 命中 SSRF 防护策略",
+      "retryable": false
+    },
+    {
+      "code": "2105",
+      "http": 400,
+      "category": "import",
+      "message": "URL 域名不在白名单中",
+      "retryable": false
+    },
+    {
+      "code": "503001",
+      "http": 503,
+      "category": "dependency",
+      "message": "依赖服务暂不可用",
+      "retryable": true
+    }
+  ],
+  "notes": [
+    "即使 HTTP 是 2xx，也要检查业务字段 code 是否为 0。",
+    "404001 在多数场景表示“资源不存在或不可见”，用于降低资源枚举风险。"
+  ]
+}

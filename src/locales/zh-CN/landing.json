@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "features": "功能",
+    "pricing": "定价",
+    "docs": "文档",
+    "about": "关于",
+    "login": "登录",
+    "register": "注册"
+  },
+  "hero": {
+    "badge": "v1.0 全新发布",
+    "title1": "智能 Agent",
+    "title2": "评测平台",
+    "subtitle1": "全自动化的 AI Agent 性能测试与分析平台",
+    "subtitle2": "轻松评估、深度分析、持续优化",
+    "cta": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "features": {
+    "badge": "核心功能",
+    "title": "全方位的 Agent 评测解决方案",
+    "desc": "提供从测试执行到数据分析的一站式服务，助力您打造更优秀的 AI Agent",
+    "smartEval": "智能评测",
+    "smartEvalDesc": "AI Agent 自动化性能测试，支持多种评测场景自定义配置",
+    "dataAnalysis": "数据分析",
+    "dataAnalysisDesc": "实时可视化执行报告，深度洞察 Agent 性能瓶颈与优化方向",
+    "batchExec": "批量执行",
+    "batchExecDesc": "高效并发任务调度系统，支持大规模批量评测任务",
+    "security": "安全可靠",
+    "securityDesc": "企业级数据安全保障，完善的权限管理体系",
+    "multiModel": "多模型支持",
+    "multiModelDesc": "兼容主流 LLM Agent，无缝集成各类 AI 模型",
+    "flexConfig": "灵活配置",
+    "flexConfigDesc": "自定义评测指标和场景，满足多样化测试需求"
+  },
+  "stats": {
+    "tasks": "评测任务",
+    "executions": "执行次数",
+    "agents": "支持 Agent",
+    "enterprises": "企业用户"
+  },
+  "demo": {
+    "title1": "直观的数据展示，",
+    "title2": "深入的性能洞察",
+    "desc": "通过精心设计的 Dashboard 界面，实时查看评测进度与结果分析。丰富的可视化图表帮助您快速理解数据，做出明智决策。",
+    "feature1": "直观的 Dashboard 界面，实时掌握评测进度",
+    "feature2": "丰富的图表展示，多维度分析数据",
+    "feature3": "灵活的任务配置，支持自定义评测场景",
+    "preview": "Dashboard 预览"
+  },
+  "cta": {
+    "title": "准备好开始了吗？",
+    "desc": "立即注册，开启您的 Agent 评测之旅",
+    "button": "免费注册"
+  },
+  "footer": {
+    "product": "产品",
+    "docs": "文档",
+    "blog": "博客",
+    "aboutUs": "关于我们",
+    "contactUs": "联系我们"
+  }
+}

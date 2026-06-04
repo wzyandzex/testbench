@@ -1,0 +1,927 @@
+/**
+ * 认证页面样式
+ * 现代科技风格 - 参考 Vercel/Linear 设计语言
+ */
+
+/* ========== CSS 变量 ========== */
+:root {
+  --auth-form-width: 480px;
+  --auth-form-min-width: 400px;
+}
+
+/* ========== 全局布局 ========== */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== 左侧品牌区 ========== */
+.auth-brand {
+  flex: 1;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 64px;
+  z-index: 1;
+  min-width: 0;
+}
+
+/* 网格背景 */
+.auth-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(102, 126, 234, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 品牌内容 */
+.auth-brand-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  width: 100%;
+}
+
+/* Logo */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.auth-logo-icon {
+  font-size: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logo-glow 3s ease-in-out infinite;
+}
+
+.auth-logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+@keyframes logo-glow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.3)); }
+  50% { filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6)); }
+}
+
+/* 标题 */
+.auth-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 28px 0;
+  color: #fff;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.auth-title-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 副标题 */
+.auth-subtitle {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 56px 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* 特性列表 */
+.auth-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  animation: feature-fade-in 0.6s ease-out backwards;
+  transition: all 0.3s ease;
+}
+
+.auth-feature:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(102, 126, 234, 0.2);
+  transform: translateX(4px);
+}
+
+@keyframes feature-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-feature-icon {
+  font-size: 22px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.12);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.auth-feature-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.auth-feature-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.auth-feature-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+/* 背景装饰 */
+.auth-bg-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.auth-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.auth-bg-orb-1 {
+  width: 380px;
+  height: 380px;
+  background: #667eea;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.auth-bg-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #764ba2;
+  bottom: -60px;
+  right: 20%;
+  animation-delay: -7s;
+}
+
+.auth-bg-orb-3 {
+  width: 200px;
+  height: 200px;
+  background: #f093fb;
+  top: 50%;
+  right: 10%;
+  animation-delay: -14s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* 浮动粒子效果 */
+.auth-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.auth-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(102, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: particle-rise 20s infinite linear;
+}
+
+@keyframes particle-rise {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ========== 右侧表单区 ========== */
+.auth-form-section {
+  flex: 0 0 var(--auth-form-width);
+  width: var(--auth-form-width);
+  max-width: var(--auth-form-width);
+  min-width: var(--auth-form-min-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(102, 126, 234, 0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px;
+}
+
+/* Tab 样式 */
+.auth-tabs {
+  margin-bottom: 28px;
+}
+
+.auth-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+  border: none;
+  position: relative;
+}
+
+.auth-tabs .ant-tabs-nav::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.auth-tabs .ant-tabs-nav-list {
+  gap: 8px;
+}
+
+.auth-tabs .ant-tabs-tab {
+  padding: 10px 20px !important;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.auth-tabs .ant-tabs-tab:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.auth-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg,
+    rgba(102, 126, 234, 0.15) 0%,
+    rgba(118, 75, 162, 0.15) 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.auth-tabs .ant-tabs-ink-bar {
+  display: none;
+}
+
+/* 表单样式 */
+.auth-form .ant-form-item {
+  margin-bottom: 18px;
+}
+
+.auth-form .ant-form-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.auth-input {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
+  transition: opacity 0.3s ease;
+}
+
+.auth-input:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.auth-input:focus,
+.auth-input.ant-input-focused {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: #667eea !important;
+  box-shadow:
+    0 0 0 3px rgba(102, 126, 234, 0.12),
+    0 0 20px rgba(102, 126, 234, 0.15) !important;
+  animation: input-focus-glow 0.3s ease-out;
+}
+
+.auth-input:focus::placeholder,
+.auth-input.ant-input-focused::placeholder {
+  opacity: 0.5;
+}
+
+@keyframes input-focus-glow {
+  from {
+    box-shadow:
+      0 0 0 0px rgba(102, 126, 234, 0),
+      0 0 0px rgba(102, 126, 234, 0);
+  }
+  to {
+    box-shadow:
+      0 0 0 3px rgba(102, 126, 234, 0.12),
+      0 0 20px rgba(102, 126, 234, 0.15);
+  }
+}
+
+.auth-input .anticon {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-input.ant-input-password .ant-input {
+  color: #fff !important;
+}
+
+/* 表单操作区 */
+.auth-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.auth-form-actions .ant-checkbox-wrapper {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.auth-form-actions .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.auth-forgot-link {
+  color: #667eea !important;
+  padding: 0;
+  font-size: 14px;
+}
+
+.auth-forgot-link:hover {
+  color: #764ba2 !important;
+}
+
+/* 提交按钮 */
+.auth-submit-button {
+  height: 46px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 涟漪效果 */
+.auth-submit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.auth-submit-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.auth-submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(102, 126, 234, 0.4),
+    0 0 40px rgba(102, 126, 234, 0.2);
+}
+
+.auth-submit-button:hover::after {
+  opacity: 1;
+}
+
+.auth-submit-button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.auth-submit-button:active {
+  transform: translateY(-1px);
+}
+
+/* 加载状态 */
+.auth-submit-button.ant-btn-loading {
+  pointer-events: none;
+}
+
+.auth-button-arrow {
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-submit-button:hover .auth-button-arrow {
+  transform: translateX(4px);
+}
+
+/* 分隔线 */
+.auth-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+  margin: 28px 0;
+}
+
+.auth-divider .ant-divider-inner-text {
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.auth-divider-horizontal.auth-divider-with-text-left::before,
+.auth-divider-horizontal.auth-divider-with-text-right::after {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 社交登录 */
+.auth-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-social-button {
+  height: 46px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.auth-social-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.auth-social-button .anticon {
+  font-size: 16px;
+}
+
+/* 底部说明 */
+.auth-footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.6;
+}
+
+.auth-link {
+  color: #667eea;
+  text-decoration: none;
+  margin: 0 1px;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: #764ba2;
+}
+
+/* ========== 响应式设计 ========== */
+/* 大屏优化 */
+@media (min-width: 1600px) {
+  .auth-brand {
+    padding: 80px;
+  }
+  .auth-title {
+    font-size: 72px;
+  }
+  :root {
+    --auth-form-width: 560px;
+  }
+}
+
+/* 中等屏幕 - 调整为 55:45 */
+
+
+@media (max-width: 1200px) {
+  .auth-brand {
+    padding: 48px;
+  }
+
+  .auth-brand-content {
+    max-width: 420px;
+  }
+
+  .auth-title {
+    font-size: 48px;
+  }
+
+  .auth-form-container {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .auth-brand {
+    padding: 32px;
+  }
+
+  .auth-form-container {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .auth-brand {
+    display: none;
+  }
+
+  .auth-form-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #0a0a0a;
+    max-width: none;
+    min-width: auto;
+  }
+
+  .auth-form-section::before {
+    display: none;
+  }
+
+  .auth-form-container {
+    padding: 40px 32px;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-container {
+    padding: 32px 24px;
+  }
+
+  .auth-title {
+    font-size: 36px;
+  }
+
+  .auth-bg-orb-1,
+  .auth-bg-orb-2,
+  .auth-bg-orb-3 {
+    display: none;
+  }
+
+  .auth-submit-button,
+  .auth-social-button {
+    height: 44px;
+    font-size: 14px;
+  }
+}
+
+/* ========== 暗色模式适配 ========== */
+@media (prefers-color-scheme: dark) {
+  /* 已经是暗色主题，无需额外适配 */
+}
+
+/* ========== 高对比度模式 ========== */
+@media (prefers-contrast: high) {
+  .auth-input {
+    border-width: 2px;
+  }
+
+  .auth-submit-button {
+    background: #667eea;
+  }
+}
+
+/* ========== 减少动画模式 ========== */
+@media (prefers-reduced-motion: reduce) {
+  .auth-feature,
+  .auth-submit-button,
+  .auth-social-button,
+  .auth-bg-orb,
+  .auth-button-arrow,
+  .auth-particle,
+  .auth-input,
+  .auth-tabs .ant-tabs-tab {
+    animation: none;
+    transition: none;
+  }
+
+  .auth-particles {
+    display: none;
+  }
+}
+
+/* ========== Modal 暗色主题适配 ========== */
+.ant-modal-root .ant-modal-content {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ant-modal-root .ant-modal-header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ant-modal-root .ant-modal-title {
+  color: #fff;
+}
+
+.ant-modal-root .ant-modal-close-x {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ant-modal-root .ant-modal-close-x:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ant-modal-root .ant-modal-body label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ant-modal-root .ant-modal-footer {
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ant-modal-root .ant-modal-body .ant-form-item-label > label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ant-modal-root .ant-modal-body .ant-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.ant-modal-root .ant-modal-body .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ant-modal-root .ant-modal-body .ant-input:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ant-modal-root .ant-modal-body .ant-input:focus,
+.ant-modal-root .ant-modal-body .ant-input.ant-input-focused {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.12);
+}
+
+.ant-modal-root .ant-modal-body .ant-input-prefix {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =============== DARK MODE OVERRIDES =============== */
+html[data-theme='light'] .auth-page {
+  background: #ffffff;
+}
+html[data-theme='light'] .auth-form-container {
+  background: #ffffff;
+}
+html[data-theme='light'] .auth-title {
+  color: #1a1a1a;
+}
+html[data-theme='light'] .auth-subtitle {
+  color: #475569;
+}
+html[data-theme='light'] .auth-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html[data-theme='light'] .auth-card:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+html[data-theme='light'] .auth-card-title {
+  color: #1a1a1a;
+}
+html[data-theme='light'] .auth-card-desc {
+  color: #666;
+}
+html[data-theme='light'] .auth-brand-slogan {
+  color: #1a1a1a;
+}
+html[data-theme='light'] .auth-brand-desc {
+  color: #666;
+}
+html[data-theme='light'] .auth-brand {
+  background: #f8fafc;
+}
+html[data-theme='dark'] .auth-page {
+  background: #0a0a0a;
+}
+
+
+/* --- MORE COMPREHENSIVE LIGHT MODE OVERRIDES --- */
+html[data-theme='light'] .auth-form-section {
+  background: #ffffff;
+}
+
+html[data-theme='light'] .auth-input {
+  background: #f5f5f5 !important;
+  border-color: #d9d9d9 !important;
+  color: #333 !important;
+}
+
+html[data-theme='light'] .auth-input::placeholder {
+  color: #bfbfbf !important;
+}
+
+html[data-theme='light'] .auth-input:hover {
+  background: #fff !important;
+  border-color: #667eea !important;
+}
+
+html[data-theme='light'] .auth-input:focus,
+html[data-theme='light'] .auth-input.ant-input-focused {
+  background: #fff !important;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2) !important;
+}
+
+html[data-theme='light'] .auth-input .anticon {
+  color: #888;
+}
+
+html[data-theme='light'] .auth-input.ant-input-password .ant-input {
+  color: #333 !important;
+}
+
+html[data-theme='light'] .auth-tabs .ant-tabs-tab {
+  color: #666 !important;
+  border-color: #e0e0e0 !important;
+}
+
+html[data-theme='light'] .auth-tabs .ant-tabs-tab:hover {
+  color: #333 !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+html[data-theme='light'] .auth-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%) !important;
+  color: #667eea !important;
+}
+
+html[data-theme='light'] .auth-form-actions .ant-checkbox-wrapper {
+  color: #666;
+}
+
+html[data-theme='light'] .auth-divider {
+  border-color: #e0e0e0;
+}
+
+html[data-theme='light'] .auth-divider .ant-divider-inner-text {
+  color: #888;
+}
+
+html[data-theme='light'] .auth-social-button {
+  background: #fff;
+  border-color: #d9d9d9;
+  color: #333;
+}
+
+html[data-theme='light'] .auth-social-button:hover {
+  background: #fafafa;
+  border-color: #667eea;
+  color: #667eea !important;
+}
+
+html[data-theme='light'] .auth-footer {
+  color: #888;
+}
+
+html[data-theme='light'] .auth-feature {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme='light'] .auth-feature-title {
+  color: #1a1a1a;
+}
+
+html[data-theme='light'] .auth-feature-desc {
+  color: #666;
+}
+
+
+/* Overrides for text color in brand section for light mode */
+html[data-theme='light'] .auth-title {
+  color: #0f172a;
+}
+html[data-theme='light'] .auth-feature-title {
+  color: #1e293b;
+}
+html[data-theme='light'] .auth-feature-desc {
+  color: #64748b;
+}
+
+
+/* 输入框 Focus 时的光晕阴影 */
+html[data-theme='dark'] .auth-input:focus,
+html[data-theme='dark'] .auth-input.ant-input-focused {
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.4) !important;
+}

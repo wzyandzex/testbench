@@ -1,0 +1,80 @@
+{
+  "title": "Dashboard",
+  "welcome": "Welcome back, here's your AI Agent evaluation overview",
+  "refreshData": "Refresh",
+  "overview": "Overview",
+  "costAnalysis": "Cost Analysis",
+  "quickActions": "Quick Actions",
+  "recentExecutions": "Recent Executions",
+  "weekTrend": "This Week",
+  "last7Days": "Last 7 Days",
+  "stats": {
+    "benchmarks": "Benchmarks",
+    "running": "Running",
+    "agentCount": "Agents",
+    "successRate": "Success Rate"
+  },
+  "actions": {
+    "createBenchmark": "New Benchmark",
+    "createBenchmarkDesc": "Create a new benchmark task",
+    "quickRun": "Quick Run",
+    "quickRunDesc": "Select an Agent for quick testing",
+    "agentManage": "Manage Agents",
+    "agentManageDesc": "Manage testing Agents",
+    "viewReport": "View Reports",
+    "viewReportDesc": "Browse historical evaluation reports",
+    "newTask": "New Task"
+  },
+  "table": {
+    "taskName": "Task Name",
+    "benchmark": "Benchmark",
+    "agent": "Agent",
+    "status": "Status",
+    "progress": "Progress",
+    "duration": "Duration",
+    "startTime": "Start Time",
+    "action": "Actions",
+    "viewDetail": "View Details",
+    "viewLogs": "View Logs",
+    "running": "Running",
+    "completed": "Completed",
+    "failed": "Failed",
+    "pending": "Pending"
+  },
+  "chart": {
+    "execCount": "Executions",
+    "successRate": "Success Rate",
+    "refresh": "Refresh"
+  },
+  "cost": {
+    "title": "Cost Analysis",
+    "todayCost": "Today's Cost",
+    "monthCost": "Monthly Cost",
+    "todayTokens": "Today's Tokens",
+    "monthTokens": "Monthly Tokens",
+    "avgCost": "Avg Cost",
+    "totalCost": "Total Cost",
+    "executions": "Executions",
+    "avg": "Avg",
+    "totalExecs": "executions",
+    "daysData": "days of data",
+    "today": "Today",
+    "month": "This Month",
+    "todayTrend": "Today's Cost Trend",
+    "monthTrend": "Monthly Cost Trend",
+    "cost": "Cost",
+    "costUsd": "Cost ($)",
+    "byModel": "By Model",
+    "proportion": "Share"
+  },
+  "unnamed": "Unnamed Task",
+  "unknownAgent": "Unknown Agent",
+  "seconds": "s",
+  "minutes": "min",
+  "errors": {
+    "fetchStatsFailed": "Failed to fetch statistics",
+    "fetchTrendsFailed": "Failed to fetch trend data",
+    "fetchRecentFailed": "Failed to fetch recent executions",
+    "refreshFailed": "Failed to refresh data"
+  }
+}

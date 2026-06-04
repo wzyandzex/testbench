@@ -1,0 +1,244 @@
+{
+  "title": "Scheduler",
+  "page": "Scheduler",
+  "subtitle": "Create, start/stop, manually trigger, and review runs — all based on real backend capabilities.",
+  "actions": {
+    "create": "New Task",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "remove": "Delete",
+    "edit": "Edit",
+    "enable": "Enable",
+    "disable": "Pause",
+    "trigger": "Run Now",
+    "history": "History",
+    "save": "Save",
+    "submit": "Create"
+  },
+  "filters": {
+    "search": "Search by name, Cron, Agent, Benchmark",
+    "all": "All",
+    "active": "Running",
+    "paused": "Paused",
+    "archived": "Archived",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "cards": "Cards",
+    "table": "Table"
+  },
+  "stats": {
+    "total": "Total Tasks",
+    "enabled": "Enabled",
+    "paused": "Paused",
+    "notify": "With Notification"
+  },
+  "table": {
+    "task": "Task",
+    "schedule": "Schedule",
+    "resource": "Resource",
+    "lastRun": "Last Run",
+    "nextRun": "Next Run",
+    "action": "Actions",
+    "totalLabel": "Total",
+    "itemLabel": "items"
+  },
+  "messages": {
+    "noTasks": "No scheduled tasks under current filters",
+    "loadFail": "Failed to load scheduled tasks",
+    "catalogFail": "Failed to load resource catalog, but existing tasks are still visible.",
+    "actionFail": "Operation failed, please retry",
+    "createOk": "Scheduled task created",
+    "updateOk": "Scheduled task updated",
+    "toggleOk": "Enabled state updated",
+    "triggerOk": "Manual trigger submitted",
+    "deleteOk": "Scheduled task deleted",
+    "deleteTitle": "Confirm deletion of scheduled task",
+    "deleteText": "Cannot be undone: ",
+    "archivedBlocked": "Archived tasks do not support enable/pause or manual trigger",
+    "noUpcoming": "No tasks scheduled to run soon",
+    "noChannels": "No notification channels available",
+    "nextRunPending": "Waiting for scheduler refresh",
+    "nextRunStale": "Schedule time is stale, waiting for refresh"
+  },
+  "sidebar": {
+    "upcoming": "Upcoming",
+    "channels": "Notification Channels",
+    "runs": "Run History"
+  },
+  "runColumns": {
+    "status": "Status",
+    "scheduled": "Scheduled Time",
+    "lifecycle": "Start / End",
+    "result": "Result",
+    "retry": "Retry",
+    "error": "Error",
+    "totalTasks": "Total Tasks",
+    "completed": "Completed",
+    "failed": "Failed",
+    "nextRetry": "Next Retry",
+    "none": "Not configured"
+  },
+  "status": {
+    "running": "Running",
+    "paused": "Paused",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "closed": "Closed"
+  },
+  "priority": {
+    "p1": "P1 (High)",
+    "p2": "P2 (Medium)",
+    "p3": "P3 (Low)"
+  },
+  "days": {
+    "short": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "full": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  },
+  "modal": {
+    "createTitle": "New Scheduled Task",
+    "editTitle": "Edit Scheduled Task",
+    "subtitle": "Configure scheduled evaluations, resource selection, retry, and notification rules based on real backend capabilities.",
+    "cronOnly": "Fixed-time and interval scheduling",
+    "userScheduleHint": "Use plain scheduling options. The system converts them into backend schedule rules automatically.",
+    "scheduleBackendTag": "Backend: Cron / Interval",
+    "advancedCronMessage": "Advanced mode is for users already familiar with Cron. Use daily, weekly, or interval schedules for common cases.",
+    "lockedScheduleMessage": "This task uses a schedule type that is not open for editing yet. To avoid changing backend rules accidentally, the original expression is preserved here. You can still edit other configs.",
+    "resourcePending": "Resource catalog is loading. You can fill in schedule rules and execution parameters first.",
+    "resourceUnavailable": "No available Agent or Benchmark catalog found. New task submission may fail.",
+    "notificationUnavailable": "No available notification channels. You can still save the task and configure notifications later.",
+    "sections": {
+      "basic": "Basics",
+      "schedule": "Schedule",
+      "resources": "Resources",
+      "execution": "Execution",
+      "retry": "Retry",
+      "notification": "Notification"
+    },
+    "fields": {
+      "name": "Task Name",
+      "description": "Description",
+      "createEnabled": "Enable on create",
+      "currentEnabled": "Current enabled state",
+      "editEnabledHint": "Editing does not directly change enabled. Use quick toggle in the list.",
+      "scheduleMode": "Schedule Mode",
+      "runTime": "Run Time",
+      "runDays": "Run Days",
+      "intervalValue": "Every",
+      "intervalUnit": "Unit",
+      "cronExpression": "Cron",
+      "cronPlaceholder": "e.g., 0 0 9 * * 1-5",
+      "cronHint": "Backend Cron parser requires 6-segment expression, in order:",
+      "preset": "Quick Presets",
+      "benchmark": "Benchmark",
+      "agent": "Agent",
+      "benchmarkPlaceholder": "Select benchmarks to schedule",
+      "agentPlaceholder": "Select execution Agent",
+      "namePlaceholder": "e.g., Weekday regression eval",
+      "descriptionPlaceholder": "Describe schedule purpose, scope, and ops notes",
+      "priority": "Priority",
+      "timeoutSeconds": "Timeout (s)",
+      "maxSteps": "Max Steps",
+      "temperature": "Temperature",
+      "maxTokens": "Max Tokens",
+      "retryEnabled": "Enable Retry",
+      "retryAttempts": "Max Attempts",
+      "retryStrategy": "Backoff Strategy",
+      "retryInitial": "Initial Backoff (s)",
+      "retryMax": "Max Backoff (s)",
+      "notificationEnabled": "Enable Notifications",
+      "notificationChannels": "Channels",
+      "notificationEvents": "Events",
+      "channelsPlaceholder": "Choose available notification channels",
+      "eventsPlaceholder": "Choose when to notify"
+    },
+    "validation": {
+      "nameRequired": "Please enter a task name",
+      "nameTooLong": "Task name cannot exceed 255 characters",
+      "descriptionTooLong": "Description too long",
+      "cronRequired": "Please enter a Cron expression",
+      "cronInvalid": "Please use a 6-segment Cron expression",
+      "benchmarkRequired": "Select at least 1 Benchmark",
+      "agentRequired": "Select at least 1 Agent",
+      "channelRequired": "Select at least 1 channel when notifications are enabled",
+      "eventRequired": "Select at least 1 event when notifications are enabled",
+      "timeRequired": "Choose a run time",
+      "dayRequired": "Choose at least 1 run day",
+      "intervalRequired": "Enter an interval"
+    },
+    "scheduleModes": {
+      "weekly": "Weekly at time",
+      "daily": "Daily at time",
+      "interval": "Repeat by interval",
+      "advanced": "Advanced Cron"
+    },
+    "intervalUnits": {
+      "minutes": "minutes",
+      "hours": "hours",
+      "days": "days"
+    },
+    "events": {
+      "started": "Started",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    },
+    "retryStrategies": {
+      "exponential": "Exponential",
+      "linear": "Linear",
+      "fixed": "Fixed Interval"
+    },
+    "resourceSummaryPrefix": "Selected",
+    "unhealthySuffix": " (unhealthy)",
+    "preservedSuffix": " (saved)",
+    "unknownResource": "Current resource is not in the latest catalog. Original value will be preserved on submit."
+  },
+  "panels": {
+    "command": {
+      "header": "Command Directive",
+      "taskName": "Task Code",
+      "taskDesc": "Description",
+      "namePlaceholder": "e.g., Daily regression test",
+      "descPlaceholder": "Describe the schedule purpose and goal..."
+    },
+    "asset": {
+      "header": "Asset Deployment",
+      "benchmarks": "Benchmarks",
+      "agents": "Execution Agent"
+    },
+    "execution": {
+      "header": "Execution Parameters",
+      "expand": "Expand config options",
+      "priority": "Priority",
+      "timeout": "Timeout (s)",
+      "maxSteps": "Max Steps",
+      "hintPriority": "<strong>Priority</strong>: P1 is the highest, gets resources first",
+      "hintTimeout": "<strong>Timeout</strong>: Max duration per run; exceeding aborts it",
+      "hintMaxSteps": "<strong>Steps</strong>: Maximum thinking rounds allowed for Agent"
+    },
+    "schedule": {
+      "nextRun": "Next run: {{when}}"
+    },
+    "wheel": {
+      "header": "Time Wheel"
+    }
+  },
+  "statusBar": {
+    "systemRunning": "System running",
+    "activeTasks": "{{count}} active task(s)"
+  },
+  "form": {
+    "nameRequired": "Please enter task code",
+    "nameLength": "Task code must be 2-50 characters",
+    "namePlaceholder": "e.g., Daily regression test",
+    "descPlaceholder": "Describe the schedule purpose and goal..."
+  },
+  "noTimeMatch": "No matching time found",
+  "cronDesc": {
+    "everyDay": "Every day at {{time}}",
+    "weekday": "Weekdays at {{time}}",
+    "range": "{{start}}-{{end}} at {{time}}",
+    "list": "{{days}} at {{time}}",
+    "single": "{{day}} at {{time}}",
+    "listSeparator": ", "
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "title": "分析报告",
+  "loadFailed": "加载失败",
+  "columns": {
+    "reportId": "报告 ID",
+    "type": "类型",
+    "date": "日期",
+    "generatedAt": "生成时间",
+    "action": "操作",
+    "view": "查看",
+    "value": "值"
+  },
+  "noData": "无数据",
+  "parseError": "无法解析报告",
+  "breadcrumb": "分析报告",
+  "typeFilter": "类型筛选:",
+  "allPlaceholder": "全部",
+  "tabs": {
+    "all": "全部报告",
+    "trends": "性能趋势",
+    "comparisons": "Agent 对比"
+  },
+  "drawerTitle": "报告详情: {{id}}...",
+  "trend": {
+    "timeRangeStart": "时间范围起点",
+    "timeRangeEnd": "时间范围终点",
+    "dataPointsDuration": "数据点(avg_duration)",
+    "dataPointsPassRate": "数据点(pass_rate)",
+    "agentStats": "Agent 统计",
+    "benchmarkStats": "Benchmark 统计"
+  },
+  "comparison": {
+    "metric": "指标",
+    "leader": "领先者",
+    "comparedAgents": "对比 Agents",
+    "performance": "性能",
+    "cost": "成本",
+    "quality": "质量",
+    "recommendation": "推荐"
+  },
+  "stats": {
+    "totalExecutions": "总执行",
+    "success": "成功",
+    "failed": "失败",
+    "passRate": "通过率",
+    "avgDuration": "平均耗时",
+    "timeRange": "时间范围",
+    "agentStats": "Agent 统计",
+    "benchmarkStats": "Benchmark 统计",
+    "execCount": "执行数",
+    "avgTokens": "平均 Tokens"
+  }
+}

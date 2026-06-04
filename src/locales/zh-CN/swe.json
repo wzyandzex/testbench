@@ -1,0 +1,345 @@
+{
+  "title": "SWE-bench",
+  "list": {
+    "noTasks": "暂无 SWE 任务",
+    "noMatch": "没有符合条件的任务",
+    "searchPlaceholder": "搜索仓库、Issue 或标题",
+    "statusFilter": "状态筛选",
+    "repoFilter": "仓库筛选",
+    "refreshed": "刷新成功",
+    "loading": "加载中...",
+    "title": "SWE 任务",
+    "subtitle": "管理 SWE-bench 软件工程修复任务",
+    "refresh": "刷新",
+    "createTask": "创建任务",
+    "clearFilter": "清空筛选",
+    "totalItems": "共 {{count}} 条",
+    "createFirst": "创建第一个任务",
+    "breadcrumbTasks": "SWE 任务",
+    "statusPending": "等待中",
+    "statusRunning": "执行中",
+    "statusCompleted": "已完成",
+    "statusFailed": "失败",
+    "statusCancelled": "已取消"
+  },
+  "terminalLog": {
+    "executionLog": "执行日志",
+    "itemCount": "({{count}} 条)",
+    "live": "实时",
+    "autoScroll": "自动滚动",
+    "loadingLogs": "正在加载日志...",
+    "noLogs": "暂无日志"
+  },
+  "task": {
+    "unnamedIssue": "未命名 Issue",
+    "taskId": "任务 ID",
+    "status": "状态",
+    "currentPhase": "当前阶段",
+    "repo": "仓库",
+    "duration": "耗时"
+  },
+  "tile": {
+    "strategy": "策略",
+    "testsPassed": "通过",
+    "unknownRepo": "未知",
+    "completedTag": "完成",
+    "failedTag": "失败"
+  },
+  "card": {
+    "agentLabel": "Agent",
+    "strategyLabel": "策略",
+    "testsLabel": "测试",
+    "passRate": "通过率",
+    "fixedTimes": "已修复 {{count}} 次",
+    "phaseLabels": {
+      "idle": "空闲",
+      "cloning": "克隆仓库",
+      "setup": "环境设置",
+      "analyzing": "分析问题",
+      "fixing": "修复代码",
+      "testing": "运行测试",
+      "verifying": "验证结果",
+      "completed": "完成",
+      "failed": "失败"
+    }
+  },
+  "phases": {
+    "idle": "准备",
+    "idleDesc": "等待开始",
+    "cloning": "克隆",
+    "cloningDesc": "克隆仓库代码",
+    "setup": "设置",
+    "setupDesc": "配置环境",
+    "analyzing": "分析",
+    "analyzingDesc": "分析 Issue",
+    "fixing": "修复",
+    "fixingDesc": "生成修复代码",
+    "testing": "测试",
+    "testingDesc": "运行测试验证",
+    "verifying": "验证",
+    "verifyingDesc": "验证修复结果",
+    "completed": "完成",
+    "completedDesc": "任务完成"
+  },
+  "status": {
+    "pending": "等待中",
+    "running": "执行中",
+    "completed": "已完成",
+    "failed": "失败",
+    "cancelled": "已取消"
+  },
+  "actions": {
+    "retryTitle": "确认重试",
+    "retryContent": "将使用相同配置重新执行任务，是否继续？",
+    "retrySuccess": "已重新启动任务",
+    "retryFailed": "重试失败",
+    "repairTitle": "确认智能修复",
+    "repairContent": "AI 将分析测试失败原因并尝试自动修复，可能需要一定时间。",
+    "repairSuccess": "已启动智能修复",
+    "repairFailed": "启动修复失败",
+    "cancelTitle": "确认取消",
+    "cancelContent": "确定要取消当前正在执行的任务吗？",
+    "cancelKeep": "继续执行",
+    "cancelSuccess": "任务已取消",
+    "cancelFailed": "取消失败",
+    "exportSuccess": "代码已导出",
+    "exportFailed": "导出失败",
+    "confirm": "确认",
+    "cancel": "取消"
+  },
+  "form": {
+    "repoUrlRequired": "请输入 GitHub 仓库 URL",
+    "repoUrlInvalid": "请输入有效的 GitHub 仓库 URL",
+    "issueRequired": "请输入 Issue 编号",
+    "agentRequired": "请选择一个 Agent"
+  },
+  "coverage": {
+    "line": "行覆盖率",
+    "function": "函数覆盖率",
+    "branch": "分支覆盖率",
+    "statement": "语句覆盖率"
+  },
+  "createPage": {
+    "breadcrumbCreate": "创建任务",
+    "title": "创建 SWE 任务",
+    "subtitle": "基于真实 GitHub Issues 修复软件工程问题",
+    "back": "返回",
+    "loadingAgents": "正在加载 Agents...",
+    "loadAgentsFailed": "加载 Agents 失败",
+    "createSuccess": "SWE 任务创建成功",
+    "alertTitle": "🐛 SWE-bench 任务说明",
+    "alertDescOne": "SWE-bench 任务会自动克隆指定的 GitHub 仓库，分析 Issue 内容，使用 AI Agent 生成修复代码，并运行测试验证修复结果。",
+    "alertDescTwo": "请确保仓库公开可访问，Issue 内容包含足够的上下文信息。",
+    "tipsTitle": "💡 小贴士：",
+    "tipCache": "首次使用某仓库会自动克隆并缓存，后续任务会复用缓存。",
+    "tipSmartTest": "推荐选择 \"智能测试\" 策略以节省时间和资源。",
+    "tipAutoFix": "启用智能修复后，测试失败时会自动尝试修复。"
+  },
+  "createForm": {
+    "steps": {
+      "repo": {
+        "title": "仓库配置",
+        "description": "配置 GitHub 仓库和 Issue 信息"
+      },
+      "agent": {
+        "title": "Agent 选择",
+        "description": "选择用于修复代码的 AI Agent"
+      },
+      "test": {
+        "title": "测试配置",
+        "description": "配置测试策略和重试选项"
+      }
+    },
+    "errors": {
+      "repoUrlRequired": "请输入 GitHub 仓库 URL",
+      "repoUrlInvalid": "请输入有效的 GitHub 仓库 URL",
+      "issueRequired": "请输入 Issue 编号",
+      "agentRequired": "请选择一个 Agent"
+    },
+    "repo": {
+      "urlLabel": "Repository URL",
+      "issueNumberLabel": "Issue Number",
+      "issueNumberPlaceholder": "例如 123",
+      "issueTitleLabel": "Issue Title",
+      "issueTitlePlaceholder": "将从 GitHub 自动获取",
+      "issueTitleOptional": "可选",
+      "issueTitleHint": "// 将从 GitHub Issue 自动获取",
+      "issueDescLabel": "Issue Description",
+      "issueDescPlaceholder": "Issue 的详细描述..."
+    },
+    "agent": {
+      "title": "选择 AI Agent",
+      "searchPlaceholder": "搜索 Agent...",
+      "noMatch": "未找到匹配的 Agent",
+      "noAgents": "暂无可用 Agent",
+      "unknownType": "unknown"
+    },
+    "testSection": {
+      "title": "Test Strategy",
+      "maxRetriesHint": "测试失败后的自动重试次数",
+      "autoFixDesc": "测试失败时自动尝试修复代码"
+    },
+    "actions": {
+      "back": "上一步",
+      "next": "下一步",
+      "createTask": "创建任务",
+      "creating": "创建中..."
+    }
+  },
+  "issueInput": {
+    "placeholder": "Issue 号",
+    "fetchInfo": "获取 Issue 信息",
+    "viewOnGitHub": "在 GitHub 上查看"
+  },
+  "testStrategy": {
+    "recommendation": "推荐",
+    "full": {
+      "label": "完整测试",
+      "description": "运行所有测试用例，确保修复没有引入新的问题"
+    },
+    "smart": {
+      "label": "智能测试",
+      "description": "仅运行与修改相关的测试，节省时间和资源"
+    },
+    "skip": {
+      "label": "跳过测试",
+      "description": "不运行测试，仅生成修复代码"
+    }
+  },
+  "progress": {
+    "unknown": "未知",
+    "startedAt": "开始时间",
+    "elapsedTime": "已用时间",
+    "phaseLabels": {
+      "idle": "准备中",
+      "cloning": "克隆仓库",
+      "setup": "环境设置",
+      "analyzing": "分析问题",
+      "fixing": "修复代码",
+      "testing": "运行测试",
+      "verifying": "验证结果",
+      "completed": "已完成",
+      "failed": "失败"
+    }
+  },
+  "gitBranch": {
+    "noHistory": "暂无修复历史",
+    "duration": "耗时",
+    "inProgress": "进行中...",
+    "filesCount": "{{count}} 文件",
+    "moreFiles": "+{{count}} 更多"
+  },
+  "test": {
+    "fullTest": "完整测试",
+    "fullTestDesc": "运行所有测试用例，确保修复没有引入新的问题",
+    "failedCases": "失败测试用例",
+    "noResult": "暂无测试结果",
+    "overviewTitle": "测试结果总览",
+    "allPassed": "全部通过",
+    "totalTests": "总测试数",
+    "passed": "通过",
+    "failed": "失败",
+    "skipped": "跳过",
+    "passRate": "通过率",
+    "duration": "耗时",
+    "coverageTitle": "代码覆盖率",
+    "caseFile": "文件",
+    "caseLine": "行号",
+    "caseDuration": "耗时",
+    "durationSeconds": "{{count}}秒",
+    "durationMinutesSeconds": "{{minutes}}分{{seconds}}秒"
+  },
+  "cache": {
+    "title": "仓库缓存列表",
+    "deleteTitle": "确认删除缓存",
+    "deleteDesc": "删除后下次使用需要重新下载",
+    "columns": {
+      "repoName": "仓库名",
+      "url": "URL",
+      "size": "大小",
+      "status": "状态",
+      "cachedAt": "缓存时间",
+      "commitCount": "提交数",
+      "actions": "操作"
+    },
+    "statusLabels": {
+      "cached": "已缓存",
+      "updating": "更新中",
+      "error": "错误"
+    },
+    "actions": {
+      "refresh": "刷新",
+      "delete": "删除",
+      "confirm": "确认",
+      "cancel": "取消"
+    },
+    "stats": {
+      "cachedRepos": "缓存仓库",
+      "totalSize": "总大小",
+      "updating": "更新中",
+      "preheat": "预热缓存",
+      "storageUsage": "存储使用情况",
+      "totalCount": "共 {{total}} 个缓存"
+    }
+  },
+  "detail": {
+    "duration": {
+      "seconds": "{{count}}秒",
+      "minutesSeconds": "{{minutes}}分{{seconds}}秒",
+      "hoursMinutes": "{{hours}}小时{{minutes}}分"
+    },
+    "breadcrumbTasks": "SWE 任务",
+    "breadcrumbDetail": "任务详情",
+    "back": "返回",
+    "refresh": "刷新",
+    "live": "实时连接",
+    "runningTitle": "⚡ 任务正在执行中",
+    "runningDesc": "进度会实时更新，可以查看日志了解详细情况",
+    "loading": "加载中...",
+    "notFound": "任务不存在",
+    "backToList": "返回列表",
+    "tabs": {
+      "overview": "概览",
+      "logs": "执行日志",
+      "result": "测试结果",
+      "history": "修复历史",
+      "live": "实时"
+    },
+    "basicInfo": "基本信息",
+    "issueDesc": "Issue 描述",
+    "expandMore": "展开更多 ▼",
+    "errorInfo": "错误信息",
+    "executionPhases": "执行阶段",
+    "labels": {
+      "taskId": "任务 ID",
+      "status": "状态",
+      "currentPhase": "当前阶段",
+      "repo": "仓库",
+      "viewRepo": "查看仓库",
+      "issue": "Issue",
+      "noTitle": "无标题",
+      "agent": "Agent",
+      "testStrategy": "测试策略",
+      "maxRetries": "最大重试次数",
+      "autoFix": "智能修复",
+      "enabled": "启用",
+      "disabled": "禁用",
+      "fixAttempts": "修复尝试次数",
+      "fixAttemptsCount": "{{count}} 次",
+      "progress": "进度",
+      "createdAt": "创建时间",
+      "startedAt": "开始时间",
+      "completedAt": "完成时间",
+      "executionTime": "执行时长"
+    },
+    "buttons": {
+      "cancelTask": "取消任务",
+      "rerun": "重新执行",
+      "autoFix": "智能修复",
+      "exportCode": "导出代码"
+    },
+    "messages": {
+      "refreshed": "刷新成功"
+    }
+  }
+}

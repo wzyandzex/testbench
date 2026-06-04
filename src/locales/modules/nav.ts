@@ -1,0 +1,15 @@
+export default {
+  title: 'MyAgent',
+  dashboard: '仪表盘',
+  benchmarks: '评测任务',
+  executions: '执行记录',
+  agents: 'Agent 管理',
+  batch: '批量执行',
+  metrics: '指标分析',
+  scheduler: '调度管理',
+  organizations: '组织管理',
+  settings: '设置',
+  notifications: '通知中心',
+  logout: '退出登录',
+  profile: '个人信息',
+};

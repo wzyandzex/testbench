@@ -1,0 +1,188 @@
+{
+  "title": "Notifications",
+  "description": "View system notifications and task status updates",
+  "page": {
+    "heroTitle": "Notification History Center",
+    "heroDesc": "This page only shows capabilities truly supported by the backend: history query, acknowledge, reject, bulk acknowledge, export, and DLQ replay/delete.",
+    "heroBadge": "History + DLQ",
+    "refresh": "Refresh",
+    "exportJson": "Export JSON",
+    "exportCsv": "Export CSV",
+    "operationFailed": "Notification center operation failed",
+    "exportSuccess": "Exported {{format}} file",
+    "dataRefreshed": "Data refreshed"
+  },
+  "tabs": {
+    "history": "History ({{count}})",
+    "dlq": "DLQ ({{count}})"
+  },
+  "summary": {
+    "pending": "Pending",
+    "pendingDesc": "Records requiring manual acknowledgement",
+    "acknowledged": "Acknowledged",
+    "acknowledgedDesc": "Acknowledged records",
+    "rejected": "Rejected",
+    "rejectedDesc": "Manually rejected",
+    "deliveryFailed": "Delivery Failed",
+    "deliveryFailedDesc": "Channel-side delivery failures",
+    "dlq": "DLQ",
+    "dlqDesc": "Replay or delete"
+  },
+  "ackStatus": {
+    "pending": "Pending",
+    "acked": "Acknowledged",
+    "rejected": "Rejected"
+  },
+  "history": {
+    "deliveryPrefix": "Delivery {{status}}",
+    "expand": "Expand",
+    "noContent": "No message content",
+    "taskId": "Task ID",
+    "durationRetries": "Duration / Retries",
+    "deliveryError": "Delivery Error",
+    "viewDetail": "View Details",
+    "ack": "Acknowledge",
+    "reject": "Reject",
+    "ackedBy": "Ack by: {{user}}",
+    "ackedAt": "Ack time: {{time}}",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "acked": "Acknowledged",
+      "rejected": "Rejected",
+      "selectPending": "Select pending on this page",
+      "clearSelection": "Clear selection",
+      "resetFilters": "Reset filters",
+      "searchPlaceholder": "Search content, event type, task ID, Worker ID",
+      "searchEnter": "Search",
+      "eventTypes": "Event types",
+      "channels": "Channels",
+      "priorities": "Priorities",
+      "deliveryStatuses": "Delivery statuses",
+      "taskIdPlaceholder": "Filter by Task ID",
+      "workerIdPlaceholder": "Filter by Worker ID"
+    },
+    "batchBar": {
+      "selectedPrefix": "Selected ",
+      "selectedSuffix": " pending records",
+      "batchAck": "Batch Acknowledge",
+      "cancelSelection": "Cancel Selection"
+    },
+    "empty": "No matching history records.",
+    "paginationTotal": "Total {{count}}",
+    "askComment": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "placeholder": "Optional note, will be saved to the backend acknowledgement record"
+    },
+    "bulkAckTitle": "Bulk acknowledge {{count}} notifications",
+    "bulkAckOk": "Bulk acknowledgement complete",
+    "ackTitle": "Acknowledge notification",
+    "ackOk": "Notification acknowledged",
+    "rejectTitle": "Reject notification",
+    "rejectOk": "Notification rejected"
+  },
+  "dlq": {
+    "alertTitle": "DLQ shows only real backend capabilities",
+    "alertDesc": "Currently supports filter, detail, replay, and delete. No frontend-invented bulk replay or bulk delete endpoint.",
+    "searchPlaceholder": "Search dead letter reason, event message, task ID",
+    "searchEnter": "Search",
+    "source": "Source",
+    "taskIdPlaceholder": "Task ID",
+    "workerIdPlaceholder": "Worker ID",
+    "empty": "No dead letter records.",
+    "dlqTag": "DLQ",
+    "reason": "Reason",
+    "viewDetail": "View Details",
+    "replay": "Replay",
+    "delete": "Delete",
+    "replayConfirmTitle": "Confirm dead letter replay",
+    "replayConfirmContent": "Replay will call backend control plane to re-deliver this dead letter event.",
+    "replayOkText": "Replay",
+    "replayCancel": "Cancel",
+    "replaySuccess": "Dead letter replay submitted",
+    "deleteConfirmTitle": "Confirm dead letter deletion",
+    "deleteConfirmContent": "Cannot be undone. Only recommended for confirmed worthless dead letters.",
+    "deleteOkText": "Delete",
+    "deleteCancel": "Cancel",
+    "deleteSuccess": "Dead letter deleted"
+  },
+  "detail": {
+    "title": "Notification Details",
+    "dlqTitle": "DLQ Details",
+    "currentStatus": "Current status: {{status}}",
+    "deliveryStatus": "Delivery status: {{status}}",
+    "labels": {
+      "title": "Title",
+      "message": "Message",
+      "eventType": "Event Type",
+      "priority": "Priority",
+      "channel": "Channel",
+      "taskId": "Task ID",
+      "workerId": "Worker ID",
+      "time": "Time",
+      "ackedBy": "Acknowledged By",
+      "ackedAt": "Acknowledged At",
+      "comment": "Comment",
+      "retries": "Retries",
+      "duration": "Duration",
+      "hasData": "Has Data",
+      "error": "Error",
+      "reason": "Reason",
+      "source": "Source",
+      "failedAt": "Failed At",
+      "eventTime": "Event Time"
+    },
+    "hasDataYes": "Yes",
+    "hasDataNo": "No"
+  },
+  "filter": {
+    "all": "All",
+    "unread": "Unread",
+    "read": "Read",
+    "typeFilterLabel": "Filter by type:"
+  },
+  "type": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "category": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "executionCompleted": "Execution Completed",
+    "executionFailed": "Execution Failed",
+    "system": "System",
+    "benchmarkCreated": "Benchmark Created",
+    "agentCreated": "Agent Created"
+  },
+  "stats": {
+    "unread": "Unread"
+  },
+  "actions": {
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "delete": "Delete",
+    "selectAll": "All",
+    "clearSelection": "Clear",
+    "markedReadSuccess": "Marked {{count}} notifications as read",
+    "deletedSuccess": "Deleted {{count}} notifications",
+    "markAllRead": "Mark all as read",
+    "clearAll": "Clear all",
+    "viewDetail": "View Details",
+    "bulkMarkRead": "Mark as read",
+    "cancelSelection": "Cancel Selection",
+    "selectedPrefix": "Selected",
+    "selectedCountSuffix": "notifications"
+  },
+  "section": {
+    "showAll": "Show all {{count}}",
+    "collapse": "Collapse ({{count}})",
+    "emptyType": "No notifications of this type",
+    "emptyAll": "No notifications",
+    "detailPlaceholder": "Notification details..."
+  }
+}

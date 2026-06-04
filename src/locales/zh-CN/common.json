@@ -1,0 +1,245 @@
+{
+  "actions": {
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "update": "更新",
+    "submit": "提交",
+    "search": "搜索",
+    "filter": "筛选",
+    "export": "导出",
+    "import": "导入",
+    "refresh": "刷新",
+    "download": "下载",
+    "upload": "上传",
+    "copy": "复制",
+    "back": "返回",
+    "close": "关闭",
+    "retry": "重试",
+    "view": "查看",
+    "detail": "详情",
+    "add": "添加",
+    "remove": "移除",
+    "select": "选择",
+    "clear": "清空",
+    "reset": "重置",
+    "start": "开始",
+    "stop": "停止",
+    "enable": "启用",
+    "disable": "禁用",
+    "more": "更多",
+    "expand": "展开",
+    "collapse": "收起",
+    "approve": "通过",
+    "reject": "拒绝",
+    "run": "运行",
+    "pause": "暂停",
+    "resume": "恢复",
+    "configure": "配置",
+    "preview": "预览",
+    "calculate": "立即预估"
+  },
+  "status": {
+    "loading": "加载中...",
+    "success": "操作成功",
+    "failed": "操作失败",
+    "error": "发生错误",
+    "empty": "暂无数据",
+    "noResults": "未找到匹配结果",
+    "pending": "等待中",
+    "running": "运行中",
+    "completed": "已完成",
+    "active": "活跃",
+    "inactive": "未激活",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "online": "在线",
+    "offline": "离线",
+    "connected": "已连接",
+    "disconnected": "已断开"
+  },
+  "pagination": {
+    "total": "共 {{total}} 条",
+    "page": "第 {{page}} 页",
+    "pageSize": "每页 {{size}} 条",
+    "goto": "跳至",
+    "itemsPerPage": "条/页"
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minutesAgo": "{{count}} 分钟前",
+    "hoursAgo": "{{count}} 小时前",
+    "daysAgo": "{{count}} 天前",
+    "yesterday": "昨天",
+    "today": "今天",
+    "tomorrow": "明天",
+    "seconds": "秒",
+    "minutes": "分钟",
+    "hours": "小时",
+    "days": "天",
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "duration": "耗时",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间"
+  },
+  "validation": {
+    "required": "{{field}} 是必填项",
+    "minLength": "{{field}} 至少需要 {{min}} 个字符",
+    "maxLength": "{{field}} 最多 {{max}} 个字符",
+    "invalid": "{{field}} 格式不正确",
+    "emailInvalid": "请输入有效的邮箱地址",
+    "urlInvalid": "请输入有效的 URL"
+  },
+  "confirm": {
+    "deleteTitle": "确认删除",
+    "deleteContent": "删除后不可恢复，确认要删除吗？",
+    "cancelTitle": "确认取消",
+    "unsavedChanges": "有未保存的更改，确认要离开吗？"
+  },
+  "table": {
+    "action": "操作",
+    "index": "序号",
+    "name": "名称",
+    "description": "描述",
+    "type": "类型",
+    "status": "状态",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "creator": "创建者",
+    "noData": "暂无数据"
+  },
+  "form": {
+    "required": "必填",
+    "optional": "选填",
+    "placeholder": "请输入",
+    "selectPlaceholder": "请选择",
+    "uploadPlaceholder": "点击或拖拽上传"
+  },
+  "result": {
+    "success": "成功",
+    "failure": "失败",
+    "partial": "部分成功",
+    "unknown": "未知"
+  },
+  "ws": {
+    "connected": "实时连接正常",
+    "connecting": "正在连接...",
+    "disconnected": "实时连接断开",
+    "error": "连接错误",
+    "restored": "实时连接已恢复",
+    "reconnecting": "实时连接断开，正在重连..."
+  },
+  "language": "界面语言",
+  "components": {
+    "dateRange": {
+      "preset1h": "最近1小时",
+      "preset6h": "最近6小时",
+      "preset24h": "最近24小时",
+      "preset7d": "最近7天",
+      "preset30d": "最近30天",
+      "preset90d": "最近90天",
+      "startDate": "开始日期",
+      "endDate": "结束日期"
+    },
+    "orgSwitcher": {
+      "personal": "个人",
+      "manageOrg": "管理组织",
+      "createOrg": "创建组织",
+      "roleAdmin": "管理员",
+      "roleMember": "成员",
+      "roleGuest": "访客"
+    },
+    "multiSelect": {
+      "placeholder": "请选择"
+    },
+    "searchBar": {
+      "placeholder": "搜索..."
+    },
+    "emptyPage": {
+      "emptyTitle": "暂无数据",
+      "emptyDesc": "还没有创建任何内容",
+      "noResultTitle": "没有找到匹配的结果",
+      "noResultDesc": "尝试调整筛选条件"
+    },
+    "emptyState": {
+      "default": "暂无数据",
+      "create": "创建",
+      "refresh": "刷新"
+    },
+    "statusBadge": {
+      "pending": "等待中",
+      "running": "执行中",
+      "completed": "已完成",
+      "failed": "失败",
+      "cancelled": "已取消"
+    },
+    "errorBoundary": {
+      "title": "页面出现异常",
+      "subTitle": "抱歉，当前页面发生了未预期的错误。",
+      "retry": "重试",
+      "backHome": "返回首页"
+    },
+    "export": {
+      "button": "导出",
+      "quick": {
+        "excel": "导出为 Excel",
+        "csv": "导出为 CSV",
+        "json": "导出为 JSON",
+        "pdf": "导出为 PDF",
+        "settings": "导出设置..."
+      },
+      "successMessage": "已导出 {{format}} 格式文件",
+      "dialog": {
+        "title": "导出数据",
+        "cancel": "取消",
+        "start": "开始导出",
+        "exporting": "导出中",
+        "exportingProgress": "导出中 ({{progress}}%)",
+        "formatTitle": "选择导出格式",
+        "dataRangeTitle": "数据范围",
+        "rangeCurrentPage": "当前页数据 ({{count}} 条)",
+        "rangeFiltered": "所有筛选结果 ({{total}} 条)",
+        "rangeAll": "全部数据",
+        "timeRangeLabel": "时间范围（可选）",
+        "timeRangeStart": "起始日期",
+        "timeRangeEnd": "结束日期",
+        "optionsTitle": "导出选项",
+        "includeTrace": "包含执行跟踪 (Trace)",
+        "includeArtifacts": "包含执行产物 (Artifacts)",
+        "includeMetadata": "包含元数据",
+        "compress": "压缩为 ZIP",
+        "estimateTitle": "导出预估",
+        "estimateRecords": "预计导出约 <strong>{{total}}</strong> 条记录",
+        "estimateSize": "预估文件大小约 <strong>{{size}}</strong>"
+      },
+      "selector": {
+        "maxRecords": "最多 {{total}} 条"
+      },
+      "formats": {
+        "json": "结构化数据格式，适合程序处理",
+        "csv": "逗号分隔值，适合 Excel 打开",
+        "excel": "Microsoft Excel 工作簿",
+        "pdf": "便携式文档格式，适合打印和分享"
+      },
+      "validation": {
+        "formatRequired": "请选择导出格式",
+        "typeRequired": "请指定导出类型"
+      },
+      "typeNames": {
+        "executions": "执行记录",
+        "batch": "批量报告",
+        "benchmarks": "评测任务",
+        "metrics": "指标分析"
+      }
+    },
+    "charts": {
+      "valueLabel": "数值",
+      "dataLabel": "数据",
+      "empty": "暂无数据"
+    }
+  }
+}

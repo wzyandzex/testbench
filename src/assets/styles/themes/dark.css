@@ -1,0 +1,52 @@
+/**
+ * 深色主题
+ */
+[data-theme='dark'] {
+  /* 主色 */
+  --color-primary: #177ddc;
+  --color-primary-hover: #3c9ae8;
+  --color-primary-active: #095cb5;
+  --color-primary-bg: #111d2c;
+
+  /* 功能色 */
+  --color-success: #49aa19;
+  --color-success-hover: #5ec022;
+  --color-success-bg: #162312;
+  --color-success-border: #274916;
+
+  --color-warning: #d89614;
+  --color-warning-hover: #e8b339;
+  --color-warning-bg: #2b2111;
+  --color-warning-border: #594214;
+
+  --color-error: #d32029;
+  --color-error-hover: #e5454a;
+  --color-error-bg: #2a1215;
+  --color-error-border: #58181c;
+
+  --color-info: #177ddc;
+  --color-info-hover: #3c9ae8;
+  --color-info-bg: #111d2c;
+  --color-info-border: #15395b;
+
+  /* 中性色 */
+  --color-text-primary: rgba(255, 255, 255, 0.85);
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-tertiary: rgba(255, 255, 255, 0.45);
+  --color-text-disabled: rgba(255, 255, 255, 0.25);
+
+  /* 边框 */
+  --color-border: #434343;
+  --color-border-light: #303030;
+  --color-border-dark: #595959;
+
+  /* 背景 */
+  --color-bg-primary: #141414;
+  --color-bg-secondary: #1f1f1f;
+  --color-bg-tertiary: #262626;
+  --color-bg-quaternary: #000000;
+
+  /* 组件背景 */
+  --color-component-bg: #1f1f1f;
+  --color-component-hover: #262626;
+}

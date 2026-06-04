@@ -1,0 +1,383 @@
+{
+  "contract_version": "2026-03-09.v4",
+  "generated_at": "2026-03-09T05:13:58Z",
+  "source": "internal/api/router/router.go",
+  "base": "/api/v1",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/admin/users",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "List users"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users/:id/lock",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Lock user"
+    },
+    {
+      "method": "PUT",
+      "path": "/admin/users/:id/role",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Update user role"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users/:id/unlock",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Unlock user"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/avatar",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Update avatar"
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/delete",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Delete account"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Send email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify/confirm",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Confirm email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "User login"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Logout"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Current user"
+    },
+    {
+      "method": "PUT",
+      "path": "/auth/password",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Change password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Request password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset/confirm",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Confirm password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/refresh",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Refresh token"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Register"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/alerts",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache alerts"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/kpi",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache KPI snapshot"
+    },
+    {
+      "method": "POST",
+      "path": "/cache/kpi/reset",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Reset cache KPI"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats by prefix"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/history",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache history"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/latency",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache latency"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/topkeys",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Top cache keys"
+    },
+    {
+      "method": "POST",
+      "path": "/cache/stats/reset/:prefix",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Reset cache stats by prefix"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/summary",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache summary"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/models",
+      "consumer": "shared",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List model costs"
+    },
+    {
+      "method": "POST",
+      "path": "/cost/models",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Create model cost"
+    },
+    {
+      "method": "DELETE",
+      "path": "/cost/models/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Delete model cost"
+    },
+    {
+      "method": "PUT",
+      "path": "/cost/models/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Update model cost"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "API health check"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/consumers",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka consumers"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/health",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka health"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/producers",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka producers"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/stats",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka stats"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/topics",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "List Kafka topics"
+    },
+    {
+      "method": "POST",
+      "path": "/kafka/topics",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Create Kafka topic"
+    },
+    {
+      "method": "DELETE",
+      "path": "/kafka/topics/:topic",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Delete Kafka topic"
+    },
+    {
+      "method": "GET",
+      "path": "/kafka/topics/:topic",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Kafka topic details"
+    },
+    {
+      "method": "POST",
+      "path": "/org-templates",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Create organization template"
+    },
+    {
+      "method": "DELETE",
+      "path": "/org-templates/:id",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": false,
+      "description": "Delete organization template"
+    },
+    {
+      "method": "DELETE",
+      "path": "/swenbench/repo/cache",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "Delete SWE repo cache"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/repo/cache",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "List SWE repo cache"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/ws",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "SWE global websocket"
+    },
+    {
+      "method": "GET",
+      "path": "/swenbench/ws/stats",
+      "consumer": "admin-app",
+      "scope": "sys_admin",
+      "requires_org": true,
+      "description": "SWE websocket stats"
+    },
+    {
+      "method": "POST",
+      "path": "/user/current-organization",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Switch current organization"
+    }
+  ],
+  "optional_routes": [],
+  "notes": [
+    "Scope order: public < authenticated < org < org_admin < sys_admin.",
+    "requires_org=true means send X-Org-ID (X-Organization-Id is backward-compatible).",
+    "Frontend allow-listing is advisory; backend authorization is authoritative."
+  ],
+  "source_commit": "65e5999"
+}

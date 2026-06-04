@@ -1,0 +1,148 @@
+{
+  "title": "Settings",
+  "description": "Showing real backend-supported account capabilities. Unavailable features are clearly marked.",
+  "account": {
+    "title": "Account Info",
+    "username": "Username",
+    "email": "Email",
+    "role": "Role",
+    "currentUser": "Current User"
+  },
+  "avatar": {
+    "notice": "Backend only supports avatar_url updates",
+    "noticeDesc": "Direct file upload returns 501. Please enter an accessible image URL.",
+    "urlLabel": "Avatar URL",
+    "urlRequired": "Please enter avatar image URL",
+    "urlInvalid": "Please enter a valid URL",
+    "updated": "Avatar updated",
+    "uploadFailed": "Upload failed"
+  },
+  "profile": {
+    "notice": "Profile editing not yet available",
+    "noticeDesc": "Backend doesn't provide username or bio editing APIs.",
+    "bio": "No bio yet",
+    "editProfile": "Edit Profile"
+  },
+  "email": {
+    "title": "Change Email",
+    "step1": "Enter new email",
+    "step2": "Paste link or token",
+    "step3": "Done",
+    "notice": "Backend sends verification link to new email",
+    "noticeDesc": "Not SMS verification. After receiving the email, click the link or paste the full link/token back to confirm.",
+    "currentEmail": "Current Email",
+    "newEmail": "New Email",
+    "newEmailRequired": "Please enter new email address",
+    "newEmailInvalid": "Please enter a valid email address",
+    "sameEmail": "New email cannot be the same as current",
+    "verificationSent": "Verification email sent. Please check your new email.",
+    "checkEmail": "Please check your new email for the verification link",
+    "tokenLabel": "Verification link or token",
+    "tokenRequired": "Please paste the link or token from the email",
+    "tokenPlaceholder": "e.g. https://your-frontend/auth/verify-email?token=... or paste token directly",
+    "success": "Email changed successfully",
+    "verified": "Email verified",
+    "updated": "Email updated",
+    "sendVerification": "Send Verification Email",
+    "confirmChange": "Confirm Change"
+  },
+  "password": {
+    "title": "Change Password",
+    "okText": "Update Password",
+    "rules": "Password Rules",
+    "rulesDesc": "At least 8 characters, must contain uppercase, lowercase letters and numbers.",
+    "currentPassword": "Current Password",
+    "currentRequired": "Please enter current password",
+    "currentPlaceholder": "Enter current password",
+    "newPassword": "New Password",
+    "newRequired": "Please enter new password",
+    "newMin": "Password must be at least 8 characters",
+    "newFormat": "Must contain uppercase, lowercase letters and numbers",
+    "newPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmRequired": "Please re-enter new password",
+    "confirmPlaceholder": "Re-enter new password",
+    "mismatch": "Passwords do not match",
+    "updated": "Password updated"
+  },
+  "deleteAccount": {
+    "title": "Delete Account",
+    "okText": "Confirm Delete",
+    "warning": "This action cannot be undone",
+    "warningDesc": "Backend will permanently delete your account and associated data. Please ensure you have completed necessary backups.",
+    "passwordLabel": "Current Password",
+    "passwordRequired": "Please enter current password to confirm identity",
+    "passwordPlaceholder": "Enter current password",
+    "confirmRequired": "Please confirm account deletion",
+    "success": "Account deleted"
+  },
+  "twoFactor": {
+    "notice": "Two-factor authentication not yet available",
+    "noticeDesc": "Backend doesn't have 2FA API. This notice replaces the previous non-functional toggle."
+  },
+  "notifications": {
+    "title": "Notification Preferences",
+    "notice": "Local preferences only",
+    "noticeDesc": "Backend doesn't provide notification settings sync API. Preferences are saved to current browser.",
+    "taskComplete": "Task Complete",
+    "taskCompleteDesc": "Notify me when batch or single tasks complete",
+    "taskFailed": "Task Failed",
+    "taskFailedDesc": "Prioritize notifying me when tasks fail",
+    "systemAnnouncements": "System Announcements",
+    "systemAnnouncementsDesc": "Notify me of platform updates or maintenance",
+    "emailDigest": "Email Digest",
+    "emailDigestDesc": "Reserved for future email notification channel",
+    "saved": "Notification preferences saved to browser"
+  },
+  "ui": {
+    "title": "Preferences",
+    "notice": "Browser-side preferences",
+    "noticeDesc": "Layout, theme and language take effect immediately and are saved to current browser.",
+    "saved": "UI preferences saved to browser",
+    "light": "Light",
+    "dark": "Dark",
+    "classic": "Classic Layout",
+    "modern": "Modern Layout",
+    "zhCN": "Chinese (Simplified)",
+    "enUS": "English"
+  },
+  "notificationPreview": {
+    "success": {
+      "title": "Task completed",
+      "message": "Your evaluation task \"Python Code Analysis\" finished successfully. Click to view the detailed report.",
+      "time": "just now"
+    },
+    "error": {
+      "title": "Task failed",
+      "message": "Your evaluation task \"Go Code Review\" failed. Please check the code and retry.",
+      "time": "2 min ago"
+    },
+    "info": {
+      "title": "System announcement",
+      "message": "System maintenance is scheduled for tonight 22:00. Estimated 30 min.",
+      "time": "1 hour ago"
+    },
+    "system": {
+      "title": "System update notice",
+      "message": "MyAgent has been upgraded to v2.1.0 with multiple feature improvements.",
+      "time": "yesterday"
+    },
+    "timelineDefaults": {
+      "successTitle": "Task completed",
+      "successMessage": "Your evaluation task completed successfully",
+      "successTime": "just now",
+      "errorTitle": "Task failed",
+      "errorMessage": "Your evaluation task failed. Please retry.",
+      "errorTime": "2 min ago",
+      "infoTitle": "System notification",
+      "infoMessage": "You have a new system notification",
+      "infoTime": "1 hour ago",
+      "systemTitle": "System update",
+      "systemMessage": "System upgraded to the latest version",
+      "systemTime": "yesterday"
+    }
+  },
+  "loadFailed": "Load failed",
+  "saveFailed": "Save failed",
+  "modifyFailed": "Modification failed"
+}

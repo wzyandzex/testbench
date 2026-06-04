@@ -1,0 +1,95 @@
+{
+  "title": "成本分析",
+  "description": "这里完全按后端真实能力重建：主视图来自 `/cost/statistics` 与 `/cost/summary`，不再显示后端并不存在的预算/项目统计假数据。",
+  "stats": {
+    "totalCost": "总成本",
+    "totalTokens": "总 Tokens",
+    "execCount": "执行次数",
+    "avgCost": "平均单次成本"
+  },
+  "timeRange": {
+    "label": "时间范围",
+    "today": "今天",
+    "week": "近 7 天",
+    "month": "近 30 天"
+  },
+  "granularity": {
+    "label": "趋势聚合",
+    "day": "按天",
+    "week": "按周",
+    "month": "按月"
+  },
+  "trend": {
+    "title": "成本趋势",
+    "noData": "暂无趋势数据",
+    "loading": "加载图表中..."
+  },
+  "optimization": {
+    "title": "优化建议",
+    "noData": "当前没有优化建议",
+    "canSave": "可节省"
+  },
+  "modelDistribution": {
+    "title": "按模型成本分布",
+    "noData": "暂无模型维度数据"
+  },
+  "benchmarkRanking": {
+    "title": "Benchmark 排行",
+    "totalCost": "总成本",
+    "totalTokens": "总 Tokens",
+    "execCount": "执行次数",
+    "noData": "暂无 benchmark 数据"
+  },
+  "dimensionNotice": "维度已改为后端真实支持的 agent / benchmark / model",
+  "dimensionNoticeDesc": "前端之前展示的预算、项目维度拆分和独立趋势接口并不存在；现在统一由统计接口驱动，避免出现空页面或 404。",
+  "pricing": {
+    "title": "模型定价配置",
+    "inputPrice": "输入单价",
+    "outputPrice": "输出单价",
+    "status": "状态",
+    "effectiveDate": "生效日期",
+    "action": "操作",
+    "noData": "暂无模型定价配置",
+    "createTitle": "新建模型定价",
+    "editTitle": "编辑模型定价",
+    "createOk": "创建",
+    "editOk": "保存修改",
+    "editHint": "编辑模式只更新价格与状态",
+    "createHint": "创建后可在表格中继续维护",
+    "providerRequired": "请输入 provider",
+    "providerPlaceholder": "例如 OpenAI",
+    "modelRequired": "请输入 model 名称",
+    "modelPlaceholder": "例如 gpt-4.1-mini",
+    "inputPriceRequired": "请输入输入单价",
+    "outputPriceRequired": "请输入输出单价",
+    "currencyRequired": "请输入币种",
+    "enabled": "启用",
+    "disabled": "停用",
+    "created": "模型定价已创建",
+    "updated": "模型定价已更新",
+    "deleteTitle": "删除模型定价",
+    "deleteOk": "删除",
+    "deleted": "模型定价已删除",
+    "deleteConfirm": "确认删除 {{provider}} / {{model}} 的定价配置吗？"
+  },
+  "estimate": {
+    "title": "快速成本预估",
+    "inputTokens": "输入 tokens",
+    "inputTokensRequired": "请输入输入 tokens",
+    "outputTokens": "输出 tokens",
+    "outputTokensRequired": "请输入输出 tokens",
+    "estimatedCost": "预估总成本",
+    "hint": "填写参数后可直接查看后端计算结果",
+    "success": "已完成成本预估"
+  },
+  "loadFailed": {
+    "stats": "加载成本统计失败",
+    "summary": "加载成本概览失败",
+    "pricing": "加载模型定价失败",
+    "refresh": "刷新成本数据失败",
+    "create": "创建模型定价失败",
+    "update": "更新模型定价失败",
+    "delete": "删除模型定价失败"
+  },
+  "refreshed": "成本数据已刷新"
+}

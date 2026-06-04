@@ -1,0 +1,537 @@
+{
+  "title": "User Management",
+  "description": "Manage system users and permissions",
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "locked": "Locked"
+  },
+  "role": {
+    "admin": "Admin",
+    "user": "User",
+    "viewer": "Viewer"
+  },
+  "columns": {
+    "user": "User",
+    "role": "Role",
+    "status": "Status",
+    "registeredAt": "Registered",
+    "actions": "Actions"
+  },
+  "actions": {
+    "unlock": "Unlock User",
+    "lock": "Lock User",
+    "editRole": "Edit Role",
+    "deleteUser": "Delete User",
+    "confirmDelete": "Confirm Delete",
+    "deleteWarning": "This action cannot be undone. Continue?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "locked": "User locked",
+    "unlocked": "User unlocked",
+    "roleUpdated": "Role updated",
+    "deleted": "User deleted",
+    "cannotDeleteSelf": "Cannot delete current user"
+  },
+  "filter": {
+    "searchPlaceholder": "Search username or email",
+    "statusPlaceholder": "Filter by status",
+    "rolePlaceholder": "Filter by role"
+  },
+  "pagination": {
+    "total": "{{total}} records total"
+  },
+  "lockModal": {
+    "title": "Lock User",
+    "confirmLock": "Confirm Lock",
+    "cancel": "Cancel",
+    "reasonLabel": "Lock Reason",
+    "reasonRequired": "Please enter lock reason",
+    "reasonPlaceholder": "Explain why this user is being locked",
+    "durationLabel": "Lock Duration (hours)",
+    "durationExtra": "Leave empty for permanent lock",
+    "durationPlaceholder": "Enter lock duration in hours"
+  },
+  "roleModal": {
+    "title": "Change User Role",
+    "confirmChange": "Confirm Change",
+    "cancel": "Cancel",
+    "newRoleLabel": "New Role",
+    "roleRequired": "Please select a role",
+    "rolePlaceholder": "Select role"
+  },
+  "costModel": {
+    "title": "Model Pricing Management",
+    "description": "Maintain LLM model input/output token prices (per <1>1000 tokens</1>) for real-time cost calculation and alerting. When adding a new price for the same provider+model, the previous record is automatically preserved as historical pricing by <1>effective_date</1>.",
+    "actions": {
+      "create": "Add Pricing",
+      "refresh": "Refresh",
+      "edit": "Edit",
+      "delete": "Delete",
+      "activeOnly": "Active only:"
+    },
+    "columns": {
+      "provider": "Provider",
+      "modelName": "Model",
+      "inputPrice": "Input / 1k tokens",
+      "outputPrice": "Output / 1k tokens",
+      "currency": "Currency",
+      "effectiveDate": "Effective Date",
+      "expiryDate": "Expiry Date",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "tags": {
+      "permanent": "Permanent",
+      "active": "Active",
+      "disabled": "Disabled"
+    },
+    "deleteConfirm": {
+      "title": "Delete this pricing?",
+      "description": "Historical cost data is preserved, but new calculations will no longer use this entry."
+    },
+    "createModal": {
+      "title": "Add Model Pricing",
+      "providerLabel": "Provider",
+      "providerPlaceholder": "Select / Type",
+      "modelNameLabel": "Model Name",
+      "modelNameRequired": "Please enter model name",
+      "modelNameExtra": "e.g. claude-opus-4-7, gpt-4o, deepseek-chat",
+      "modelNamePlaceholder": "claude-opus-4-7",
+      "currencyLabel": "Currency",
+      "inputPriceLabel": "Input Price (per 1k tokens)",
+      "outputPriceLabel": "Output Price (per 1k tokens)",
+      "effectiveDateLabel": "Effective Date",
+      "effectiveDateExtra": "Executions after this time will use this pricing",
+      "expiryDateLabel": "Expiry Date (optional)",
+      "expiryDateExtra": "Leave empty for permanent validity"
+    },
+    "editModal": {
+      "title": "Edit: {{provider}} / {{model}}",
+      "titleFallback": "Edit",
+      "inputPriceLabel": "Input Price (per 1k tokens)",
+      "outputPriceLabel": "Output Price (per 1k tokens)",
+      "currencyLabel": "Currency",
+      "expiryDateLabel": "Expiry Date",
+      "expiryDateExtra": "Clear for permanent validity",
+      "isActiveLabel": "Active"
+    },
+    "messages": {
+      "loadFailed": "Failed to load model pricing: {{error}}",
+      "created": "Pricing created",
+      "createFailed": "Create failed: {{error}}",
+      "updated": "Updated",
+      "updateFailed": "Update failed: {{error}}",
+      "deleted": "Deleted",
+      "deleteFailed": "Delete failed: {{error}}"
+    },
+    "pagination": {
+      "total": "{{total}} total"
+    }
+  },
+  "dlq": {
+    "title": "Dead Letter Queue (DLQ)",
+    "description": "Events that fail Notifier delivery after multiple retries end up in the dead letter queue. You can <1>replay</1> each entry (re-deliver after fix) or <2>delete</2> (give up). Note: ensure downstream logic is fixed before replaying, otherwise it will loop into failure again.",
+    "stats": {
+      "totalCount": "Total in Queue",
+      "noDeadLetters": "No dead letters currently, system is running normally"
+    },
+    "sourceOptions": {
+      "all": "All",
+      "notifier": "Notifier",
+      "worker": "Worker",
+      "scheduler": "Scheduler"
+    },
+    "filter": {
+      "taskIdLabel": "Task ID",
+      "taskIdPlaceholder": "Exact match",
+      "workerIdLabel": "Worker",
+      "workerIdPlaceholder": "Exact match",
+      "searchLabel": "Keyword",
+      "searchPlaceholder": "Reason / message text",
+      "sourceLabel": "Source",
+      "sourcePlaceholder": "All",
+      "rangeLabel": "Failed At",
+      "submit": "Search",
+      "reset": "Reset",
+      "refresh": "Refresh",
+      "presets": {
+        "today": "Today",
+        "last24h": "Last 24h",
+        "last7d": "Last 7 days"
+      }
+    },
+    "columns": {
+      "failedAt": "Failed At",
+      "source": "Source",
+      "eventType": "Event Type",
+      "priority": "Priority",
+      "taskId": "Task ID",
+      "worker": "Worker",
+      "reason": "Failure Reason",
+      "actions": "Actions"
+    },
+    "actions": {
+      "detail": "Detail",
+      "replay": "Replay",
+      "delete": "Delete"
+    },
+    "replayConfirm": {
+      "title": "Replay this dead letter?",
+      "description": "Re-deliver to the original queue. If processing logic is not fixed, it may re-enter DLQ."
+    },
+    "deleteConfirm": {
+      "title": "Delete this dead letter?",
+      "description": "Cannot be recovered after deletion; the original event will be permanently lost.",
+      "shortTitle": "Confirm delete?"
+    },
+    "drawer": {
+      "title": "Dead Letter Detail",
+      "loading": "Loading...",
+      "noPayload": "No event payload",
+      "noData": "No data",
+      "idLabel": "ID",
+      "sourceLabel": "Source",
+      "failedAtLabel": "Failed At",
+      "reasonLabel": "Failure Reason",
+      "originalEventTitle": "Original Event",
+      "eventTypeLabel": "Event Type",
+      "priorityLabel": "Priority",
+      "taskIdLabel": "Task ID",
+      "workerIdLabel": "Worker ID",
+      "eventTimeLabel": "Event Time",
+      "messageLabel": "Message",
+      "extraDataLabel": "Extra Data",
+      "hasData": "Yes (redacted for security, not shown)",
+      "noExtraData": "None"
+    },
+    "messages": {
+      "loadFailed": "Failed to load dead letter queue: {{error}}",
+      "loadDetailFailed": "Failed to load detail: {{error}}",
+      "replayed": "Replayed {{id}}",
+      "replayFailed": "Replay failed: {{error}}",
+      "deleted": "Deleted {{id}}",
+      "deleteFailed": "Delete failed: {{error}}"
+    },
+    "pagination": {
+      "total": "{{total}} total"
+    }
+  },
+  "auditLog": {
+    "title": "System Audit Log",
+    "description": "Audit trail of system-level cleanup operations (sandbox reclamation / history cleanup / trace cleanup). Normally triggered automatically by Scheduler, can also be re-run manually from the System Ops page.",
+    "triggeredByOptions": {
+      "scheduler": "Scheduler (scheduled)",
+      "manual": "Manual (manual trigger)",
+      "cron": "Cron (CronJob)"
+    },
+    "filter": {
+      "triggeredByLabel": "Triggered By",
+      "triggeredByPlaceholder": "All",
+      "rangeLabel": "Time Range",
+      "submit": "Search",
+      "reset": "Reset",
+      "refresh": "Refresh",
+      "presets": {
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "last7d": "Last 7 days",
+        "last30d": "Last 30 days"
+      }
+    },
+    "columns": {
+      "triggeredAt": "Triggered At",
+      "triggeredBy": "Triggered By",
+      "cleanupType": "Cleanup Type",
+      "taskId": "Task ID",
+      "reportId": "Report ID",
+      "reason": "Reason",
+      "actions": "Actions"
+    },
+    "actions": {
+      "detail": "Detail"
+    },
+    "drawer": {
+      "title": "Audit Detail",
+      "loading": "Loading...",
+      "reportIdLabel": "Report ID",
+      "taskIdLabel": "Task ID",
+      "organizationIdLabel": "Organization ID",
+      "cleanupTypeLabel": "Cleanup Type",
+      "dryRun": "Dry Run",
+      "triggeredByLabel": "Triggered By",
+      "triggeredAtLabel": "Triggered At",
+      "generatedAtLabel": "Report Generated At",
+      "reasonLabel": "Trigger Reason",
+      "cleanupResultsTitle": "Cleanup Results",
+      "sandboxesCleaned": "Sandboxes Cleaned",
+      "recordsDeleted": "Records Deleted",
+      "tracesDeleted": "Traces Deleted",
+      "totalDuration": "Total Duration (ms)",
+      "errorAlert": "{{count}} errors occurred during cleanup",
+      "errorColumns": {
+        "resourceType": "Resource Type",
+        "resourceId": "Resource ID",
+        "error": "Error Message",
+        "timestamp": "Time"
+      },
+      "detailsTitle": "Cleanup Details ({{count}})",
+      "noDetails": "No cleanup details",
+      "detailColumns": {
+        "resourceType": "Resource Type",
+        "resourceId": "Resource ID",
+        "action": "Action",
+        "timestamp": "Time"
+      },
+      "noData": "No data"
+    },
+    "messages": {
+      "loadFailed": "Failed to load audit log: {{error}}",
+      "loadDetailFailed": "Failed to load detail: {{error}}"
+    },
+    "pagination": {
+      "total": "{{total}} total"
+    }
+  },
+  "orgTemplate": {
+    "title": "Organization Template Management",
+    "description": "Organizations can choose a template at creation to reuse quotas, roles, and signup settings. System-predefined templates cannot be deleted, custom templates can be managed.",
+    "categories": {
+      "small": "Small Team",
+      "medium": "Medium Team",
+      "large": "Large Team",
+      "startup": "Startup",
+      "enterprise": "Enterprise"
+    },
+    "card": {
+      "listTitle": "Templates ({{count}})",
+      "categoryFilterPlaceholder": "Filter by category",
+      "refresh": "Refresh",
+      "create": "New Template"
+    },
+    "columns": {
+      "name": "Name",
+      "category": "Category",
+      "flags": "Type",
+      "limits": "Resource Limits",
+      "usageCount": "Usage Count",
+      "createdAt": "Created At",
+      "actions": "Actions"
+    },
+    "tags": {
+      "system": "System",
+      "public": "Public",
+      "private": "Private"
+    },
+    "limits": {
+      "members": "Members: {{count}}",
+      "executionsPerDay": "Executions/day: {{count}}",
+      "storage": "Storage: {{gb}} GB"
+    },
+    "delete": {
+      "disabledTooltip": "System templates cannot be deleted",
+      "label": "Delete",
+      "title": "Confirm delete?",
+      "description": "Cannot be recovered, and usage stats of {{count}} times will also be lost.",
+      "okText": "Delete",
+      "cancelText": "Cancel"
+    },
+    "modal": {
+      "title": "New Organization Template",
+      "okText": "Create",
+      "cancelText": "Cancel",
+      "fields": {
+        "nameLabel": "Identifier",
+        "nameRequired": "Please enter identifier",
+        "nameLength": "Length 2-50",
+        "namePattern": "Only letters and digits allowed",
+        "nameExtra": "Technical identifier, globally unique, alphanumeric only",
+        "namePlaceholder": "e.g. startupTeam",
+        "displayNameLabel": "Display Name",
+        "displayNamePlaceholder": "e.g. Startup Team",
+        "descriptionLabel": "Description",
+        "categoryLabel": "Category",
+        "categoryPlaceholder": "Unset means uncategorized",
+        "isPublicLabel": "Public",
+        "isPublicExtra": "Public templates are visible to all users",
+        "maxMembersLabel": "Max Members",
+        "maxExecutionsLabel": "Max Executions Per Day",
+        "maxStorageLabel": "Max Storage (GB)",
+        "defaultRoleLabel": "Default Role",
+        "allowSignupLabel": "Allow Public Signup",
+        "requireApprovalLabel": "Require Approval on Join"
+      }
+    },
+    "messages": {
+      "loadFailed": "Load failed: {{error}}",
+      "created": "Template created",
+      "createFailed": "Create failed: {{error}}",
+      "deleted": "Template deleted",
+      "deleteFailed": "Delete failed: {{error}}"
+    }
+  },
+  "defaultAgent": {
+    "title": "System Default Agent Template",
+    "description": "When each new organization is created, this template will be cloned automatically to generate a default Agent (out-of-the-box for users). Template updates <1>do NOT</1> retroactively affect already-generated org agents; only new organizations after the update are affected. The clone is only triggered when the \"Enable Template\" switch is on.",
+    "alerts": {
+      "inactiveTitle": "Template Not Enabled",
+      "inactiveDescription": "The template is currently disabled and a default Agent will not be auto-generated for new organizations. After completing configuration, please toggle on the \"Enable Template\" switch below.",
+      "noKeyTitle": "API Key Not Configured",
+      "noKeyDescription": "Template is enabled but API Key is empty. Cloned default Agents will be created in inactive state; users will need to configure their own key before running."
+    },
+    "fields": {
+      "isActiveLabel": "Enable Template",
+      "isActiveExtra": "When disabled, new organizations will not clone the default Agent.",
+      "displayNameLabel": "Display Name",
+      "displayNamePlaceholder": "Default Agent",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Explain to new org users what this Agent is for",
+      "typeLabel": "Agent Type",
+      "endpointLabel": "Endpoint",
+      "endpointExtra": "e.g. https://api.example.com/v1/chat/completions",
+      "endpointPlaceholder": "https://...",
+      "apiKeyLabel": "API Key",
+      "apiKeyExtraHint": "Empty=no change; new value=update; right button=clear",
+      "apiKeyClearBtn": "Clear Key",
+      "apiKeyPlaceholderConfigured": "•••••••• (encrypted)",
+      "apiKeyPlaceholderNew": "Enter API Key",
+      "capabilitiesLabel": "Capabilities (comma or newline separated)",
+      "capabilitiesExtra": "e.g. text_generation, code_completion, function_calling",
+      "capabilitiesPlaceholder": "text_generation, code_completion",
+      "modelConfigLabel": "Model Config (JSON)",
+      "modelConfigExtra": "e.g. {\"provider\":\"openai\",\"model_name\":\"gpt-4o\",\"temperature\":0.2}",
+      "toolsLabel": "Tools (JSON)",
+      "metadataLabel": "Metadata (JSON)"
+    },
+    "tags": {
+      "active": "ACTIVE",
+      "inactive": "INACTIVE",
+      "keyConfigured": "Configured",
+      "keyMissing": "Not Configured"
+    },
+    "actions": {
+      "save": "Save",
+      "reload": "Reload"
+    },
+    "messages": {
+      "loadFailed": "Failed to load template: {{error}}",
+      "modelConfigInvalid": "Model Config is not valid JSON",
+      "toolsInvalid": "Tools is not valid JSON",
+      "metadataInvalid": "Metadata is not valid JSON",
+      "saved": "Template saved",
+      "saveFailed": "Save failed: {{error}}",
+      "keyCleared": "API Key cleared",
+      "clearFailed": "Clear failed: {{error}}"
+    }
+  },
+  "systemOps": {
+    "title": "System Operations",
+    "description": "Central entry point for low-frequency but occasionally needed ops actions: manually backfill metrics aggregation, hot-reload language configuration, etc.",
+    "aggregation": {
+      "cardTitle": "Metrics Aggregation",
+      "alertTitle": "Daily aggregation runs automatically via cron",
+      "alertDescription": "Use this to backfill historical time windows, e.g. after data fixes or metric cache rebuilds.",
+      "periodLabel": "Aggregation Period",
+      "periodOptions": {
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "rangeLabel": "Time Range",
+      "rangeExtra": "If empty, aggregates \"today\" by default; filled values aggregate over the selected UTC time window",
+      "submit": "Trigger Aggregation",
+      "presets": {
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "last7d": "Last 7 days",
+        "last30d": "Last 30 days"
+      },
+      "messages": {
+        "triggered": "Aggregation task triggered",
+        "triggerFailed": "Trigger failed: {{error}}"
+      }
+    },
+    "reload": {
+      "cardTitle": "Language Config Reload",
+      "alertTitle": "Affects running worker container config",
+      "alertDescription": "Reloading causes workers to pick up the latest docker image / command / timeout config. If the config is broken, subsequent executions may fail — please ensure the config file has been reviewed.",
+      "languageLabel": "Language Name",
+      "languageRequired": "Please enter language name",
+      "languagePlaceholder": "e.g. python",
+      "commonHint": "Common:",
+      "submit": "Hot Reload",
+      "messages": {
+        "languageEmpty": "Please enter language name",
+        "reloaded": "Reloaded \"{{name}}\" language config",
+        "reloadFailed": "Reload failed: {{error}}"
+      }
+    }
+  },
+  "benchmarkTags": {
+    "title": "Benchmark Tag Management",
+    "description": "Manage the tag collection used by evaluation benchmarks. Tags are maintained by system administrators and shared across all orgs.",
+    "card": {
+      "listTitle": "Tags ({{count}})",
+      "refresh": "Refresh",
+      "create": "New Tag"
+    },
+    "columns": {
+      "id": "ID",
+      "tag": "Tag",
+      "color": "Color Value",
+      "createdAt": "Created At",
+      "actions": "Actions"
+    },
+    "delete": {
+      "label": "Delete",
+      "title": "Confirm delete?",
+      "description": "After deleting the tag, Benchmarks using it will be automatically unlinked.",
+      "okText": "Delete",
+      "cancelText": "Cancel"
+    },
+    "modal": {
+      "title": "New Benchmark Tag",
+      "okText": "Create",
+      "cancelText": "Cancel",
+      "nameLabel": "Tag Name",
+      "nameRequired": "Please enter tag name",
+      "nameMaxLength": "Maximum 100 characters",
+      "namePlaceholder": "e.g. swe-bench",
+      "colorLabel": "Color"
+    },
+    "messages": {
+      "loadFailed": "Load failed: {{error}}",
+      "created": "Tag created",
+      "createFailed": "Create failed: {{error}}",
+      "deleted": "Tag deleted",
+      "deleteFailed": "Delete failed: {{error}}"
+    }
+  },
+  "targetAcceptance": {
+    "title": "Target System Acceptance",
+    "description": "System-level evaluation acceptance: view Run status and verdicts, compare Run vs Baseline diffs, manage the promoted Baseline set.",
+    "tabs": {
+      "runs": "Runs",
+      "baselines": "Baselines"
+    },
+    "filter": {
+      "submit": "Filter",
+      "refresh": "Refresh"
+    },
+    "actions": {
+      "detail": "Detail",
+      "compare": "Compare to baseline"
+    },
+    "drawer": {
+      "titleFallback": "Run Detail",
+      "loading": "Loading…"
+    },
+    "messages": {
+      "loadFailed": "Load failed: {{error}}",
+      "loadDetailFailed": "Failed to load detail: {{error}}",
+      "compareFailed": "Compare failed: {{error}}"
+    }
+  }
+}

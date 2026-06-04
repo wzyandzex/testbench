@@ -1,0 +1,345 @@
+{
+  "title": "SWE-bench",
+  "list": {
+    "noTasks": "No SWE tasks",
+    "noMatch": "No tasks match the criteria",
+    "searchPlaceholder": "Search repos, issues or titles",
+    "statusFilter": "Status filter",
+    "repoFilter": "Repo filter",
+    "refreshed": "Refreshed",
+    "loading": "Loading...",
+    "title": "SWE tasks",
+    "subtitle": "Manage SWE-bench software engineering repair tasks",
+    "refresh": "Refresh",
+    "createTask": "Create task",
+    "clearFilter": "Clear filters",
+    "totalItems": "{{count}} items",
+    "createFirst": "Create the first task",
+    "breadcrumbTasks": "SWE tasks",
+    "statusPending": "Pending",
+    "statusRunning": "Running",
+    "statusCompleted": "Completed",
+    "statusFailed": "Failed",
+    "statusCancelled": "Cancelled"
+  },
+  "terminalLog": {
+    "executionLog": "Execution log",
+    "itemCount": "({{count}} items)",
+    "live": "Live",
+    "autoScroll": "Auto-scroll",
+    "loadingLogs": "Loading logs...",
+    "noLogs": "No logs"
+  },
+  "task": {
+    "unnamedIssue": "Unnamed Issue",
+    "taskId": "Task ID",
+    "status": "Status",
+    "currentPhase": "Current Phase",
+    "repo": "Repository",
+    "duration": "Duration"
+  },
+  "tile": {
+    "strategy": "Strategy",
+    "testsPassed": "passed",
+    "unknownRepo": "unknown",
+    "completedTag": "COMPLETED",
+    "failedTag": "FAILED"
+  },
+  "card": {
+    "agentLabel": "Agent",
+    "strategyLabel": "Strategy",
+    "testsLabel": "Tests",
+    "passRate": "Pass rate",
+    "fixedTimes": "Fixed {{count}} times",
+    "phaseLabels": {
+      "idle": "Idle",
+      "cloning": "Cloning repo",
+      "setup": "Environment setup",
+      "analyzing": "Analyzing issue",
+      "fixing": "Fixing code",
+      "testing": "Running tests",
+      "verifying": "Verifying result",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "phases": {
+    "idle": "Ready",
+    "idleDesc": "Waiting to start",
+    "cloning": "Cloning",
+    "cloningDesc": "Cloning repository",
+    "setup": "Setup",
+    "setupDesc": "Configuring environment",
+    "analyzing": "Analyzing",
+    "analyzingDesc": "Analyzing issue",
+    "fixing": "Fixing",
+    "fixingDesc": "Generating fix",
+    "testing": "Testing",
+    "testingDesc": "Running tests",
+    "verifying": "Verifying",
+    "verifyingDesc": "Verifying fix",
+    "completed": "Done",
+    "completedDesc": "Task complete"
+  },
+  "status": {
+    "pending": "Pending",
+    "running": "Running",
+    "completed": "Completed",
+    "failed": "Failed",
+    "cancelled": "Cancelled"
+  },
+  "actions": {
+    "retryTitle": "Confirm Retry",
+    "retryContent": "This will re-execute the task with the same configuration. Continue?",
+    "retrySuccess": "Task restarted",
+    "retryFailed": "Retry failed",
+    "repairTitle": "Confirm Auto-Repair",
+    "repairContent": "AI will analyze test failures and attempt automatic repair. This may take some time.",
+    "repairSuccess": "Auto-repair started",
+    "repairFailed": "Failed to start repair",
+    "cancelTitle": "Confirm Cancel",
+    "cancelContent": "Are you sure you want to cancel the running task?",
+    "cancelKeep": "Keep Running",
+    "cancelSuccess": "Task cancelled",
+    "cancelFailed": "Cancel failed",
+    "exportSuccess": "Code exported",
+    "exportFailed": "Export failed",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "form": {
+    "repoUrlRequired": "Please enter GitHub repository URL",
+    "repoUrlInvalid": "Please enter a valid GitHub repository URL",
+    "issueRequired": "Please enter issue number",
+    "agentRequired": "Please select an Agent"
+  },
+  "coverage": {
+    "line": "Line Coverage",
+    "function": "Function Coverage",
+    "branch": "Branch Coverage",
+    "statement": "Statement Coverage"
+  },
+  "createPage": {
+    "breadcrumbCreate": "Create Task",
+    "title": "Create SWE Task",
+    "subtitle": "Fix software engineering issues based on real GitHub Issues",
+    "back": "Back",
+    "loadingAgents": "Loading agents...",
+    "loadAgentsFailed": "Failed to load agents",
+    "createSuccess": "SWE task created successfully",
+    "alertTitle": "🐛 SWE-bench Task Description",
+    "alertDescOne": "SWE-bench tasks will automatically clone the specified GitHub repository, analyze the issue content, use AI Agent to generate fix code, and run tests to verify the fix.",
+    "alertDescTwo": "Please ensure the repository is publicly accessible and the issue contains sufficient context.",
+    "tipsTitle": "💡 Tips:",
+    "tipCache": "First time using a repository will automatically clone and cache it, subsequent tasks will use the cache.",
+    "tipSmartTest": "It is recommended to select \"Smart Test\" strategy to save time and resources.",
+    "tipAutoFix": "Enable smart fix to automatically attempt fixes when tests fail."
+  },
+  "createForm": {
+    "steps": {
+      "repo": {
+        "title": "Repo config",
+        "description": "Configure GitHub repository and issue info"
+      },
+      "agent": {
+        "title": "Agent selection",
+        "description": "Choose the AI agent that will fix the code"
+      },
+      "test": {
+        "title": "Test config",
+        "description": "Configure test strategy and retry options"
+      }
+    },
+    "errors": {
+      "repoUrlRequired": "Please enter the GitHub repository URL",
+      "repoUrlInvalid": "Please enter a valid GitHub repository URL",
+      "issueRequired": "Please enter the issue number",
+      "agentRequired": "Please select an agent"
+    },
+    "repo": {
+      "urlLabel": "Repository URL",
+      "issueNumberLabel": "Issue Number",
+      "issueNumberPlaceholder": "e.g. 123",
+      "issueTitleLabel": "Issue Title",
+      "issueTitlePlaceholder": "Will be auto-fetched from GitHub",
+      "issueTitleOptional": "Optional",
+      "issueTitleHint": "// Auto-fetched from the GitHub issue",
+      "issueDescLabel": "Issue Description",
+      "issueDescPlaceholder": "Detailed description of the issue..."
+    },
+    "agent": {
+      "title": "Select AI Agent",
+      "searchPlaceholder": "Search agents...",
+      "noMatch": "No matching agents found",
+      "noAgents": "No agents available",
+      "unknownType": "unknown"
+    },
+    "testSection": {
+      "title": "Test Strategy",
+      "maxRetriesHint": "Number of automatic retries after test failure",
+      "autoFixDesc": "Automatically attempt to fix code when tests fail"
+    },
+    "actions": {
+      "back": "Back",
+      "next": "Next Step",
+      "createTask": "Create Task",
+      "creating": "Creating..."
+    }
+  },
+  "issueInput": {
+    "placeholder": "Issue #",
+    "fetchInfo": "Fetch Issue info",
+    "viewOnGitHub": "View on GitHub"
+  },
+  "testStrategy": {
+    "recommendation": "Recommended",
+    "full": {
+      "label": "Full Test",
+      "description": "Run all test cases to ensure the fix doesn't introduce new issues"
+    },
+    "smart": {
+      "label": "Smart Test",
+      "description": "Run only tests related to the changes, saving time and resources"
+    },
+    "skip": {
+      "label": "Skip Tests",
+      "description": "Skip tests, just generate the fix code"
+    }
+  },
+  "progress": {
+    "unknown": "Unknown",
+    "startedAt": "Started at",
+    "elapsedTime": "Elapsed",
+    "phaseLabels": {
+      "idle": "Ready",
+      "cloning": "Cloning repo",
+      "setup": "Environment setup",
+      "analyzing": "Analyzing issue",
+      "fixing": "Fixing code",
+      "testing": "Running tests",
+      "verifying": "Verifying result",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "gitBranch": {
+    "noHistory": "No fix history",
+    "duration": "Duration",
+    "inProgress": "In progress...",
+    "filesCount": "{{count}} files",
+    "moreFiles": "+{{count}} more"
+  },
+  "test": {
+    "fullTest": "Full Test",
+    "fullTestDesc": "Run all test cases to ensure the fix doesn't introduce new issues",
+    "failedCases": "Failed Test Cases",
+    "noResult": "No test result",
+    "overviewTitle": "Test Result Overview",
+    "allPassed": "All passed",
+    "totalTests": "Total tests",
+    "passed": "Passed",
+    "failed": "Failed",
+    "skipped": "Skipped",
+    "passRate": "Pass rate",
+    "duration": "Duration",
+    "coverageTitle": "Code Coverage",
+    "caseFile": "File",
+    "caseLine": "Line",
+    "caseDuration": "Duration",
+    "durationSeconds": "{{count}}s",
+    "durationMinutesSeconds": "{{minutes}}m {{seconds}}s"
+  },
+  "cache": {
+    "title": "Repository Cache",
+    "deleteTitle": "Confirm Delete Cache",
+    "deleteDesc": "Next use will require re-downloading",
+    "columns": {
+      "repoName": "Repo name",
+      "url": "URL",
+      "size": "Size",
+      "status": "Status",
+      "cachedAt": "Cached at",
+      "commitCount": "Commits",
+      "actions": "Actions"
+    },
+    "statusLabels": {
+      "cached": "Cached",
+      "updating": "Updating",
+      "error": "Error"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "delete": "Delete",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "stats": {
+      "cachedRepos": "Cached repos",
+      "totalSize": "Total size",
+      "updating": "Updating",
+      "preheat": "Preheat cache",
+      "storageUsage": "Storage usage",
+      "totalCount": "{{total}} cached items"
+    }
+  },
+  "detail": {
+    "duration": {
+      "seconds": "{{count}}s",
+      "minutesSeconds": "{{minutes}}m {{seconds}}s",
+      "hoursMinutes": "{{hours}}h {{minutes}}m"
+    },
+    "breadcrumbTasks": "SWE tasks",
+    "breadcrumbDetail": "Task detail",
+    "back": "Back",
+    "refresh": "Refresh",
+    "live": "Live",
+    "runningTitle": "⚡ Task is running",
+    "runningDesc": "Progress updates in real time. View logs for details.",
+    "loading": "Loading...",
+    "notFound": "Task not found",
+    "backToList": "Back to list",
+    "tabs": {
+      "overview": "Overview",
+      "logs": "Execution logs",
+      "result": "Test result",
+      "history": "Fix history",
+      "live": "Live"
+    },
+    "basicInfo": "Basic info",
+    "issueDesc": "Issue description",
+    "expandMore": "Expand more ▼",
+    "errorInfo": "Error info",
+    "executionPhases": "Execution phases",
+    "labels": {
+      "taskId": "Task ID",
+      "status": "Status",
+      "currentPhase": "Current phase",
+      "repo": "Repository",
+      "viewRepo": "View repository",
+      "issue": "Issue",
+      "noTitle": "No title",
+      "agent": "Agent",
+      "testStrategy": "Test strategy",
+      "maxRetries": "Max retries",
+      "autoFix": "Auto-fix",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "fixAttempts": "Fix attempts",
+      "fixAttemptsCount": "{{count}} times",
+      "progress": "Progress",
+      "createdAt": "Created at",
+      "startedAt": "Started at",
+      "completedAt": "Completed at",
+      "executionTime": "Execution time"
+    },
+    "buttons": {
+      "cancelTask": "Cancel task",
+      "rerun": "Re-run",
+      "autoFix": "Auto-fix",
+      "exportCode": "Export code"
+    },
+    "messages": {
+      "refreshed": "Refreshed"
+    }
+  }
+}

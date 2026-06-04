@@ -1,0 +1,185 @@
+{
+  "title": "UI Style Preview",
+  "description": "Showcase three UI styles to help pick the right design",
+  "tabs": {
+    "enterprise": "🏢 Enterprise",
+    "modern": "✨ Modern Minimalist",
+    "developer": "👨‍💻 Developer Tools"
+  },
+  "styleDesc": {
+    "enterprise": "Enterprise - serious, professional, trustworthy; ideal for B2B internal use",
+    "modern": "Modern Minimalist - light, clean, contemporary (Vercel-like); ideal for tech companies / startups",
+    "developer": "Developer Tools - function-first, high information density, dark-friendly (GitHub/GitLab-like)"
+  },
+  "sections": {
+    "componentShowcase": "Component Showcase",
+    "dashboardPreview": "Full Dashboard Preview"
+  },
+  "showcase": {
+    "buttons": {
+      "title": "Buttons",
+      "primary": "Primary Button",
+      "default": "Default Button",
+      "dashed": "Dashed Button",
+      "danger": "Danger Button",
+      "icon": "Icon Button",
+      "link": "Link Button",
+      "loading": "Loading",
+      "disabled": "Disabled Button"
+    },
+    "inputs": {
+      "title": "Inputs",
+      "inputPlaceholder": "Enter content",
+      "searchPlaceholder": "Search",
+      "textareaPlaceholder": "Multi-line text input",
+      "passwordPlaceholder": "Password input",
+      "prefixSuffixPlaceholder": "With prefix and suffix"
+    },
+    "selects": {
+      "title": "Selects",
+      "selectPlaceholder": "Please select",
+      "multiplePlaceholder": "Multiple",
+      "option1": "Option 1",
+      "option2": "Option 2",
+      "option3": "Option 3",
+      "datePlaceholder": "Select date",
+      "startDate": "Start date",
+      "endDate": "End date"
+    },
+    "status": {
+      "title": "Status Indicators",
+      "pending": "Pending",
+      "running": "Running",
+      "success": "Success",
+      "failed": "Failed",
+      "warning": "Warning",
+      "blueTag": "Blue Tag",
+      "greenTag": "Green Tag",
+      "goldTag": "Gold Tag",
+      "redTag": "Red Tag",
+      "purpleTag": "Purple Tag",
+      "completed": "Completed",
+      "processing": "Processing",
+      "failedTag": "Failed",
+      "todo": "Pending"
+    },
+    "progress": {
+      "title": "Progress"
+    },
+    "switches": {
+      "title": "Switches & Checkboxes",
+      "checkbox": "Checkbox",
+      "unchecked": "Unchecked",
+      "disabled": "Disabled",
+      "optionA": "Option A",
+      "optionB": "Option B",
+      "optionC": "Option C"
+    },
+    "statistics": {
+      "title": "Statistics",
+      "totalVisits": "Total Visits",
+      "taskComplete": "Tasks Completed",
+      "activeUsers": "Active Users",
+      "growthRate": "Growth Rate"
+    },
+    "alerts": {
+      "title": "Alerts",
+      "success": "Success message",
+      "info": "Info message",
+      "warning": "Warning message",
+      "error": "Error message",
+      "description": "Detailed description",
+      "descriptionDetail": "This is a detailed description providing more information to the user."
+    },
+    "others": {
+      "title": "Other Controls",
+      "sliderLabel": "Slider",
+      "tooltipText": "Tooltip text",
+      "hoverHint": "Hover hint",
+      "popoverContent": "Popover content",
+      "popoverTitle": "Title",
+      "clickHint": "Click to popover",
+      "download": "Download",
+      "upload": "Upload",
+      "settings": "Settings"
+    }
+  },
+  "dashboard": {
+    "siderTitle": "MyAgent",
+    "menu": {
+      "dashboard": "Dashboard",
+      "tasks": "Benchmark Tasks",
+      "executions": "Executions",
+      "agents": "Agent Management",
+      "settings": "System Settings"
+    },
+    "table": {
+      "name": "Task Name",
+      "status": "Status",
+      "agent": "Agent",
+      "progress": "Progress",
+      "duration": "Duration",
+      "action": "Actions",
+      "view": "View",
+      "log": "Log"
+    },
+    "status": {
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed",
+      "pending": "Pending"
+    },
+    "rows": {
+      "row1Name": "CodeReview Benchmark",
+      "row1Duration": "2m 30s",
+      "row2Name": "Python Programming Assessment",
+      "row2Duration": "5m 12s",
+      "row3Name": "Web Search Task Test",
+      "row3Duration": "1m 20s",
+      "row4Name": "Data Analysis Benchmark",
+      "row5Name": "Multi-turn Dialog Test",
+      "row5Duration": "3m 45s"
+    },
+    "chart": {
+      "successRate": "Success Rate",
+      "avgDuration": "Avg Duration",
+      "successRateLabel": "Success Rate (%)",
+      "avgDurationLabel": "Avg Duration (s)",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "userMenu": {
+      "profile": "Profile",
+      "settings": "Account Settings",
+      "logout": "Log out"
+    },
+    "header": {
+      "breadcrumb": "Dashboard",
+      "searchPlaceholder": "Search...",
+      "adminText": "Admin"
+    },
+    "stats": {
+      "totalTasks": "Total Tasks",
+      "successRate": "Success Rate",
+      "running": "Running",
+      "avgDuration": "Avg Duration",
+      "vsLastWeek": "vs last week",
+      "currentlyExecuting": "Currently executing",
+      "suffixCount": "",
+      "suffixSeconds": "s",
+      "suffixPercent": "%"
+    },
+    "cards": {
+      "trendTitle": "Weekly Execution Trend",
+      "newTaskBtn": "New Task",
+      "recentTitle": "Recent Executions",
+      "filterBtn": "Filter",
+      "exportBtn": "Export"
+    }
+  }
+}

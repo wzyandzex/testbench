@@ -1,0 +1,199 @@
+{
+  "contract_version": "2026-03-09.v4",
+  "generated_at": "2026-03-09T05:13:58Z",
+  "source": "internal/api/router/router.go",
+  "base": "/api/v1",
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/auth/avatar",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Update avatar"
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/delete",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Delete account"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Send email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/email/verify/confirm",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Confirm email verification"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "User login"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Logout"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Current user"
+    },
+    {
+      "method": "PUT",
+      "path": "/auth/password",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Change password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Request password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/password/reset/confirm",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Confirm password reset"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/refresh",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Refresh token"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "Register"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/alerts",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache alerts"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/kpi",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache KPI snapshot"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache stats by prefix"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/history",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache history"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/latency",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache latency"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/stats/:prefix/topkeys",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Top cache keys"
+    },
+    {
+      "method": "GET",
+      "path": "/cache/summary",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Cache summary"
+    },
+    {
+      "method": "GET",
+      "path": "/cost/models",
+      "consumer": "shared",
+      "scope": "org",
+      "requires_org": true,
+      "description": "List model costs"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "consumer": "shared",
+      "scope": "public",
+      "requires_org": false,
+      "description": "API health check"
+    },
+    {
+      "method": "POST",
+      "path": "/user/current-organization",
+      "consumer": "shared",
+      "scope": "authenticated",
+      "requires_org": false,
+      "description": "Switch current organization"
+    }
+  ],
+  "optional_routes": [],
+  "notes": [
+    "Scope order: public < authenticated < org < org_admin < sys_admin.",
+    "requires_org=true means send X-Org-ID (X-Organization-Id is backward-compatible).",
+    "Frontend allow-listing is advisory; backend authorization is authoritative."
+  ],
+  "source_commit": "65e5999"
+}

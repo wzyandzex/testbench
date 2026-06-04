@@ -1,0 +1,90 @@
+{
+  "title": "修复运行",
+  "list": {
+    "noData": "当前没有可用的 Repair Run 数据。",
+    "allStatus": "全部状态",
+    "continuityFiltered": "当前列表已经按 continuity 上下文做了过滤。",
+    "hubNotice": "把这个页面当作 Repair hub 来使用。",
+    "hubNoticeDesc": "你可以直接从这里查看完整的 Repair 队列，也可以从 Project Eval 页面带着 continuity 过滤跳转过来。",
+    "detailDesc": "用于查看 Planning、Apply、Replay 和 Project Eval 连续性的标准 Repair 详情页。",
+    "repairViewDesc": "查看 Repair 工作流状态，保留 Project Eval continuity，并打开标准的 Repair Run 地址。",
+    "filterShareHint": "当前筛选条件会保存在 URL 里，所以这个列表状态可以被直接收藏或分享。"
+  },
+  "table": {
+    "status": "状态",
+    "phase": "阶段",
+    "updatedAt": "更新时间"
+  },
+  "detail": {
+    "lifecycle": "Lifecycle 详情",
+    "status": "状态",
+    "currentPhase": "当前阶段",
+    "latestPlanVersion": "最新 Plan 版本",
+    "approvedPlanVersion": "已批准 Plan 版本",
+    "dispatchStatus": "分发状态",
+    "retryable": "是否可重试",
+    "approvedBy": "批准人",
+    "approvedAt": "批准时间",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "taskTitle": "标题",
+    "taskGoal": "目标",
+    "constraints": "约束",
+    "triggerReason": "触发原因",
+    "summary": "摘要",
+    "selectedCases": "已选 Cases",
+    "continuityNotice": "当前 Repair run 是带着 continuity 上下文打开的。",
+    "loadFailed": "无法加载该 Repair Run。",
+    "urlHint": "你可以通过这个稳定 URL 跟踪当前 Repair 工作流，并在需要时跳回来源评估或 Replay 后的评估。",
+    "repairTaskCard": "Repair task",
+    "triggerSnapshotCard": "Trigger snapshot",
+    "latestPlanLabel": "Latest Plan",
+    "approvedPlanLabel": "Approved Plan"
+  },
+  "plan": {
+    "version": "版本",
+    "summary": "摘要",
+    "risk": "风险",
+    "description": "说明",
+    "steps": "步骤"
+  },
+  "actions": {
+    "startPlanning": "开始 Planning",
+    "approvePlan": "批准 Plan",
+    "startApply": "开始 Apply",
+    "requestReplay": "请求 Replay",
+    "retryPlanning": "重试 Planning",
+    "retryApply": "重试 Apply",
+    "cancelRun": "取消 Run",
+    "confirm": "确认",
+    "cancel": "取消",
+    "agentIdRequired": "请先输入 agent ID。",
+    "completed": "{{label}}已完成。",
+    "failed": "{{label}}失败。",
+    "confirmAction": "确认执行{{label}}？",
+    "backToList": "返回 Repair Runs",
+    "refresh": "刷新",
+    "openSourceProjectEval": "打开来源 Project Eval",
+    "openReplayProjectEval": "打开 Replay Project Eval",
+    "openReplayReport": "打开 Replay Report",
+    "openReplayExplain": "打开 Replay Explain",
+    "openFilteredList": "打开筛选后的 Repair 列表",
+    "openRelatedRepairs": "打开已关联 Replay 的 Repairs",
+    "clearContinuity": "清空 continuity 过滤"
+  },
+  "create": {
+    "title": "创建 Repair Run",
+    "okText": "创建",
+    "success": "Repair Run 已创建。",
+    "failed": "当前无法创建 Repair Run。",
+    "prefilled": "这个草稿已经从 Project Eval 预填。",
+    "titlePlaceholder": "可选的短标题",
+    "goalPlaceholder": "可选的 Repair 任务目标",
+    "taskTitleLabel": "任务标题",
+    "taskObjectiveLabel": "任务目标"
+  },
+  "bool": {
+    "yes": "是",
+    "no": "否"
+  }
+}

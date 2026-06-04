@@ -1,0 +1,185 @@
+{
+  "title": "UI 风格预览",
+  "description": "用于展示三种 UI 风格的效果，帮助选择合适的设计风格",
+  "tabs": {
+    "enterprise": "🏢 企业级风格",
+    "modern": "✨ 现代简约风格",
+    "developer": "👨‍💻 开发者工具风格"
+  },
+  "styleDesc": {
+    "enterprise": "企业级风格 - 严肃、专业、可信赖，适合 B 端企业内部使用",
+    "modern": "现代简约风格 - 轻量、简洁、现代，类似 Vercel 风格，适合科技公司/创业团队",
+    "developer": "开发者工具风格 - 功能至上、高信息密度、暗色友好，类似 GitHub/GitLab 风格"
+  },
+  "sections": {
+    "componentShowcase": "基础组件展示",
+    "dashboardPreview": "Dashboard 完整预览"
+  },
+  "showcase": {
+    "buttons": {
+      "title": "按钮 Buttons",
+      "primary": "主要按钮",
+      "default": "默认按钮",
+      "dashed": "虚线按钮",
+      "danger": "危险按钮",
+      "icon": "图标按钮",
+      "link": "链接按钮",
+      "loading": "加载中",
+      "disabled": "禁用按钮"
+    },
+    "inputs": {
+      "title": "输入框 Inputs",
+      "inputPlaceholder": "请输入内容",
+      "searchPlaceholder": "搜索框",
+      "textareaPlaceholder": "多行文本输入",
+      "passwordPlaceholder": "密码输入",
+      "prefixSuffixPlaceholder": "带前后缀"
+    },
+    "selects": {
+      "title": "选择器 Selects",
+      "selectPlaceholder": "请选择",
+      "multiplePlaceholder": "多选",
+      "option1": "选项一",
+      "option2": "选项二",
+      "option3": "选项三",
+      "datePlaceholder": "选择日期",
+      "startDate": "开始日期",
+      "endDate": "结束日期"
+    },
+    "status": {
+      "title": "状态指示 Status",
+      "pending": "等待中",
+      "running": "运行中",
+      "success": "成功",
+      "failed": "失败",
+      "warning": "警告",
+      "blueTag": "蓝色标签",
+      "greenTag": "绿色标签",
+      "goldTag": "金色标签",
+      "redTag": "红色标签",
+      "purpleTag": "紫色标签",
+      "completed": "已完成",
+      "processing": "处理中",
+      "failedTag": "失败",
+      "todo": "待处理"
+    },
+    "progress": {
+      "title": "进度条 Progress"
+    },
+    "switches": {
+      "title": "开关和复选框 Switches & Checkboxes",
+      "checkbox": "复选框",
+      "unchecked": "未选中",
+      "disabled": "禁用",
+      "optionA": "选项 A",
+      "optionB": "选项 B",
+      "optionC": "选项 C"
+    },
+    "statistics": {
+      "title": "统计数字 Statistics",
+      "totalVisits": "总访问量",
+      "taskComplete": "任务完成",
+      "activeUsers": "活跃用户",
+      "growthRate": "增长率"
+    },
+    "alerts": {
+      "title": "警示框 Alerts",
+      "success": "成功提示",
+      "info": "信息提示",
+      "warning": "警告提示",
+      "error": "错误提示",
+      "description": "详细描述",
+      "descriptionDetail": "这是一段详细的描述文字，用于提供更多的信息给用户阅读。"
+    },
+    "others": {
+      "title": "其他控件 Others",
+      "sliderLabel": "滑块 Slider",
+      "tooltipText": "提示文字",
+      "hoverHint": "悬停提示",
+      "popoverContent": "这是弹出内容",
+      "popoverTitle": "标题",
+      "clickHint": "点击弹出",
+      "download": "下载",
+      "upload": "上传",
+      "settings": "设置"
+    }
+  },
+  "dashboard": {
+    "siderTitle": "MyAgent",
+    "menu": {
+      "dashboard": "仪表盘",
+      "tasks": "评测任务",
+      "executions": "执行记录",
+      "agents": "Agent 管理",
+      "settings": "系统设置"
+    },
+    "table": {
+      "name": "任务名称",
+      "status": "状态",
+      "agent": "Agent",
+      "progress": "进度",
+      "duration": "执行时间",
+      "action": "操作",
+      "view": "查看",
+      "log": "日志"
+    },
+    "status": {
+      "running": "运行中",
+      "completed": "已完成",
+      "failed": "失败",
+      "pending": "等待中"
+    },
+    "rows": {
+      "row1Name": "CodeReview 基准测试",
+      "row1Duration": "2分30秒",
+      "row2Name": "Python 编程能力评估",
+      "row2Duration": "5分12秒",
+      "row3Name": "Web 搜索任务测试",
+      "row3Duration": "1分20秒",
+      "row4Name": "数据分析基准测试",
+      "row5Name": "多轮对话能力测试",
+      "row5Duration": "3分45秒"
+    },
+    "chart": {
+      "successRate": "成功率",
+      "avgDuration": "平均耗时",
+      "successRateLabel": "成功率 (%)",
+      "avgDurationLabel": "平均耗时 (s)",
+      "mon": "周一",
+      "tue": "周二",
+      "wed": "周三",
+      "thu": "周四",
+      "fri": "周五",
+      "sat": "周六",
+      "sun": "周日"
+    },
+    "userMenu": {
+      "profile": "个人资料",
+      "settings": "账户设置",
+      "logout": "退出登录"
+    },
+    "header": {
+      "breadcrumb": "仪表盘",
+      "searchPlaceholder": "搜索...",
+      "adminText": "管理员"
+    },
+    "stats": {
+      "totalTasks": "总任务数",
+      "successRate": "成功率",
+      "running": "运行中",
+      "avgDuration": "平均耗时",
+      "vsLastWeek": "较上周",
+      "currentlyExecuting": "当前执行中",
+      "suffixCount": "个",
+      "suffixSeconds": "s",
+      "suffixPercent": "%"
+    },
+    "cards": {
+      "trendTitle": "本周执行趋势",
+      "newTaskBtn": "新建任务",
+      "recentTitle": "最近执行记录",
+      "filterBtn": "筛选",
+      "exportBtn": "导出"
+    }
+  }
+}

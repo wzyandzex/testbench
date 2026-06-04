@@ -1,0 +1,148 @@
+{
+  "title": "个人设置",
+  "description": "这里优先展示后端真实支持的账号能力；未开放的部分会明确说明，避免出现点了就报错的假按钮。",
+  "account": {
+    "title": "账号信息",
+    "username": "用户名",
+    "email": "邮箱",
+    "role": "角色",
+    "currentUser": "当前用户"
+  },
+  "avatar": {
+    "notice": "后端当前只支持通过 avatar_url 更新头像",
+    "noticeDesc": "直接上传文件会被后端返回 501，请填写一个可访问的图片 URL。",
+    "urlLabel": "头像地址",
+    "urlRequired": "请输入头像图片地址",
+    "urlInvalid": "请输入有效的 URL",
+    "updated": "头像已更新",
+    "uploadFailed": "上传失败"
+  },
+  "profile": {
+    "notice": "资料编辑接口尚未开放",
+    "noticeDesc": "后端目前没有提供用户名、个人简介等资料修改接口，所以这里不再展示假的保存按钮，避免误导用户。",
+    "bio": "这个人很懒，什么也没留下",
+    "editProfile": "编辑资料"
+  },
+  "email": {
+    "title": "更换邮箱",
+    "step1": "填写新邮箱",
+    "step2": "粘贴链接或令牌",
+    "step3": "完成",
+    "notice": "后端会把验证链接发到新邮箱",
+    "noticeDesc": "这不是短信验证码模式。收到邮件后，你可以直接点链接，也可以把完整链接或 token 粘贴回来完成确认。",
+    "currentEmail": "当前邮箱",
+    "newEmail": "新邮箱",
+    "newEmailRequired": "请输入新邮箱地址",
+    "newEmailInvalid": "请输入有效的邮箱地址",
+    "sameEmail": "新邮箱不能与当前邮箱相同",
+    "verificationSent": "验证邮件已发送，请打开新邮箱里的链接完成确认。",
+    "checkEmail": "请前往新邮箱查收验证链接",
+    "tokenLabel": "验证链接或 token",
+    "tokenRequired": "请粘贴邮件中的链接或 token",
+    "tokenPlaceholder": "例如：https://your-frontend/auth/verify-email?token=... 或直接粘贴 token",
+    "success": "邮箱变更成功",
+    "verified": "邮箱验证成功",
+    "updated": "邮箱已更新",
+    "sendVerification": "发送验证邮件",
+    "confirmChange": "确认变更"
+  },
+  "password": {
+    "title": "修改密码",
+    "okText": "更新密码",
+    "rules": "密码规则",
+    "rulesDesc": "至少 8 位，且必须包含大写字母、小写字母和数字。",
+    "currentPassword": "当前密码",
+    "currentRequired": "请输入当前密码",
+    "currentPlaceholder": "请输入当前密码",
+    "newPassword": "新密码",
+    "newRequired": "请输入新密码",
+    "newMin": "密码长度至少为 8 位",
+    "newFormat": "需要同时包含大写字母、小写字母和数字",
+    "newPlaceholder": "请输入新密码",
+    "confirmPassword": "确认新密码",
+    "confirmRequired": "请再次输入新密码",
+    "confirmPlaceholder": "请再次输入新密码",
+    "mismatch": "两次输入的新密码不一致",
+    "updated": "密码已更新"
+  },
+  "deleteAccount": {
+    "title": "注销账号",
+    "okText": "确认注销",
+    "warning": "此操作不可撤销",
+    "warningDesc": "后端会永久删除当前账号以及关联数据，请确认你已经完成必要备份。",
+    "passwordLabel": "当前密码",
+    "passwordRequired": "请输入当前密码以确认身份",
+    "passwordPlaceholder": "请输入当前密码",
+    "confirmRequired": "请先确认要注销账号",
+    "success": "账户已注销"
+  },
+  "twoFactor": {
+    "notice": "两步验证尚未开放",
+    "noticeDesc": "前端之前提供的是假开关，但后端目前没有 2FA 接口。为避免误操作，这里改为明确提示。"
+  },
+  "notifications": {
+    "title": "通知偏好",
+    "notice": "当前为本地偏好",
+    "noticeDesc": "后端暂未提供通知设置同步接口，所以这里会把偏好保存到当前浏览器，保证你至少能快速重复使用自己的常用配置。",
+    "taskComplete": "任务完成提醒",
+    "taskCompleteDesc": "批量任务或单次任务完成后提醒我",
+    "taskFailed": "任务失败提醒",
+    "taskFailedDesc": "任务出错时优先提醒我处理",
+    "systemAnnouncements": "系统公告提醒",
+    "systemAnnouncementsDesc": "平台功能更新或维护时通知我",
+    "emailDigest": "邮件摘要提醒",
+    "emailDigestDesc": "为后续邮件通道预留偏好设置",
+    "saved": "通知偏好已保存到当前浏览器"
+  },
+  "ui": {
+    "title": "界面偏好",
+    "notice": "这里保存的是浏览器侧偏好",
+    "noticeDesc": "布局、主题和语言会立即生效，并保存到当前浏览器，避免刷新后又回到默认值。",
+    "saved": "界面偏好已保存到当前浏览器",
+    "light": "浅色",
+    "dark": "深色",
+    "classic": "经典布局",
+    "modern": "现代布局",
+    "zhCN": "简体中文",
+    "enUS": "English"
+  },
+  "notificationPreview": {
+    "success": {
+      "title": "任务已完成",
+      "message": "您的评测任务 \"Python 代码分析\" 已成功完成，点击查看详细报告。",
+      "time": "刚刚"
+    },
+    "error": {
+      "title": "任务执行失败",
+      "message": "您的评测任务 \"Go 代码审查\" 执行失败，请检查代码后重试。",
+      "time": "2分钟前"
+    },
+    "info": {
+      "title": "系统公告",
+      "message": "系统将于今晚 22:00 进行维护升级，预计耗时 30 分钟。",
+      "time": "1小时前"
+    },
+    "system": {
+      "title": "系统更新通知",
+      "message": "MyAgent 平台已更新至 v2.1.0，新增多项功能优化。",
+      "time": "昨天"
+    },
+    "timelineDefaults": {
+      "successTitle": "任务已完成",
+      "successMessage": "您的评测任务已成功完成",
+      "successTime": "刚刚",
+      "errorTitle": "任务执行失败",
+      "errorMessage": "您的评测任务执行失败，请重试",
+      "errorTime": "2分钟前",
+      "infoTitle": "系统通知",
+      "infoMessage": "您有一条新的系统通知",
+      "infoTime": "1小时前",
+      "systemTitle": "系统更新",
+      "systemMessage": "系统已更新至最新版本",
+      "systemTime": "昨天"
+    }
+  },
+  "loadFailed": "加载失败",
+  "saveFailed": "保存失败",
+  "modifyFailed": "修改失败"
+}

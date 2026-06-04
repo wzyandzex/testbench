@@ -1,0 +1,70 @@
+{
+  "contract_version": "2026-03-05.v2",
+  "roles": [
+    {
+      "role": "guest",
+      "description": "未登录访客"
+    },
+    {
+      "role": "user",
+      "description": "普通登录用户"
+    },
+    {
+      "role": "org-admin",
+      "description": "组织管理员"
+    },
+    {
+      "role": "sys-admin",
+      "description": "系统管理员"
+    }
+  ],
+  "scope_rules": [
+    {
+      "scope": "public",
+      "guest": true,
+      "user": true,
+      "org-admin": true,
+      "sys-admin": true
+    },
+    {
+      "scope": "authenticated",
+      "guest": false,
+      "user": true,
+      "org-admin": true,
+      "sys-admin": true
+    },
+    {
+      "scope": "org",
+      "guest": false,
+      "user": true,
+      "org-admin": true,
+      "sys-admin": true
+    },
+    {
+      "scope": "org_admin",
+      "guest": false,
+      "user": false,
+      "org-admin": true,
+      "sys-admin": true
+    },
+    {
+      "scope": "sys_admin",
+      "guest": false,
+      "user": false,
+      "org-admin": false,
+      "sys-admin": true
+    }
+  ],
+  "route_overrides": [
+    {
+      "path": "/benchmarks/pending",
+      "method": "GET",
+      "rule": "系统管理员可查看全部；组织管理员仅可查看当前组织内待审批项；普通用户不可访问。"
+    },
+    {
+      "path": "/benchmarks/:id/status",
+      "method": "PATCH",
+      "rule": "组织管理员仅可审批 organization 作用域资源；public 资源审批仅系统管理员可执行。"
+    }
+  ]
+}

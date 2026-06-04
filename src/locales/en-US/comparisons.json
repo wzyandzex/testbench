@@ -1,0 +1,140 @@
+{
+  "navLabel": "Arena",
+  "list": {
+    "title": "Arena",
+    "new": "New Battle",
+    "tabs": {
+      "mine": "My Battles",
+      "org": "Shared with Org"
+    },
+    "columns": {
+      "name": "Name",
+      "verdict": "Verdict",
+      "pair": "Reference → Target",
+      "visibility": "Visibility",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "visibility": {
+      "private": "Private",
+      "org": "Org visible"
+    },
+    "actions": {
+      "view": "View",
+      "deleteConfirm": "Delete this battle?"
+    },
+    "empty": {
+      "mine": "No saved battles yet",
+      "org": "No shared battles in this organization"
+    },
+    "deleteSuccess": "Deleted",
+    "total": "{{total}} total"
+  },
+  "view": {
+    "back": "Back",
+    "savedTitle": "Saved Battle",
+    "newTitle": "Arena Battle",
+    "copyLink": "Copy Link",
+    "save": "Save Battle",
+    "referenceLabel": "Reference",
+    "targetLabel": "Target",
+    "executionPlaceholder": "execution ID",
+    "vs": "vs",
+    "generate": "Generate Battle",
+    "sameExecutionWarning": "Reference and Target must be different",
+    "copySuccess": "Link copied",
+    "copyFailed": "Copy failed",
+    "emptyReady": "Click \"Generate Battle\" to start",
+    "emptyInput": "Enter two execution IDs to start a battle",
+    "notes": "Notes",
+    "summary": {
+      "referenceAgent": "Reference Agent",
+      "targetAgent": "Target Agent",
+      "referenceTime": "Reference Time",
+      "targetTime": "Target Time",
+      "referenceStatus": "Reference Status",
+      "targetStatus": "Target Status"
+    },
+    "tabs": {
+      "metrics": "Metrics & Cost ({{count}})",
+      "config": "Config",
+      "trace": "Trace",
+      "diverged": "Diverged"
+    }
+  },
+  "saveModal": {
+    "defaultName": "Battle {{reference}} vs {{target}}",
+    "title": "Save Battle Session",
+    "ok": "Save",
+    "cancel": "Cancel",
+    "name": "Name",
+    "nameRequired": "Enter a name",
+    "description": "Description",
+    "descriptionPlaceholder": "Briefly describe the purpose of this battle",
+    "notes": "Notes (Markdown)",
+    "notesPlaceholder": "Record conclusions, action items, or context",
+    "visibility": "Visibility",
+    "private": "Only me",
+    "org": "Visible to org",
+    "success": "Battle saved"
+  },
+  "verdict": {
+    "improved": "Improved",
+    "regressed": "Regressed",
+    "mixed": "Mixed",
+    "equivalent": "Equivalent",
+    "pair": "Reference: {{reference}} → Target: {{target}}"
+  },
+  "changeKind": {
+    "unchanged": "Same",
+    "improved": "Improved",
+    "regressed": "Regressed",
+    "different": "Different"
+  },
+  "metrics": {
+    "empty": "No metrics data",
+    "higherIsBetter": "Higher is better",
+    "lowerIsBetter": "Lower is better",
+    "columns": {
+      "metric": "Metric",
+      "reference": "Reference",
+      "target": "Target",
+      "delta": "Delta",
+      "magnitude": "Magnitude"
+    },
+    "fallbackOnly": "One or both sides are missing metrics_records data; only basic resource metrics are shown."
+  },
+  "config": {
+    "empty": "No configuration data",
+    "columns": {
+      "item": "Config Item",
+      "reference": "Reference",
+      "target": "Target",
+      "change": "Change"
+    },
+    "differentBenchmarkTitle": "Different Benchmarks",
+    "differentBenchmarkDescription": "The two executions ran different benchmarks, so performance comparison is only directional.",
+    "sameBenchmarkDifferentAgentTitle": "Same Benchmark, Different Agents",
+    "sameBenchmarkDifferentAgentDescription": "This is suitable for comparing how different Agents perform on the same task."
+  },
+  "trace": {
+    "empty": "No trace data",
+    "none": "None",
+    "step": "step {{index}}",
+    "error": "error",
+    "noAction": "no action",
+    "skipped": "Skipped {{count}} identical middle steps",
+    "totalSteps": "{{count}} steps",
+    "divergedTitle": "Diverged at step {{index}}",
+    "divergedDescription": "Both sides share the first {{prefix}} steps, then diverge at step {{index}}.",
+    "identical": "Execution paths are identical",
+    "truncatedTitle": "Trace is long; showing {{shown}} of {{total}} items",
+    "truncatedDescription": "The tail of this long trace was truncated to keep the page responsive. Open the Execution detail page for the full trace.",
+    "legend": "Legend",
+    "legendCommon": "Common step",
+    "legendDifferent": "Same step number, different content",
+    "legendOnlyTarget": "Only Target",
+    "legendOnlyReference": "Only Reference",
+    "legendCollapsed": "Collapsed identical steps"
+  }
+}

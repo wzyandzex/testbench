@@ -1,0 +1,201 @@
+/**
+ * 现代暗色主题 - 沉浸式数据中心
+ */
+
+[data-modern-theme='dark'] {
+  /* 品牌渐变色 */
+  --brand-gradient-start: #667eea;
+  --brand-gradient-mid: #764ba2;
+  --brand-gradient-end: #f093fb;
+  --brand-gradient-full: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+  /* 主色 */
+  --color-primary: #667eea;
+  --color-primary-hover: #7b94f2;
+  --color-primary-active: #5568d3;
+  --color-primary-bg: rgba(102, 126, 234, 0.15);
+  --color-primary-glow: rgba(102, 126, 234, 0.4);
+
+  /* 功能色 */
+  --color-success: #10b981;
+  --color-success-hover: #34d399;
+  --color-success-bg: rgba(16, 185, 129, 0.15);
+  --color-success-glow: rgba(16, 185, 129, 0.3);
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #fbbf24;
+  --color-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-warning-glow: rgba(245, 158, 11, 0.3);
+
+  --color-error: #ef4444;
+  --color-error-hover: #f87171;
+  --color-error-bg: rgba(239, 68, 68, 0.15);
+  --color-error-glow: rgba(239, 68, 68, 0.3);
+
+  --color-info: #3b82f6;
+  --color-info-hover: #60a5fa;
+  --color-info-bg: rgba(59, 130, 246, 0.15);
+  --color-info-glow: rgba(59, 130, 246, 0.3);
+
+  /* 中性色 */
+  --color-text-primary: rgba(255, 255, 255, 0.95);
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-tertiary: rgba(255, 255, 255, 0.45);
+  --color-text-disabled: rgba(255, 255, 255, 0.25);
+
+  /* 背景色 */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-quaternary: #262626;
+  --color-bg-elevated: #1f1f1f;
+
+  /* 边框色 */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
+
+  /* 玻璃拟态效果 */
+  --glass-bg: rgba(26, 26, 26, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(102, 126, 234, 0.4);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* 间距 */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* 导航栏 */
+  --navbar-height: 56px;
+  --navbar-bg: rgba(10, 10, 10, 0.8);
+  --navbar-border: rgba(102, 126, 234, 0.3);
+
+  /* 侧边栏 */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 72px;
+
+  /* 卡片 */
+  --card-bg: rgba(26, 26, 26, 0.8);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-bg: rgba(31, 31, 31, 0.9);
+  --card-hover-border: rgba(102, 126, 234, 0.3);
+
+  /* 过渡动画 */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 网格背景 */
+[data-modern-theme='dark'] .modern-grid-bg {
+  background-image:
+    linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 玻璃拟态卡片 */
+[data-modern-theme='dark'] .glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* 发光边框 */
+[data-modern-theme='dark'] .glow-border {
+  position: relative;
+}
+
+[data-modern-theme='dark'] .glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--brand-gradient-full);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity var(--transition-normal);
+}
+
+[data-modern-theme='dark'] .glow-border:hover::before {
+  opacity: 1;
+}
+
+/* 动画定义 */
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -40px) scale(1.05); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+@keyframes particle-rise {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 渐变文字 */
+[data-modern-theme='dark'] .gradient-text {
+  background: var(--brand-gradient-full);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 导航下划线动画 */
+[data-modern-theme='dark'] .nav-link {
+  position: relative;
+}
+
+[data-modern-theme='dark'] .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--brand-gradient-full);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+[data-modern-theme='dark'] .nav-link.active::after,
+[data-modern-theme='dark'] .nav-link:hover::after {
+  width: 100%;
+}
+
+[data-modern-theme='dark'] .nav-link.active::after {
+  box-shadow: 0 0 10px var(--color-primary-glow);
+}

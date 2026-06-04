@@ -1,0 +1,245 @@
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "refresh": "Refresh",
+    "download": "Download",
+    "upload": "Upload",
+    "copy": "Copy",
+    "back": "Back",
+    "close": "Close",
+    "retry": "Retry",
+    "view": "View",
+    "detail": "Details",
+    "add": "Add",
+    "remove": "Remove",
+    "select": "Select",
+    "clear": "Clear",
+    "reset": "Reset",
+    "start": "Start",
+    "stop": "Stop",
+    "enable": "Enable",
+    "disable": "Disable",
+    "more": "More",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "approve": "Approve",
+    "reject": "Reject",
+    "run": "Run",
+    "pause": "Pause",
+    "resume": "Resume",
+    "configure": "Configure",
+    "preview": "Preview",
+    "calculate": "Calculate"
+  },
+  "status": {
+    "loading": "Loading...",
+    "success": "Operation successful",
+    "failed": "Operation failed",
+    "error": "An error occurred",
+    "empty": "No data",
+    "noResults": "No matching results",
+    "pending": "Pending",
+    "running": "Running",
+    "completed": "Completed",
+    "active": "Active",
+    "inactive": "Inactive",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "online": "Online",
+    "offline": "Offline",
+    "connected": "Connected",
+    "disconnected": "Disconnected"
+  },
+  "pagination": {
+    "total": "{{total}} items",
+    "page": "Page {{page}}",
+    "pageSize": "{{size}} per page",
+    "goto": "Go to",
+    "itemsPerPage": "/ page"
+  },
+  "time": {
+    "justNow": "Just now",
+    "minutesAgo": "{{count}} min ago",
+    "hoursAgo": "{{count}} hours ago",
+    "daysAgo": "{{count}} days ago",
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "duration": "Duration",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At"
+  },
+  "validation": {
+    "required": "{{field}} is required",
+    "minLength": "{{field}} must be at least {{min}} characters",
+    "maxLength": "{{field}} must be at most {{max}} characters",
+    "invalid": "{{field}} format is invalid",
+    "emailInvalid": "Please enter a valid email address",
+    "urlInvalid": "Please enter a valid URL"
+  },
+  "confirm": {
+    "deleteTitle": "Confirm Delete",
+    "deleteContent": "This action cannot be undone. Are you sure?",
+    "cancelTitle": "Confirm Cancel",
+    "unsavedChanges": "You have unsaved changes. Are you sure you want to leave?"
+  },
+  "table": {
+    "action": "Actions",
+    "index": "#",
+    "name": "Name",
+    "description": "Description",
+    "type": "Type",
+    "status": "Status",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "creator": "Creator",
+    "noData": "No data"
+  },
+  "form": {
+    "required": "Required",
+    "optional": "Optional",
+    "placeholder": "Enter",
+    "selectPlaceholder": "Select",
+    "uploadPlaceholder": "Click or drag to upload"
+  },
+  "result": {
+    "success": "Success",
+    "failure": "Failure",
+    "partial": "Partial",
+    "unknown": "Unknown"
+  },
+  "ws": {
+    "connected": "Real-time connection active",
+    "connecting": "Connecting...",
+    "disconnected": "Real-time connection lost",
+    "error": "Connection error",
+    "restored": "Real-time connection restored",
+    "reconnecting": "Connection lost, reconnecting..."
+  },
+  "language": "Language",
+  "components": {
+    "dateRange": {
+      "preset1h": "Last 1 hour",
+      "preset6h": "Last 6 hours",
+      "preset24h": "Last 24 hours",
+      "preset7d": "Last 7 days",
+      "preset30d": "Last 30 days",
+      "preset90d": "Last 90 days",
+      "startDate": "Start date",
+      "endDate": "End date"
+    },
+    "orgSwitcher": {
+      "personal": "Personal",
+      "manageOrg": "Manage Orgs",
+      "createOrg": "Create Org",
+      "roleAdmin": "Admin",
+      "roleMember": "Member",
+      "roleGuest": "Guest"
+    },
+    "multiSelect": {
+      "placeholder": "Select"
+    },
+    "searchBar": {
+      "placeholder": "Search..."
+    },
+    "emptyPage": {
+      "emptyTitle": "No data",
+      "emptyDesc": "Nothing has been created yet",
+      "noResultTitle": "No matching results",
+      "noResultDesc": "Try adjusting your filters"
+    },
+    "emptyState": {
+      "default": "No data",
+      "create": "Create",
+      "refresh": "Refresh"
+    },
+    "statusBadge": {
+      "pending": "Pending",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    },
+    "errorBoundary": {
+      "title": "Page error",
+      "subTitle": "Sorry, an unexpected error occurred on this page.",
+      "retry": "Retry",
+      "backHome": "Back to Home"
+    },
+    "export": {
+      "button": "Export",
+      "quick": {
+        "excel": "Export as Excel",
+        "csv": "Export as CSV",
+        "json": "Export as JSON",
+        "pdf": "Export as PDF",
+        "settings": "Export settings..."
+      },
+      "successMessage": "Exported {{format}} file",
+      "dialog": {
+        "title": "Export Data",
+        "cancel": "Cancel",
+        "start": "Start Export",
+        "exporting": "Exporting",
+        "exportingProgress": "Exporting ({{progress}}%)",
+        "formatTitle": "Select Export Format",
+        "dataRangeTitle": "Data Range",
+        "rangeCurrentPage": "Current page ({{count}} records)",
+        "rangeFiltered": "All filtered results ({{total}} records)",
+        "rangeAll": "All data",
+        "timeRangeLabel": "Time range (optional)",
+        "timeRangeStart": "Start date",
+        "timeRangeEnd": "End date",
+        "optionsTitle": "Export Options",
+        "includeTrace": "Include execution trace",
+        "includeArtifacts": "Include execution artifacts",
+        "includeMetadata": "Include metadata",
+        "compress": "Compress as ZIP",
+        "estimateTitle": "Export Estimate",
+        "estimateRecords": "Approx. <strong>{{total}}</strong> records to export",
+        "estimateSize": "Estimated file size <strong>{{size}}</strong>"
+      },
+      "selector": {
+        "maxRecords": "Up to {{total}} records"
+      },
+      "formats": {
+        "json": "Structured data format, ideal for programmatic processing",
+        "csv": "Comma-separated values — opens in Excel",
+        "excel": "Microsoft Excel workbook",
+        "pdf": "Portable document format — for printing and sharing"
+      },
+      "validation": {
+        "formatRequired": "Please select an export format",
+        "typeRequired": "Please specify an export type"
+      },
+      "typeNames": {
+        "executions": "Executions",
+        "batch": "Batch Report",
+        "benchmarks": "Benchmarks",
+        "metrics": "Metrics"
+      }
+    },
+    "charts": {
+      "valueLabel": "Value",
+      "dataLabel": "Data",
+      "empty": "No data"
+    }
+  }
+}

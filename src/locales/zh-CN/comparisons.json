@@ -1,0 +1,140 @@
+{
+  "navLabel": "Arena",
+  "list": {
+    "title": "Arena",
+    "new": "新建对战",
+    "tabs": {
+      "mine": "我的对战",
+      "org": "组织共享"
+    },
+    "columns": {
+      "name": "名称",
+      "verdict": "结论",
+      "pair": "Reference → Target",
+      "visibility": "可见性",
+      "created": "创建",
+      "actions": "操作"
+    },
+    "visibility": {
+      "private": "私有",
+      "org": "组织内可见"
+    },
+    "actions": {
+      "view": "查看",
+      "deleteConfirm": "确定删除？"
+    },
+    "empty": {
+      "mine": "还没有保存的对战",
+      "org": "组织内还没有共享的对战"
+    },
+    "deleteSuccess": "已删除",
+    "total": "共 {{total}} 条"
+  },
+  "view": {
+    "back": "返回",
+    "savedTitle": "已保存的对战",
+    "newTitle": "Arena 对战",
+    "copyLink": "复制链接",
+    "save": "保存对战",
+    "referenceLabel": "Reference",
+    "targetLabel": "Target",
+    "executionPlaceholder": "execution ID",
+    "vs": "vs",
+    "generate": "生成对战",
+    "sameExecutionWarning": "Reference 和 Target 必须不同",
+    "copySuccess": "链接已复制",
+    "copyFailed": "复制失败",
+    "emptyReady": "点击“生成对战”开始",
+    "emptyInput": "输入两个 execution ID 开始对战",
+    "notes": "备注",
+    "summary": {
+      "referenceAgent": "Reference Agent",
+      "targetAgent": "Target Agent",
+      "referenceTime": "Reference 时间",
+      "targetTime": "Target 时间",
+      "referenceStatus": "Reference 状态",
+      "targetStatus": "Target 状态"
+    },
+    "tabs": {
+      "metrics": "指标 & 成本 ({{count}})",
+      "config": "配置",
+      "trace": "Trace",
+      "diverged": "分歧"
+    }
+  },
+  "saveModal": {
+    "defaultName": "对战 {{reference}} vs {{target}}",
+    "title": "保存对战会话",
+    "ok": "保存",
+    "cancel": "取消",
+    "name": "名称",
+    "nameRequired": "请输入名称",
+    "description": "描述",
+    "descriptionPlaceholder": "简短说明这次对战的目的",
+    "notes": "备注 (Markdown)",
+    "notesPlaceholder": "可以记录结论、行动项等",
+    "visibility": "可见性",
+    "private": "仅自己",
+    "org": "组织内可见",
+    "success": "对战已保存"
+  },
+  "verdict": {
+    "improved": "改善",
+    "regressed": "回退",
+    "mixed": "有得有失",
+    "equivalent": "等价",
+    "pair": "Reference: {{reference}} → Target: {{target}}"
+  },
+  "changeKind": {
+    "unchanged": "相同",
+    "improved": "改善",
+    "regressed": "回退",
+    "different": "不同"
+  },
+  "metrics": {
+    "empty": "无指标数据",
+    "higherIsBetter": "数值越高越好",
+    "lowerIsBetter": "数值越低越好",
+    "columns": {
+      "metric": "指标",
+      "reference": "Reference",
+      "target": "Target",
+      "delta": "Delta",
+      "magnitude": "幅度"
+    },
+    "fallbackOnly": "两侧之一或全部缺少 metrics_records 数据，只展示基础资源指标。"
+  },
+  "config": {
+    "empty": "无配置信息",
+    "columns": {
+      "item": "配置项",
+      "reference": "Reference",
+      "target": "Target",
+      "change": "变化"
+    },
+    "differentBenchmarkTitle": "Benchmark 不同",
+    "differentBenchmarkDescription": "两个 execution 跑的是不同的 benchmark，性能指标对比仅供参考。",
+    "sameBenchmarkDifferentAgentTitle": "同一 Benchmark，不同 Agent",
+    "sameBenchmarkDifferentAgentDescription": "适合做横向对比，看不同 Agent 在相同任务上的表现差异。"
+  },
+  "trace": {
+    "empty": "无步骤轨迹数据",
+    "none": "无",
+    "step": "step {{index}}",
+    "error": "error",
+    "noAction": "no action",
+    "skipped": "跳过 {{count}} 个相同的中间步骤",
+    "totalSteps": "共 {{count}} 步",
+    "divergedTitle": "分歧点：第 {{index}} 步",
+    "divergedDescription": "两侧前 {{prefix}} 步执行路径相同，从第 {{index}} 步开始走向不同。",
+    "identical": "两侧执行路径完全一致",
+    "truncatedTitle": "轨迹过长，仅展示前 {{shown}} 项（共 {{total}} 项）",
+    "truncatedDescription": "为避免页面卡顿，超长执行轨迹的尾部已被截断。如需查看完整轨迹，请在 Execution 详情页查看。",
+    "legend": "图例",
+    "legendCommon": "共同步骤",
+    "legendDifferent": "同步骤号但不同",
+    "legendOnlyTarget": "仅 Target",
+    "legendOnlyReference": "仅 Reference",
+    "legendCollapsed": "折叠（连续相同）"
+  }
+}

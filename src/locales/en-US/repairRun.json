@@ -1,0 +1,90 @@
+{
+  "title": "Repair Run",
+  "list": {
+    "noData": "No Repair Run data available.",
+    "allStatus": "All Status",
+    "continuityFiltered": "List filtered by continuity context.",
+    "hubNotice": "Use this page as a Repair hub.",
+    "hubNoticeDesc": "View the full Repair queue here, or jump from Project Eval with continuity filtering.",
+    "detailDesc": "Standard Repair detail page for viewing Planning, Apply, Replay and Project Eval continuity.",
+    "repairViewDesc": "View Repair workflow status, preserve Project Eval continuity, and open standard Repair Run URLs.",
+    "filterShareHint": "Current filters are persisted in the URL, so this list view can be bookmarked or shared."
+  },
+  "table": {
+    "status": "Status",
+    "phase": "Phase",
+    "updatedAt": "Updated"
+  },
+  "detail": {
+    "lifecycle": "Lifecycle Details",
+    "status": "Status",
+    "currentPhase": "Current Phase",
+    "latestPlanVersion": "Latest Plan Version",
+    "approvedPlanVersion": "Approved Plan Version",
+    "dispatchStatus": "Dispatch Status",
+    "retryable": "Retryable",
+    "approvedBy": "Approved By",
+    "approvedAt": "Approved At",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "taskTitle": "Title",
+    "taskGoal": "Goal",
+    "constraints": "Constraints",
+    "triggerReason": "Trigger Reason",
+    "summary": "Summary",
+    "selectedCases": "Selected Cases",
+    "continuityNotice": "This Repair run was opened with continuity context.",
+    "loadFailed": "Unable to load this repair run right now.",
+    "urlHint": "Track the current Repair workflow via this stable URL, and jump back to the source evaluation or the post-Replay evaluation when needed.",
+    "repairTaskCard": "Repair task",
+    "triggerSnapshotCard": "Trigger snapshot",
+    "latestPlanLabel": "Latest Plan",
+    "approvedPlanLabel": "Approved Plan"
+  },
+  "plan": {
+    "version": "Version",
+    "summary": "Summary",
+    "risk": "Risk",
+    "description": "Description",
+    "steps": "Steps"
+  },
+  "actions": {
+    "startPlanning": "Start Planning",
+    "approvePlan": "Approve Plan",
+    "startApply": "Start Apply",
+    "requestReplay": "Request Replay",
+    "retryPlanning": "Retry Planning",
+    "retryApply": "Retry Apply",
+    "cancelRun": "Cancel Run",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "agentIdRequired": "Please enter agent ID first.",
+    "completed": "{{label}} completed.",
+    "failed": "{{label}} failed.",
+    "confirmAction": "Confirm to {{label}}?",
+    "backToList": "Back to Repair Runs",
+    "refresh": "Refresh",
+    "openSourceProjectEval": "Open Source Project Eval",
+    "openReplayProjectEval": "Open Replay Project Eval",
+    "openReplayReport": "Open Replay Report",
+    "openReplayExplain": "Open Replay Explain",
+    "openFilteredList": "Open Filtered Repair List",
+    "openRelatedRepairs": "Open Repairs Linked to Replay",
+    "clearContinuity": "Clear Continuity Filter"
+  },
+  "create": {
+    "title": "Create Repair Run",
+    "okText": "Create",
+    "success": "Repair Run created.",
+    "failed": "Unable to create Repair Run.",
+    "prefilled": "This draft was pre-filled from Project Eval.",
+    "titlePlaceholder": "Optional short title",
+    "goalPlaceholder": "Optional Repair task goal",
+    "taskTitleLabel": "Task Title",
+    "taskObjectiveLabel": "Task Goal"
+  },
+  "bool": {
+    "yes": "Yes",
+    "no": "No"
+  }
+}

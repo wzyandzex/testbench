@@ -1,0 +1,142 @@
+{
+  "title": "Metrics",
+  "workbench": "Metrics Records",
+  "loadFailed": {
+    "catalog": "Failed to load catalog",
+    "records": "Failed to load metrics records",
+    "ranking": "Failed to load rankings",
+    "report": "Failed to load report",
+    "compare": "Comparison failed"
+  },
+  "notices": {
+    "trendNotImpl": "Trend charts not yet implemented",
+    "trendDesc": "Backend doesn't have org-level time series API. Deferred until backend contract is available.",
+    "trendNote": "Available real capabilities are consolidated into the new metrics workbench: record list, agent ranking, execution comparison, execution report, and admin aggregation recalculation.",
+    "reportNotImpl": "Report center not yet implemented",
+    "reportDesc": "Backend only supports on-demand report generation by execution_id. Open the report drawer from the metrics workbench.",
+    "reportNote": "A full report center requires real persistent reports, state machine, and export storage. We do not provide fake implementations this round.",
+    "adminNotImpl": "System admin not yet extended",
+    "adminDesc": "Backend only provides admin-triggered aggregation recalculation. No cleanup, audit log, or system cleanup APIs exist.",
+    "adminNote": "To grow this into a real admin center, first add explicit backend audit, task state, and cleanup boundaries, then design the frontend entry."
+  },
+  "hero": {
+    "tag": "backend-truth metrics workspace",
+    "title": "Metrics Workbench",
+    "desc1": "This page only keeps capabilities truly supported by the backend: record search, agent ranking, execution comparison, execution report, and admin aggregation recalculation.",
+    "desc2": "Previous fake overview / analytics / export / cleanup capabilities have been removed.",
+    "aggregationTitle": "Admin Aggregation Recalculation",
+    "aggregationDesc": "Manually trigger `/metrics/aggregated`. When no time range is provided, backend uses the UTC daily window.",
+    "submit": "Submit Aggregation",
+    "adminOnly": "Only system admins can trigger this action."
+  },
+  "table": {
+    "executionId": "Execution ID",
+    "benchmark": "Benchmark",
+    "agent": "Agent",
+    "overallScore": "Overall Score",
+    "funcEffQual": "Func / Eff / Quality",
+    "stabReas": "Stability / Reasoning",
+    "totalDuration": "Total Duration",
+    "createdAt": "Created At",
+    "action": "Actions",
+    "setAsReference": "Set as Reference",
+    "setAsTarget": "Set as Target",
+    "viewReport": "View Report",
+    "tagFunc": "Func",
+    "tagEff": "Eff",
+    "tagQual": "Qual",
+    "tagStab": "Stab",
+    "tagReas": "Reas",
+    "rowSummary": "{{current}} on page / {{total}} total"
+  },
+  "sort": {
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "score": "Overall Score",
+    "funcScore": "Functional",
+    "effScore": "Efficiency",
+    "qualScore": "Quality",
+    "stabScore": "Stability",
+    "reasScore": "Reasoning"
+  },
+  "filter": {
+    "executionId": "Execution ID",
+    "executionIdPlaceholder": "Exact match execution_id",
+    "agentPlaceholder": "Filter by Agent",
+    "benchmarkPlaceholder": "Filter by Benchmark",
+    "minScore": "Min Score",
+    "maxScore": "Max Score",
+    "dateRange": "Date Range",
+    "sortField": "Sort By",
+    "searchBtn": "Search",
+    "resetBtn": "Reset",
+    "refreshBtn": "Refresh"
+  },
+  "stats": {
+    "matchCount": "Matching Records",
+    "pageAvgScore": "Page Avg Score",
+    "rankingTop": "Top Ranked",
+    "pageAvgDuration": "Page Avg Duration",
+    "points": "pts"
+  },
+  "aggregation": {
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "submitted": "Aggregation recalculation submitted"
+  },
+  "ranking": {
+    "title": "Agent Ranking",
+    "subtitle": "Ignores execution_id and single agent filters to avoid skewing the ranking",
+    "records": "records",
+    "loading": "Loading rankings...",
+    "noData": "No ranking data"
+  },
+  "compare": {
+    "title": "Execution Comparison",
+    "refPlaceholder": "Reference Execution ID",
+    "targetPlaceholder": "Target Execution ID",
+    "executeBtn": "Compare",
+    "placeholder": "You can also set rows below as reference / target.",
+    "requireIds": "Please enter both reference and target execution IDs",
+    "dim": {
+      "score": "Overall",
+      "func": "Func",
+      "eff": "Eff",
+      "qual": "Qual",
+      "stab": "Stab",
+      "reas": "Reas"
+    }
+  },
+  "distribution": {
+    "title": "Score Distribution",
+    "noRecords": "No records on current page"
+  },
+  "report": {
+    "title": "Execution Report",
+    "titleWithId": "Execution Report · {{id}}",
+    "loading": "Loading report...",
+    "executionId": "Execution ID",
+    "generatedAt": "Generated At",
+    "overallEval": "Overall Evaluation",
+    "overallScore": "Overall Score",
+    "totalDuration": "Total Duration",
+    "dimensionScores": "Dimension Scores",
+    "strengthsWeaknesses": "Strengths / Weaknesses",
+    "strengths": "Strengths",
+    "weaknesses": "Weaknesses",
+    "diagnostics": "Diagnostics & Suggestions",
+    "recommendations": "Recommended Actions",
+    "category": "Category: {{category}}",
+    "dimFunc": "Func",
+    "dimEff": "Eff",
+    "dimQual": "Qual",
+    "dimStab": "Stab",
+    "dimReas": "Reas",
+    "noData": "None",
+    "noDiagnostics": "No diagnostics",
+    "noSuggestion": "No suggestion",
+    "noActions": "No recommended actions",
+    "notSelected": "No report selected"
+  }
+}

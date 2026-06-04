@@ -1,0 +1,188 @@
+{
+  "title": "通知中心",
+  "description": "查看系统通知和任务状态更新",
+  "page": {
+    "heroTitle": "通知历史中心",
+    "heroDesc": "这里只展示后端真实支持的能力: 历史查询、确认、拒绝、批量确认、导出，以及 DLQ 重放与删除。",
+    "heroBadge": "History + DLQ",
+    "refresh": "刷新",
+    "exportJson": "导出 JSON",
+    "exportCsv": "导出 CSV",
+    "operationFailed": "通知中心操作失败",
+    "exportSuccess": "已导出 {{format}} 文件",
+    "dataRefreshed": "数据已刷新"
+  },
+  "tabs": {
+    "history": "历史记录 ({{count}})",
+    "dlq": "DLQ ({{count}})"
+  },
+  "summary": {
+    "pending": "待确认",
+    "pendingDesc": "需要人工确认的记录",
+    "acknowledged": "已确认",
+    "acknowledgedDesc": "确认已完成",
+    "rejected": "已拒绝",
+    "rejectedDesc": "已人工拒绝",
+    "deliveryFailed": "投递失败",
+    "deliveryFailedDesc": "通道侧投递失败记录",
+    "dlq": "DLQ",
+    "dlqDesc": "可重放或删除"
+  },
+  "ackStatus": {
+    "pending": "待确认",
+    "acked": "已确认",
+    "rejected": "已拒绝"
+  },
+  "history": {
+    "deliveryPrefix": "投递 {{status}}",
+    "expand": "展开",
+    "noContent": "暂无消息内容",
+    "taskId": "任务 ID",
+    "durationRetries": "耗时 / 重试",
+    "deliveryError": "投递错误",
+    "viewDetail": "查看详情",
+    "ack": "确认",
+    "reject": "拒绝",
+    "ackedBy": "确认人: {{user}}",
+    "ackedAt": "确认时间: {{time}}",
+    "filters": {
+      "all": "全部",
+      "pending": "待确认",
+      "acked": "已确认",
+      "rejected": "已拒绝",
+      "selectPending": "选择本页待确认",
+      "clearSelection": "清空选择",
+      "resetFilters": "重置筛选",
+      "searchPlaceholder": "搜索消息内容、事件类型、任务 ID、Worker ID",
+      "searchEnter": "查询",
+      "eventTypes": "事件类型",
+      "channels": "通道",
+      "priorities": "优先级",
+      "deliveryStatuses": "投递状态",
+      "taskIdPlaceholder": "按任务 ID 过滤",
+      "workerIdPlaceholder": "按 Worker ID 过滤"
+    },
+    "batchBar": {
+      "selectedPrefix": "已选择 ",
+      "selectedSuffix": " 条待确认记录",
+      "batchAck": "批量确认",
+      "cancelSelection": "取消选择"
+    },
+    "empty": "没有匹配的历史记录。",
+    "paginationTotal": "共 {{count}} 条",
+    "askComment": {
+      "submit": "提交",
+      "cancel": "取消",
+      "placeholder": "可选备注，会写入后端确认记录"
+    },
+    "bulkAckTitle": "批量确认 {{count}} 条通知",
+    "bulkAckOk": "批量确认完成",
+    "ackTitle": "确认通知",
+    "ackOk": "通知已确认",
+    "rejectTitle": "拒绝通知",
+    "rejectOk": "通知已拒绝"
+  },
+  "dlq": {
+    "alertTitle": "DLQ 只展示后端真实能力",
+    "alertDesc": "当前支持筛选、详情、重放和删除，没有前端自行捏造的批量重放或批量删除接口。",
+    "searchPlaceholder": "搜索死信原因、事件消息、任务 ID",
+    "searchEnter": "查询",
+    "source": "来源",
+    "taskIdPlaceholder": "任务 ID",
+    "workerIdPlaceholder": "Worker ID",
+    "empty": "当前没有死信记录。",
+    "dlqTag": "DLQ",
+    "reason": "原因",
+    "viewDetail": "查看详情",
+    "replay": "重放",
+    "delete": "删除",
+    "replayConfirmTitle": "确认重放死信",
+    "replayConfirmContent": "重放会调用后端控制面重新投递该死信事件。",
+    "replayOkText": "重放",
+    "replayCancel": "取消",
+    "replaySuccess": "死信已提交重放",
+    "deleteConfirmTitle": "确认删除死信",
+    "deleteConfirmContent": "删除后无法恢复，只建议对确认无价值的死信执行此操作。",
+    "deleteOkText": "删除",
+    "deleteCancel": "取消",
+    "deleteSuccess": "死信已删除"
+  },
+  "detail": {
+    "title": "通知详情",
+    "dlqTitle": "DLQ 详情",
+    "currentStatus": "当前状态: {{status}}",
+    "deliveryStatus": "投递状态: {{status}}",
+    "labels": {
+      "title": "标题",
+      "message": "消息",
+      "eventType": "事件类型",
+      "priority": "优先级",
+      "channel": "通道",
+      "taskId": "任务 ID",
+      "workerId": "Worker ID",
+      "time": "时间",
+      "ackedBy": "确认人",
+      "ackedAt": "确认时间",
+      "comment": "备注",
+      "retries": "重试次数",
+      "duration": "耗时",
+      "hasData": "是否含数据",
+      "error": "错误",
+      "reason": "原因",
+      "source": "来源",
+      "failedAt": "失败时间",
+      "eventTime": "事件时间"
+    },
+    "hasDataYes": "是",
+    "hasDataNo": "否"
+  },
+  "filter": {
+    "all": "全部",
+    "unread": "未读",
+    "read": "已读",
+    "typeFilterLabel": "类型筛选:"
+  },
+  "type": {
+    "success": "成功",
+    "error": "错误",
+    "warning": "警告",
+    "info": "信息"
+  },
+  "category": {
+    "success": "成功通知",
+    "error": "错误通知",
+    "warning": "警告通知",
+    "info": "信息通知",
+    "executionCompleted": "执行完成",
+    "executionFailed": "执行失败",
+    "system": "系统通知",
+    "benchmarkCreated": "评测集创建",
+    "agentCreated": "Agent创建"
+  },
+  "stats": {
+    "unread": "未读通知"
+  },
+  "actions": {
+    "markRead": "标为已读",
+    "markUnread": "标为未读",
+    "delete": "删除",
+    "selectAll": "全部",
+    "clearSelection": "清除",
+    "markedReadSuccess": "已将 {{count}} 条通知标记为已读",
+    "deletedSuccess": "已删除 {{count}} 条通知",
+    "markAllRead": "全部标为已读",
+    "clearAll": "清空全部",
+    "viewDetail": "查看详情",
+    "bulkMarkRead": "标记已读",
+    "cancelSelection": "取消选择",
+    "selectedPrefix": "已选择",
+    "selectedCountSuffix": "条通知"
+  },
+  "section": {
+    "showAll": "查看全部 {{count}} 条",
+    "collapse": "收起 ({{count}} 条)",
+    "emptyType": "暂无此类通知",
+    "emptyAll": "暂无通知",
+    "detailPlaceholder": "通知详情内容..."
+  }
+}

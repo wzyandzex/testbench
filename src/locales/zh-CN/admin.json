@@ -1,0 +1,537 @@
+{
+  "title": "用户管理",
+  "description": "管理系统用户和权限",
+  "status": {
+    "active": "正常",
+    "inactive": "未激活",
+    "locked": "已锁定"
+  },
+  "role": {
+    "admin": "管理员",
+    "user": "普通用户",
+    "viewer": "访客"
+  },
+  "columns": {
+    "user": "用户",
+    "role": "角色",
+    "status": "状态",
+    "registeredAt": "注册时间",
+    "actions": "操作"
+  },
+  "actions": {
+    "unlock": "解锁用户",
+    "lock": "锁定用户",
+    "editRole": "修改角色",
+    "deleteUser": "删除用户",
+    "confirmDelete": "确认删除",
+    "deleteWarning": "删除后无法恢复，是否继续？",
+    "confirm": "确认",
+    "cancel": "取消"
+  },
+  "messages": {
+    "locked": "用户已锁定",
+    "unlocked": "用户已解锁",
+    "roleUpdated": "角色已更新",
+    "deleted": "用户已删除",
+    "cannotDeleteSelf": "不能删除当前登录用户"
+  },
+  "filter": {
+    "searchPlaceholder": "搜索用户名或邮箱",
+    "statusPlaceholder": "状态筛选",
+    "rolePlaceholder": "角色筛选"
+  },
+  "pagination": {
+    "total": "共 {{total}} 条记录"
+  },
+  "lockModal": {
+    "title": "锁定用户",
+    "confirmLock": "确认锁定",
+    "cancel": "取消",
+    "reasonLabel": "锁定原因",
+    "reasonRequired": "请输入锁定原因",
+    "reasonPlaceholder": "请说明锁定该用户的原因",
+    "durationLabel": "锁定时长（小时）",
+    "durationExtra": "留空表示永久锁定",
+    "durationPlaceholder": "请输入锁定小时数"
+  },
+  "roleModal": {
+    "title": "修改用户角色",
+    "confirmChange": "确认修改",
+    "cancel": "取消",
+    "newRoleLabel": "新角色",
+    "roleRequired": "请选择角色",
+    "rolePlaceholder": "请选择角色"
+  },
+  "costModel": {
+    "title": "模型单价管理",
+    "description": "维护 LLM 模型的输入/输出 token 价格（每 <1>1000 tokens</1>），用于实时成本计算与告警。新增同 provider+model 的定价时，旧记录会按 <1>effective_date</1> 自动作为历史价被保留。",
+    "actions": {
+      "create": "新增定价",
+      "refresh": "刷新",
+      "edit": "编辑",
+      "delete": "删除",
+      "activeOnly": "只看激活："
+    },
+    "columns": {
+      "provider": "Provider",
+      "modelName": "模型",
+      "inputPrice": "输入价 / 1k tokens",
+      "outputPrice": "输出价 / 1k tokens",
+      "currency": "币种",
+      "effectiveDate": "生效时间",
+      "expiryDate": "过期时间",
+      "status": "状态",
+      "actions": "操作"
+    },
+    "tags": {
+      "permanent": "永久",
+      "active": "激活",
+      "disabled": "已禁用"
+    },
+    "deleteConfirm": {
+      "title": "确定删除该定价？",
+      "description": "历史成本数据仍会保留，但新计算将不再使用此条。"
+    },
+    "createModal": {
+      "title": "新增模型定价",
+      "providerLabel": "Provider",
+      "providerPlaceholder": "选择 / 输入",
+      "modelNameLabel": "模型名",
+      "modelNameRequired": "请填写模型名",
+      "modelNameExtra": "例如 claude-opus-4-7、gpt-4o、deepseek-chat",
+      "modelNamePlaceholder": "claude-opus-4-7",
+      "currencyLabel": "币种",
+      "inputPriceLabel": "输入价（每 1k tokens）",
+      "outputPriceLabel": "输出价（每 1k tokens）",
+      "effectiveDateLabel": "生效时间",
+      "effectiveDateExtra": "此时间之后产生的执行将使用本定价",
+      "expiryDateLabel": "过期时间（可选）",
+      "expiryDateExtra": "留空表示永久有效"
+    },
+    "editModal": {
+      "title": "编辑：{{provider}} / {{model}}",
+      "titleFallback": "编辑",
+      "inputPriceLabel": "输入价（每 1k tokens）",
+      "outputPriceLabel": "输出价（每 1k tokens）",
+      "currencyLabel": "币种",
+      "expiryDateLabel": "过期时间",
+      "expiryDateExtra": "清空表示永久有效",
+      "isActiveLabel": "激活"
+    },
+    "messages": {
+      "loadFailed": "加载模型定价失败: {{error}}",
+      "created": "已创建模型定价",
+      "createFailed": "创建失败: {{error}}",
+      "updated": "已更新",
+      "updateFailed": "更新失败: {{error}}",
+      "deleted": "已删除",
+      "deleteFailed": "删除失败: {{error}}"
+    },
+    "pagination": {
+      "total": "共 {{total}} 条"
+    }
+  },
+  "dlq": {
+    "title": "死信队列 (DLQ)",
+    "description": "Notifier 多次重试仍然失败的事件会落入死信队列。可逐条 <1>重放</1>（修复后重新投递）或 <2>删除</2>（确认放弃）。请注意：重放前请确保下游处理逻辑已修复，否则会循环失败。",
+    "stats": {
+      "totalCount": "队列总数",
+      "noDeadLetters": "当前没有死信，系统运行正常"
+    },
+    "sourceOptions": {
+      "all": "全部",
+      "notifier": "Notifier",
+      "worker": "Worker",
+      "scheduler": "Scheduler"
+    },
+    "filter": {
+      "taskIdLabel": "任务 ID",
+      "taskIdPlaceholder": "精确匹配",
+      "workerIdLabel": "Worker",
+      "workerIdPlaceholder": "精确匹配",
+      "searchLabel": "关键词",
+      "searchPlaceholder": "原因 / 消息文本",
+      "sourceLabel": "来源",
+      "sourcePlaceholder": "全部",
+      "rangeLabel": "失败时间",
+      "submit": "查询",
+      "reset": "重置",
+      "refresh": "刷新",
+      "presets": {
+        "today": "今天",
+        "last24h": "近 24h",
+        "last7d": "近 7 天"
+      }
+    },
+    "columns": {
+      "failedAt": "失败时间",
+      "source": "来源",
+      "eventType": "事件类型",
+      "priority": "优先级",
+      "taskId": "任务 ID",
+      "worker": "Worker",
+      "reason": "失败原因",
+      "actions": "操作"
+    },
+    "actions": {
+      "detail": "详情",
+      "replay": "重放",
+      "delete": "删除"
+    },
+    "replayConfirm": {
+      "title": "重放这条死信？",
+      "description": "将重新投递到原始队列。若处理逻辑尚未修复，可能再次进入 DLQ。"
+    },
+    "deleteConfirm": {
+      "title": "确定要删除这条死信？",
+      "description": "删除后无法恢复，原始事件将永久丢失。",
+      "shortTitle": "确定要删除？"
+    },
+    "drawer": {
+      "title": "死信详情",
+      "loading": "加载中...",
+      "noPayload": "无事件载荷",
+      "noData": "无数据",
+      "idLabel": "ID",
+      "sourceLabel": "来源",
+      "failedAtLabel": "失败时间",
+      "reasonLabel": "失败原因",
+      "originalEventTitle": "原始事件",
+      "eventTypeLabel": "事件类型",
+      "priorityLabel": "优先级",
+      "taskIdLabel": "任务 ID",
+      "workerIdLabel": "Worker ID",
+      "eventTimeLabel": "事件时间",
+      "messageLabel": "消息",
+      "extraDataLabel": "附加数据",
+      "hasData": "有 (出于安全已脱敏，未展示)",
+      "noExtraData": "无"
+    },
+    "messages": {
+      "loadFailed": "加载死信队列失败: {{error}}",
+      "loadDetailFailed": "加载详情失败: {{error}}",
+      "replayed": "已重放 {{id}}",
+      "replayFailed": "重放失败: {{error}}",
+      "deleted": "已删除 {{id}}",
+      "deleteFailed": "删除失败: {{error}}"
+    },
+    "pagination": {
+      "total": "共 {{total}} 条"
+    }
+  },
+  "auditLog": {
+    "title": "系统审计日志",
+    "description": "记录系统级清理操作的审计轨迹（沙箱回收 / 历史记录清理 / 追踪清理）。日常由 Scheduler 自动触发，亦可在【系统操作】页手动补跑。",
+    "triggeredByOptions": {
+      "scheduler": "Scheduler（定时调度）",
+      "manual": "Manual（人工触发）",
+      "cron": "Cron（CronJob）"
+    },
+    "filter": {
+      "triggeredByLabel": "触发者",
+      "triggeredByPlaceholder": "全部",
+      "rangeLabel": "时间范围",
+      "submit": "查询",
+      "reset": "重置",
+      "refresh": "刷新",
+      "presets": {
+        "today": "今天",
+        "yesterday": "昨天",
+        "last7d": "近 7 天",
+        "last30d": "近 30 天"
+      }
+    },
+    "columns": {
+      "triggeredAt": "触发时间",
+      "triggeredBy": "触发者",
+      "cleanupType": "清理类型",
+      "taskId": "任务 ID",
+      "reportId": "报告 ID",
+      "reason": "原因",
+      "actions": "操作"
+    },
+    "actions": {
+      "detail": "详情"
+    },
+    "drawer": {
+      "title": "审计详情",
+      "loading": "加载中...",
+      "reportIdLabel": "报告 ID",
+      "taskIdLabel": "任务 ID",
+      "organizationIdLabel": "组织 ID",
+      "cleanupTypeLabel": "清理类型",
+      "dryRun": "Dry Run",
+      "triggeredByLabel": "触发者",
+      "triggeredAtLabel": "触发时间",
+      "generatedAtLabel": "报告生成时间",
+      "reasonLabel": "触发原因",
+      "cleanupResultsTitle": "清理结果",
+      "sandboxesCleaned": "沙箱清理数",
+      "recordsDeleted": "记录清理数",
+      "tracesDeleted": "追踪清理数",
+      "totalDuration": "总耗时 (ms)",
+      "errorAlert": "清理过程中出现 {{count}} 条错误",
+      "errorColumns": {
+        "resourceType": "资源类型",
+        "resourceId": "资源 ID",
+        "error": "错误信息",
+        "timestamp": "时间"
+      },
+      "detailsTitle": "清理详情（{{count}} 条）",
+      "noDetails": "无清理详情",
+      "detailColumns": {
+        "resourceType": "资源类型",
+        "resourceId": "资源 ID",
+        "action": "操作",
+        "timestamp": "时间"
+      },
+      "noData": "无数据"
+    },
+    "messages": {
+      "loadFailed": "加载审计日志失败: {{error}}",
+      "loadDetailFailed": "加载详情失败: {{error}}"
+    },
+    "pagination": {
+      "total": "共 {{total}} 条"
+    }
+  },
+  "orgTemplate": {
+    "title": "组织模板管理",
+    "description": "组织创建时可选用模板复用配额、角色、签约等设置。系统预置模板不可删，自定义模板可以管理。",
+    "categories": {
+      "small": "小团队",
+      "medium": "中型团队",
+      "large": "大型团队",
+      "startup": "创业公司",
+      "enterprise": "企业版"
+    },
+    "card": {
+      "listTitle": "模板列表（{{count}}）",
+      "categoryFilterPlaceholder": "分类筛选",
+      "refresh": "刷新",
+      "create": "新建模板"
+    },
+    "columns": {
+      "name": "名称",
+      "category": "分类",
+      "flags": "类型",
+      "limits": "资源限制",
+      "usageCount": "使用次数",
+      "createdAt": "创建时间",
+      "actions": "操作"
+    },
+    "tags": {
+      "system": "系统",
+      "public": "公开",
+      "private": "私有"
+    },
+    "limits": {
+      "members": "成员: {{count}}",
+      "executionsPerDay": "执行/天: {{count}}",
+      "storage": "存储: {{gb}} GB"
+    },
+    "delete": {
+      "disabledTooltip": "系统预置模板不可删除",
+      "label": "删除",
+      "title": "确认删除？",
+      "description": "删除后无法恢复，且已使用次数 {{count}} 次的统计也会随之消失。",
+      "okText": "删除",
+      "cancelText": "取消"
+    },
+    "modal": {
+      "title": "新建组织模板",
+      "okText": "创建",
+      "cancelText": "取消",
+      "fields": {
+        "nameLabel": "标识名",
+        "nameRequired": "请输入标识名",
+        "nameLength": "长度 2-50",
+        "namePattern": "仅允许字母和数字",
+        "nameExtra": "技术标识，全局唯一，仅字母数字",
+        "namePlaceholder": "例如 startupTeam",
+        "displayNameLabel": "展示名",
+        "displayNamePlaceholder": "例如 创业小团队",
+        "descriptionLabel": "描述",
+        "categoryLabel": "分类",
+        "categoryPlaceholder": "不选则未分类",
+        "isPublicLabel": "公开",
+        "isPublicExtra": "公开后所有用户都能看到这个模板",
+        "maxMembersLabel": "最大成员数",
+        "maxExecutionsLabel": "每日最大执行次数",
+        "maxStorageLabel": "最大存储 (GB)",
+        "defaultRoleLabel": "默认角色",
+        "allowSignupLabel": "允许公开注册",
+        "requireApprovalLabel": "加入需要审批"
+      }
+    },
+    "messages": {
+      "loadFailed": "加载失败: {{error}}",
+      "created": "模板已创建",
+      "createFailed": "创建失败: {{error}}",
+      "deleted": "模板已删除",
+      "deleteFailed": "删除失败: {{error}}"
+    }
+  },
+  "defaultAgent": {
+    "title": "系统默认 Agent 模板",
+    "description": "每个新组织创建时会自动克隆这份模板生成一个默认 Agent（用户开箱即用）。模板更新<1>不会</1>追溯已生成的 org agent，仅影响后续新建组织。必须开启「启用模板」开关后，克隆才会触发。",
+    "alerts": {
+      "inactiveTitle": "模板未启用",
+      "inactiveDescription": "当前模板处于未启用状态，新建组织时不会自动生成默认 Agent。完成配置后请打开下方「启用模板」开关。",
+      "noKeyTitle": "尚未配置 API Key",
+      "noKeyDescription": "模板已启用，但 API Key 为空。克隆出的默认 Agent 会以 inactive 状态创建，用户需要自行配置 key 后才能运行。"
+    },
+    "fields": {
+      "isActiveLabel": "启用模板",
+      "isActiveExtra": "关闭后，新建组织不会克隆默认 Agent。",
+      "displayNameLabel": "展示名称",
+      "displayNamePlaceholder": "默认 Agent",
+      "descriptionLabel": "描述",
+      "descriptionPlaceholder": "向新组织的用户解释这个 Agent 的用途",
+      "typeLabel": "Agent 类型",
+      "endpointLabel": "服务端点 (Endpoint)",
+      "endpointExtra": "形如 https://api.example.com/v1/chat/completions",
+      "endpointPlaceholder": "https://...",
+      "apiKeyLabel": "API Key",
+      "apiKeyExtraHint": "留空=不修改；输入新值=更新；点右侧按钮=清空",
+      "apiKeyClearBtn": "清空 Key",
+      "apiKeyPlaceholderConfigured": "••••••••（已加密存储）",
+      "apiKeyPlaceholderNew": "请输入 API Key",
+      "capabilitiesLabel": "Capabilities (逗号或换行分隔)",
+      "capabilitiesExtra": "例如：text_generation, code_completion, function_calling",
+      "capabilitiesPlaceholder": "text_generation, code_completion",
+      "modelConfigLabel": "Model Config (JSON)",
+      "modelConfigExtra": "例如：{\"provider\":\"openai\",\"model_name\":\"gpt-4o\",\"temperature\":0.2}",
+      "toolsLabel": "Tools (JSON)",
+      "metadataLabel": "Metadata (JSON)"
+    },
+    "tags": {
+      "active": "ACTIVE",
+      "inactive": "INACTIVE",
+      "keyConfigured": "已配置",
+      "keyMissing": "未配置"
+    },
+    "actions": {
+      "save": "保存",
+      "reload": "重新载入"
+    },
+    "messages": {
+      "loadFailed": "加载模板失败: {{error}}",
+      "modelConfigInvalid": "Model Config 不是合法 JSON",
+      "toolsInvalid": "Tools 不是合法 JSON",
+      "metadataInvalid": "Metadata 不是合法 JSON",
+      "saved": "模板已保存",
+      "saveFailed": "保存失败: {{error}}",
+      "keyCleared": "API Key 已清空",
+      "clearFailed": "清空失败: {{error}}"
+    }
+  },
+  "systemOps": {
+    "title": "系统操作",
+    "description": "集中入口：手动补跑指标聚合、热更语言配置等低频但需偶尔触发的运维动作。",
+    "aggregation": {
+      "cardTitle": "指标聚合 (Metrics Aggregation)",
+      "alertTitle": "日常聚合由 cron 自动触发",
+      "alertDescription": "此处用于补跑历史时间窗口的聚合，例如修复数据 / 重建指标缓存后手动 backfill。",
+      "periodLabel": "聚合周期",
+      "periodOptions": {
+        "daily": "Daily（按天）",
+        "weekly": "Weekly（按周）",
+        "monthly": "Monthly（按月）"
+      },
+      "rangeLabel": "时间范围",
+      "rangeExtra": "不填默认聚合「今天」；填写后会按选定 UTC 时间窗口聚合",
+      "submit": "触发聚合",
+      "presets": {
+        "today": "今天",
+        "yesterday": "昨天",
+        "last7d": "近 7 天",
+        "last30d": "近 30 天"
+      },
+      "messages": {
+        "triggered": "指标聚合任务已触发",
+        "triggerFailed": "触发失败: {{error}}"
+      }
+    },
+    "reload": {
+      "cardTitle": "语言配置热更 (Language Config Reload)",
+      "alertTitle": "影响正在运行的 worker 容器配置",
+      "alertDescription": "重载会让 worker 读取最新的 docker 镜像/命令/超时配置。如果配置写错，可能导致后续执行失败 — 请确认配置文件已经 review。",
+      "languageLabel": "语言名",
+      "languageRequired": "请输入语言名",
+      "languagePlaceholder": "例如 python",
+      "commonHint": "常用：",
+      "submit": "热更配置",
+      "messages": {
+        "languageEmpty": "请填写语言名",
+        "reloaded": "已重新加载 \"{{name}}\" 语言配置",
+        "reloadFailed": "重载失败: {{error}}"
+      }
+    }
+  },
+  "benchmarkTags": {
+    "title": "Benchmark 标签管理",
+    "description": "管理评测基准（Benchmark）使用的标签集合。标签由系统管理员维护，所有 org 共享。",
+    "card": {
+      "listTitle": "标签列表（{{count}}）",
+      "refresh": "刷新",
+      "create": "新建标签"
+    },
+    "columns": {
+      "id": "ID",
+      "tag": "标签",
+      "color": "颜色值",
+      "createdAt": "创建时间",
+      "actions": "操作"
+    },
+    "delete": {
+      "label": "删除",
+      "title": "确认删除？",
+      "description": "删除标签后，已使用该标签的 Benchmark 会自动解除关联。",
+      "okText": "删除",
+      "cancelText": "取消"
+    },
+    "modal": {
+      "title": "新建 Benchmark 标签",
+      "okText": "创建",
+      "cancelText": "取消",
+      "nameLabel": "标签名",
+      "nameRequired": "请输入标签名",
+      "nameMaxLength": "最多 100 字符",
+      "namePlaceholder": "例如 swe-bench",
+      "colorLabel": "颜色"
+    },
+    "messages": {
+      "loadFailed": "加载失败: {{error}}",
+      "created": "标签已创建",
+      "createFailed": "创建失败: {{error}}",
+      "deleted": "标签已删除",
+      "deleteFailed": "删除失败: {{error}}"
+    }
+  },
+  "targetAcceptance": {
+    "title": "Target System Acceptance",
+    "description": "系统级评测验收：查看 Runs 状态与判定结果，对比 Run 与 Baseline 之间的差异，管理已晋升的 Baseline 集合。",
+    "tabs": {
+      "runs": "Runs",
+      "baselines": "Baselines"
+    },
+    "filter": {
+      "submit": "筛选",
+      "refresh": "刷新"
+    },
+    "actions": {
+      "detail": "详情",
+      "compare": "Compare to baseline"
+    },
+    "drawer": {
+      "titleFallback": "Run Detail",
+      "loading": "加载中…"
+    },
+    "messages": {
+      "loadFailed": "加载失败: {{error}}",
+      "loadDetailFailed": "详情加载失败: {{error}}",
+      "compareFailed": "Compare 失败: {{error}}"
+    }
+  }
+}

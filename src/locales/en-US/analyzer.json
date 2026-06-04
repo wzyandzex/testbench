@@ -1,0 +1,53 @@
+{
+  "title": "Analysis Reports",
+  "loadFailed": "Failed to load",
+  "columns": {
+    "reportId": "Report ID",
+    "type": "Type",
+    "date": "Date",
+    "generatedAt": "Generated At",
+    "action": "Actions",
+    "view": "View",
+    "value": "Value"
+  },
+  "noData": "No data",
+  "parseError": "Unable to parse report",
+  "breadcrumb": "Analysis Reports",
+  "typeFilter": "Type filter:",
+  "allPlaceholder": "All",
+  "tabs": {
+    "all": "All Reports",
+    "trends": "Performance Trends",
+    "comparisons": "Agent Comparison"
+  },
+  "drawerTitle": "Report Details: {{id}}...",
+  "trend": {
+    "timeRangeStart": "Time Range Start",
+    "timeRangeEnd": "Time Range End",
+    "dataPointsDuration": "Data Points (avg_duration)",
+    "dataPointsPassRate": "Data Points (pass_rate)",
+    "agentStats": "Agent Statistics",
+    "benchmarkStats": "Benchmark Statistics"
+  },
+  "comparison": {
+    "metric": "Metric",
+    "leader": "Leader",
+    "comparedAgents": "Compared Agents",
+    "performance": "Performance",
+    "cost": "Cost",
+    "quality": "Quality",
+    "recommendation": "Recommendation"
+  },
+  "stats": {
+    "totalExecutions": "Total Executions",
+    "success": "Success",
+    "failed": "Failed",
+    "passRate": "Pass Rate",
+    "avgDuration": "Avg Duration",
+    "timeRange": "Time Range",
+    "agentStats": "Agent Statistics",
+    "benchmarkStats": "Benchmark Statistics",
+    "execCount": "Executions",
+    "avgTokens": "Avg Tokens"
+  }
+}

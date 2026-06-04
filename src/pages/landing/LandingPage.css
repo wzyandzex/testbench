@@ -1,0 +1,832 @@
+/**
+ * Landing Page 样式
+ * 延续 AuthPage 的科技未来感设计风格
+ */
+
+/* ========== 全局布局 ========== */
+.landing-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========== 导航栏 ========== */
+.landing-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.landing-navbar.scrolled {
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 48px;
+}
+
+.landing-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.landing-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.landing-nav-logo-icon {
+  font-size: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-nav-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.landing-nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.landing-nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.landing-nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.landing-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-nav-btn {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-nav-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.landing-nav-btn.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #fff;
+}
+
+.landing-nav-btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* 移动端菜单按钮 */
+.landing-nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* ========== Hero 区域 ========== */
+.landing-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  animation: hero-fade-in 1s ease-out;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(102, 126, 234, 0.12);
+  border: 1px solid rgba(102, 126, 234, 0.25);
+  border-radius: 24px;
+  font-size: 13px;
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 24px;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(102, 126, 234, 0); }
+}
+
+.landing-hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: dot-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.landing-hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.03em;
+}
+
+.landing-hero-title-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-hero-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-cta-primary {
+  height: 52px;
+  padding: 0 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-cta-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.landing-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.landing-cta-primary:hover::before {
+  opacity: 1;
+}
+
+.landing-cta-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-cta-secondary {
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* 粒子动画容器 */
+.landing-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.landing-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(102, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: particle-float 15s infinite linear;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(80vh) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(-10px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* 背景光球 */
+.landing-hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.landing-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.35;
+  animation: orb-float 25s ease-in-out infinite;
+}
+
+.landing-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: #667eea;
+  top: -150px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.landing-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: #764ba2;
+  bottom: -100px;
+  right: -80px;
+  animation-delay: -8s;
+}
+
+.landing-orb-3 {
+  width: 250px;
+  height: 250px;
+  background: #f093fb;
+  top: 50%;
+  right: 20%;
+  animation-delay: -16s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -40px) scale(1.05); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+/* ========== Features 区域 ========== */
+.landing-features {
+  padding: 120px 48px;
+  position: relative;
+}
+
+.landing-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.landing-section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.landing-section-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 20px;
+  font-size: 12px;
+  color: #667eea;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.landing-section-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.landing-section-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.landing-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.landing-feature-card {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.landing-feature-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(102, 126, 234, 0.2);
+  transform: translateY(-4px);
+}
+
+.landing-feature-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 14px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.landing-feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.landing-feature-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========== Stats 区域 ========== */
+.landing-stats {
+  padding: 80px 48px;
+  background: rgba(102, 126, 234, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.landing-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.landing-stat-item {
+  text-align: center;
+}
+
+.landing-stat-value {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.landing-stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.landing-stat-plus {
+  font-size: 24px;
+  margin-left: 2px;
+}
+
+/* ========== Demo Showcase 区域 ========== */
+.landing-demo {
+  padding: 120px 48px;
+}
+
+.landing-demo-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.landing-demo-text {
+  max-width: 480px;
+}
+
+.landing-demo-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.landing-demo-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+}
+
+.landing-demo-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.landing-demo-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.landing-demo-feature-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.15);
+  border-radius: 6px;
+  color: #667eea;
+  font-size: 12px;
+}
+
+.landing-demo-preview {
+  position: relative;
+}
+
+.landing-demo-frame {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-demo-placeholder {
+  text-align: center;
+  padding: 48px;
+}
+
+.landing-demo-placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.landing-demo-placeholder-text {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+}
+
+/* ========== CTA 区域 ========== */
+.landing-cta {
+  padding: 100px 48px;
+  text-align: center;
+  position: relative;
+}
+
+.landing-cta-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 24px;
+  margin: 0 48px;
+}
+
+.landing-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.landing-cta-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+}
+
+.landing-cta-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 32px 0;
+}
+
+/* ========== Footer ========== */
+.landing-footer {
+  padding: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.landing-footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.landing-footer-logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.landing-footer-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.landing-footer-link:hover {
+  color: #667eea;
+}
+
+.landing-footer-copyright {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 13px;
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 1024px) {
+  .landing-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .landing-demo-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .landing-demo-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .landing-demo-features {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-navbar {
+    padding: 16px 24px;
+  }
+
+  .landing-navbar.scrolled {
+    padding: 12px 24px;
+  }
+
+  .landing-nav-links {
+    display: none;
+  }
+
+  .landing-nav-mobile-btn {
+    display: block;
+  }
+
+  .landing-hero {
+    padding: 100px 24px 60px;
+  }
+
+  .landing-hero-title {
+    font-size: 40px;
+  }
+
+  .landing-hero-subtitle {
+    font-size: 16px;
+  }
+
+  .landing-hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .landing-cta-primary,
+  .landing-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .landing-features,
+  .landing-demo,
+  .landing-cta {
+    padding: 60px 24px;
+  }
+
+  .landing-stats {
+    padding: 48px 24px;
+  }
+
+  .landing-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .landing-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-section-title {
+    font-size: 32px;
+  }
+
+  .landing-stat-value {
+    font-size: 36px;
+  }
+
+  .landing-cta-bg {
+    margin: 0 24px;
+  }
+
+  .landing-cta-title {
+    font-size: 28px;
+  }
+
+  .landing-footer {
+    padding: 32px 24px;
+  }
+
+  .landing-footer-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-hero-title {
+    font-size: 32px;
+  }
+
+  .landing-hero-badge {
+    font-size: 12px;
+  }
+
+  .landing-cta-primary,
+  .landing-cta-secondary {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .landing-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-feature-card {
+    padding: 24px;
+  }
+
+  .landing-orb-1,
+  .landing-orb-2,
+  .landing-orb-3 {
+    display: none;
+  }
+}
+
+/* ========== 减少动画模式 ========== */
+@media (prefers-reduced-motion: reduce) {
+  .landing-particle,
+  .landing-orb,
+  .landing-hero-badge,
+  .landing-feature-card,
+  .landing-cta-primary,
+  .landing-cta-secondary,
+  .landing-nav-btn {
+    animation: none;
+    transition: none;
+  }
+}

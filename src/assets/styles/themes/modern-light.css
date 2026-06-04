@@ -1,0 +1,155 @@
+/**
+ * 现代亮色主题 - 极简专业工作台
+ */
+
+[data-modern-theme='light'] {
+  /* 品牌渐变色 */
+  --brand-gradient-start: #667eea;
+  --brand-gradient-mid: #764ba2;
+  --brand-gradient-end: #f093fb;
+  --brand-gradient-full: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+  /* 主色 */
+  --color-primary: #667eea;
+  --color-primary-hover: #7b94f2;
+  --color-primary-active: #5568d3;
+  --color-primary-bg: rgba(102, 126, 234, 0.1);
+  --color-primary-soft: rgba(102, 126, 234, 0.05);
+
+  /* 功能色 */
+  --color-success: #10b981;
+  --color-success-hover: #34d399;
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-success-soft: rgba(16, 185, 129, 0.05);
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #fbbf24;
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-warning-soft: rgba(245, 158, 11, 0.05);
+
+  --color-error: #ef4444;
+  --color-error-hover: #f87171;
+  --color-error-bg: rgba(239, 68, 68, 0.1);
+  --color-error-soft: rgba(239, 68, 68, 0.05);
+
+  --color-info: #3b82f6;
+  --color-info-hover: #60a5fa;
+  --color-info-bg: rgba(59, 130, 246, 0.1);
+  --color-info-soft: rgba(59, 130, 246, 0.05);
+
+  /* 中性色 */
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-text-disabled: #cccccc;
+
+  /* 背景色 */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-tertiary: #f3f4f6;
+  --color-bg-quaternary: #e5e7eb;
+  --color-bg-elevated: #ffffff;
+
+  /* 边框色 */
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-light: rgba(0, 0, 0, 0.04);
+  --color-border-strong: rgba(0, 0, 0, 0.12);
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* 间距 */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* 导航栏 */
+  --navbar-height: 56px;
+  --navbar-bg: #ffffff;
+  --navbar-border: rgba(0, 0, 0, 0.06);
+
+  /* 侧边栏 */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 72px;
+  --sidebar-bg: #f9fafb;
+  --sidebar-border: rgba(0, 0, 0, 0.06);
+
+  /* 卡片 */
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-hover-bg: #ffffff;
+  --card-hover-border: rgba(102, 126, 234, 0.3);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* 过渡动画 */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 简洁卡片 */
+[data-modern-theme='light'] .light-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-normal);
+}
+
+[data-modern-theme='light'] .light-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* 导航下划线 */
+[data-modern-theme='light'] .nav-link {
+  position: relative;
+}
+
+[data-modern-theme='light'] .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+[data-modern-theme='light'] .nav-link.active::after,
+[data-modern-theme='light'] .nav-link:hover::after {
+  width: 100%;
+}
+
+/* 渐变文字 */
+[data-modern-theme='light'] .gradient-text {
+  background: var(--brand-gradient-full);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 按钮悬停效果 */
+[data-modern-theme='light'] .hover-lift {
+  transition: all var(--transition-normal);
+}
+
+[data-modern-theme='light'] .hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}

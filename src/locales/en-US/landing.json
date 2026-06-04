@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "docs": "Docs",
+    "about": "About",
+    "login": "Login",
+    "register": "Register"
+  },
+  "hero": {
+    "badge": "v1.0 New Release",
+    "title1": "Intelligent Agent",
+    "title2": "Evaluation Platform",
+    "subtitle1": "Fully automated AI Agent performance testing & analysis platform",
+    "subtitle2": "Evaluate effortlessly, analyze deeply, optimize continuously",
+    "cta": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "badge": "Core Features",
+    "title": "Comprehensive Agent Evaluation Solution",
+    "desc": "End-to-end service from test execution to data analysis, helping you build better AI Agents",
+    "smartEval": "Smart Evaluation",
+    "smartEvalDesc": "Automated AI Agent performance testing with customizable evaluation scenarios",
+    "dataAnalysis": "Data Analysis",
+    "dataAnalysisDesc": "Real-time visual execution reports with deep insights into Agent performance",
+    "batchExec": "Batch Execution",
+    "batchExecDesc": "Efficient concurrent task scheduling system for large-scale batch evaluations",
+    "security": "Secure & Reliable",
+    "securityDesc": "Enterprise-grade data security with comprehensive access control",
+    "multiModel": "Multi-Model Support",
+    "multiModelDesc": "Compatible with mainstream LLM Agents, seamless integration with various AI models",
+    "flexConfig": "Flexible Configuration",
+    "flexConfigDesc": "Customizable evaluation metrics and scenarios for diverse testing needs"
+  },
+  "stats": {
+    "tasks": "Eval Tasks",
+    "executions": "Executions",
+    "agents": "Supported Agents",
+    "enterprises": "Enterprise Users"
+  },
+  "demo": {
+    "title1": "Intuitive Data Display,",
+    "title2": "Deep Performance Insights",
+    "desc": "View evaluation progress and results in real-time through a well-designed Dashboard. Rich visualizations help you quickly understand data and make informed decisions.",
+    "feature1": "Intuitive Dashboard for real-time evaluation progress",
+    "feature2": "Rich charts for multi-dimensional data analysis",
+    "feature3": "Flexible task configuration for custom evaluation scenarios",
+    "preview": "Dashboard Preview"
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "desc": "Sign up now and begin your Agent evaluation journey",
+    "button": "Sign Up Free"
+  },
+  "footer": {
+    "product": "Product",
+    "docs": "Docs",
+    "blog": "Blog",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us"
+  }
+}
