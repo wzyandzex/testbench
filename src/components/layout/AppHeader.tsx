@@ -31,7 +31,7 @@ export function AppHeader() {
   const user = useAuthStore((state) => state.user);
   const clearAuth = useAuthStore((state) => state.clearAuth);
   const screens = Grid.useBreakpoint();
-  const isCompact = !screens.md;
+  const isCompact = !screens.lg;
   const isNarrow = !screens.sm;
   const effectiveSidebarCollapsed = isCompact || sidebarCollapsed;
   

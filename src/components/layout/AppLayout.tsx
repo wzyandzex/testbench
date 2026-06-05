@@ -16,7 +16,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   const themeMode = useUiStore((state) => state.theme);
   const isDark = themeMode === 'dark';
   const screens = Grid.useBreakpoint();
-  const isCompact = !screens.md;
+  const isCompact = !screens.lg;
   const effectiveSidebarCollapsed = isCompact || sidebarCollapsed;
   const sidebarWidth = effectiveSidebarCollapsed ? 80 : 240;
   const contentMargin = isCompact ? 12 : 24;

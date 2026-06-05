@@ -19,7 +19,9 @@ import {
   Descriptions,
   Dropdown,
   type MenuProps,
+  type TableProps,
   Empty,
+  Grid,
 } from 'antd';
 import {
   HomeOutlined,
@@ -1180,6 +1182,9 @@ export default function BenchmarkDetailPage() {
   // Theme hooks
   const tokens = useThemeTokens();
   const { token: antToken } = theme.useToken();
+  const screens = Grid.useBreakpoint();
+  const isCompact = !screens.md;
+  const shouldStackHeader = !screens.lg;
   const primaryText = useTextStyle('primary');
   const secondaryText = useTextStyle('secondary');
   const statCardStyle = useStatCardStyle();
@@ -1188,12 +1193,74 @@ export default function BenchmarkDetailPage() {
   const benchmarkDescription = benchmarkDetail?.description || t('detail.fallback.noDescription');
   const categoryInfo = resolveCategoryInfo(benchmarkDetail?.category);
   const statusInfo = benchmarkDetail ? benchmarkStatusConfig[benchmarkDetail.status] : null;
+  const statusLabel = benchmarkDetail
+    ? t(`status.${benchmarkDetail.status}`, {
+        defaultValue: benchmarkStatusConfig[benchmarkDetail.status]?.text || benchmarkDetail.status,
+      })
+    : t('status.unknown');
   const executionAgents = buildExecutionAgents(executionHistory);
   const executionChartData = buildExecutionChartPoints(executionHistory);
   const executionHeatmapData = buildExecutionHeatmap(executionHistory);
   const executionMetrics = buildExecutionMetrics(benchmarkStats, executionHistory);
   const executionRows = buildExecutionHistoryRows(executionHistory);
   const hasExecutionData = executionHistoryTotal > 0;
+  const pageContainerStyle: React.CSSProperties = {
+    ...styles.PAGE_CONTAINER_STYLE,
+    maxWidth: '100%',
+    minWidth: 0,
+    padding: isCompact ? '16px 12px' : screens.xl ? styles.PAGE_CONTAINER_STYLE.padding : '24px 20px',
+  };
+  const pageHeaderStyle: React.CSSProperties = {
+    ...styles.PAGE_HEADER_STYLE,
+    alignItems: 'stretch',
+    minWidth: 0,
+  };
+  const pageHeaderInnerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 16,
+    width: '100%',
+    minWidth: 0,
+    flexWrap: shouldStackHeader ? 'wrap' : 'nowrap',
+  };
+  const titleBlockStyle: React.CSSProperties = {
+    flex: shouldStackHeader ? '1 1 100%' : '1 1 360px',
+    minWidth: 0,
+    maxWidth: '100%',
+  };
+  const titleMetaStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 8,
+    minWidth: 0,
+    flexWrap: 'wrap',
+  };
+  const pageTitleStyle: React.CSSProperties = {
+    ...styles.PAGE_TITLE_STYLE,
+    flex: '1 1 280px',
+    minWidth: 0,
+    maxWidth: '100%',
+    lineHeight: 1.25,
+    whiteSpace: 'normal',
+    wordBreak: 'normal',
+    overflowWrap: 'break-word',
+  };
+  const pageDescriptionStyle: React.CSSProperties = {
+    display: 'block',
+    maxWidth: 880,
+    fontSize: 14,
+    lineHeight: 1.6,
+    whiteSpace: 'normal',
+    overflowWrap: 'break-word',
+  };
+  const pageActionsStyle: React.CSSProperties = {
+    flex: shouldStackHeader ? '1 1 100%' : '0 0 auto',
+    maxWidth: '100%',
+    minWidth: 0,
+    justifyContent: shouldStackHeader ? 'flex-start' : 'flex-end',
+  };
 
   // More actions menu
   const moreMenuItems: MenuProps['items'] = [
@@ -1235,17 +1302,20 @@ export default function BenchmarkDetailPage() {
   }, []);
 
   // Execution history table columns
-  const executionColumns = [
+  const executionColumns: TableProps<ExecutionHistoryRow>['columns'] = [
     {
       title: 'Agent',
       dataIndex: 'agent',
       key: 'agent',
+      width: 200,
       render: (agent: string) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Avatar size={24} style={{ background: '#f5f5f5', color: '#999' }}>
+          <Avatar size={24} style={{ flex: '0 0 auto', background: '#f5f5f5', color: '#999' }}>
             {agent.charAt(0)}
           </Avatar>
-          <Text style={{ fontSize: 13 }}>{agent}</Text>
+          <Text ellipsis={{ tooltip: agent }} style={{ display: 'block', maxWidth: 150, fontSize: 13 }}>
+            {agent}
+          </Text>
         </div>
       ),
     },
@@ -1270,6 +1340,7 @@ export default function BenchmarkDetailPage() {
       dataIndex: 'durationMs',
       key: 'durationMs',
       width: 100,
+      responsive: ['sm'],
       render: (durationMs?: number) => (
         <Text style={{ fontSize: 13, fontFamily: 'monospace' }}>{formatDurationMs(durationMs)}</Text>
       ),
@@ -1279,6 +1350,7 @@ export default function BenchmarkDetailPage() {
       dataIndex: 'startTime',
       key: 'startTime',
       width: 150,
+      responsive: ['md'],
       render: (time: dayjs.Dayjs) => (
         <Text type="secondary" style={{ fontSize: 13 }}>
           {time.fromNow()}
@@ -1367,6 +1439,8 @@ export default function BenchmarkDetailPage() {
                 pagination={false}
                 loading={executionHistoryLoading}
                 size="small"
+                tableLayout="fixed"
+                scroll={{ x: isCompact ? 520 : 760 }}
               />
             </Card>
           </Col>
@@ -1379,12 +1453,12 @@ export default function BenchmarkDetailPage() {
       icon: <FileTextOutlined />,
       children: (
         <Card style={styles.CARD_CONTAINER_STYLE} styles={{ body: { padding: 0 } }}>
-          <div style={{ padding: '16px 16px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Space>
+          <div style={{ padding: isCompact ? '12px 12px 0' : '16px 16px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <Space wrap>
               <Select
                 allowClear
                 placeholder={t('detail.cases.filterByStatus')}
-                style={{ width: 160 }}
+                style={{ width: isCompact ? 180 : 160 }}
                 value={statusFilter}
                 onChange={(val) => setStatusFilter(val)}
                 options={Object.entries(CASE_ASSET_STATUS_CONFIG).map(([key, cfg]) => ({
@@ -1496,6 +1570,8 @@ export default function BenchmarkDetailPage() {
             }
             rowKey="id"
             loading={casesLoading}
+            tableLayout="fixed"
+            scroll={{ x: isAdmin ? 1120 : 980 }}
             rowSelection={isAdmin ? {
               selectedRowKeys: selectedCaseKeys,
               onChange: (keys: React.Key[]) => setSelectedCaseKeys(keys as string[]),
@@ -1563,6 +1639,8 @@ export default function BenchmarkDetailPage() {
             dataSource={executionRows}
             rowKey="id"
             loading={executionHistoryLoading}
+            tableLayout="fixed"
+            scroll={{ x: isCompact ? 520 : 760 }}
             pagination={{
               current: executionHistoryPage,
               pageSize: executionHistoryPageSize,
@@ -1582,7 +1660,7 @@ export default function BenchmarkDetailPage() {
       label: t('detail.settings'),
       children: (
         <Card style={styles.CARD_CONTAINER_STYLE} loading={benchmarkLoading && !benchmarkDetail}>
-          <Descriptions column={2} bordered>
+          <Descriptions column={isCompact ? 1 : 2} bordered>
             <Descriptions.Item label={t('detail.config2.timeout')}>
               {benchmarkDetail?.config.timeout ?? '-'} {t('detail.config2.timeoutUnit')}
             </Descriptions.Item>
@@ -1615,20 +1693,36 @@ export default function BenchmarkDetailPage() {
   ];
 
   return (
-    <div style={styles.PAGE_CONTAINER_STYLE}>
+    <div style={pageContainerStyle}>
       {/* Breadcrumb */}
       <Breadcrumb style={{ marginBottom: 24 }} items={[
         { title: <HomeOutlined />, href: '/dashboard' },
         { title: <span>{t('detail.breadcrumbBenchmarks')}</span>, href: '/benchmarks' },
-        { title: <span>{benchmarkName}</span> },
+        {
+          title: (
+            <span
+              title={benchmarkName}
+              style={{
+                display: 'inline-block',
+                maxWidth: isCompact ? 160 : 360,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                verticalAlign: 'bottom',
+              }}
+            >
+              {benchmarkName}
+            </span>
+          ),
+        },
       ]} />
 
       {/* Page title */}
-      <div style={styles.PAGE_HEADER_STYLE}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-              <Title level={2} style={styles.PAGE_TITLE_STYLE}>
+      <div style={pageHeaderStyle}>
+        <div style={pageHeaderInnerStyle}>
+          <div style={titleBlockStyle}>
+            <div style={titleMetaStyle}>
+              <Title level={2} style={pageTitleStyle}>
                 {benchmarkName}
               </Title>
               <Tag
@@ -1649,14 +1743,14 @@ export default function BenchmarkDetailPage() {
                 color={statusInfo?.color || 'default'}
                 style={{ margin: 0, borderRadius: 20 }}
               >
-                {statusInfo?.text || t('detail.fallback.unknownStatus')}
+                {statusLabel || t('detail.fallback.unknownStatus')}
               </Tag>
             </div>
-            <Text type="secondary" style={{ fontSize: 14 }}>
+            <Text type="secondary" style={pageDescriptionStyle}>
               {benchmarkDescription}
             </Text>
           </div>
-          <Space>
+          <Space wrap style={pageActionsStyle}>
             <Button icon={<EditOutlined />} onClick={() => navigate(`/benchmarks/${id}/edit`)}>
               {t('detail.edit')}
             </Button>
@@ -1702,8 +1796,8 @@ export default function BenchmarkDetailPage() {
         </div>
       )}
 
-      <Row gutter={16} style={{ marginBottom: 24 }}>
-        <Col xs={12} sm={6}>
+      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+        <Col xs={24} sm={12} lg={6} style={{ minWidth: 0 }}>
           <div style={statCardStyle}>
             <Text style={{ fontSize: 12, ...secondaryText }}>
               {t('detail.stats.totalRuns')}
@@ -1713,7 +1807,7 @@ export default function BenchmarkDetailPage() {
             </div>
           </div>
         </Col>
-        <Col xs={12} sm={6}>
+        <Col xs={24} sm={12} lg={6} style={{ minWidth: 0 }}>
           <div style={statCardStyle}>
             <Text style={{ fontSize: 12, ...secondaryText }}>
               {t('detail.stats.successRate')}
@@ -1723,7 +1817,7 @@ export default function BenchmarkDetailPage() {
             </div>
           </div>
         </Col>
-        <Col xs={12} sm={6}>
+        <Col xs={24} sm={12} lg={6} style={{ minWidth: 0 }}>
           <div style={statCardStyle}>
             <Text style={{ fontSize: 12, ...secondaryText }}>
               {t('detail.stats.avgDuration')}
@@ -1733,7 +1827,7 @@ export default function BenchmarkDetailPage() {
             </div>
           </div>
         </Col>
-        <Col xs={12} sm={6}>
+        <Col xs={24} sm={12} lg={6} style={{ minWidth: 0 }}>
           <div style={statCardStyle}>
             <Text style={{ fontSize: 12, ...secondaryText }}>
               {t('detail.stats.language')}
@@ -1754,7 +1848,7 @@ export default function BenchmarkDetailPage() {
       </Row>
 
       {/* Tabs */}
-      <Tabs defaultActiveKey="overview" items={tabItems} />
+      <Tabs defaultActiveKey="overview" items={tabItems} style={{ minWidth: 0 }} />
 
       {/* Case Governance Detail Drawer */}
       <Drawer
@@ -1773,7 +1867,7 @@ export default function BenchmarkDetailPage() {
             )}
           </Space>
         }
-        width={680}
+        width={isCompact ? 'calc(100vw - 32px)' : 680}
         loading={caseDetailLoading}
       >
         {caseDetail?.current ? (
