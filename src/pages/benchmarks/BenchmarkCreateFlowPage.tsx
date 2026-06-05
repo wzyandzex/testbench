@@ -768,8 +768,8 @@ export default function BenchmarkCreateFlowPage() {
                         placeholder={t('createFlow.sourceStep.anyType')}
                         value={filters.sourceType}
                         options={[
-                          { value: 'git', label: 'Git Source' },
-                          { value: 'zip', label: 'ZIP Source' },
+                          { value: 'git', label: t('createFlow.sourceStep.gitSource') },
+                          { value: 'zip', label: t('createFlow.sourceStep.zipSource') },
                         ]}
                         onChange={(value) => setFilters((current) => ({ ...current, sourceType: value as SourceTypeFilter | undefined }))}
                       />

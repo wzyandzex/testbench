@@ -241,22 +241,22 @@ export function AgentForm({
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={8}>
-                    <Form.Item label="Temperature" name="temperature">
+                    <Form.Item label={t('form.temperature')} name="temperature">
                       <InputNumber min={0} max={2} step={0.1} style={{ width: '100%' }} />
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={8}>
-                    <Form.Item label="Max Tokens" name="max_tokens">
+                    <Form.Item label={t('form.maxTokens')} name="max_tokens">
                       <InputNumber min={1} style={{ width: '100%' }} />
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={8}>
-                    <Form.Item label="Top P" name="top_p">
+                    <Form.Item label={t('form.topP')} name="top_p">
                       <InputNumber min={0} max={1} step={0.05} style={{ width: '100%' }} />
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={8}>
-                    <Form.Item label="Top K" name="top_k">
+                    <Form.Item label={t('form.topK')} name="top_k">
                       <InputNumber min={0} style={{ width: '100%' }} />
                     </Form.Item>
                   </Col>
@@ -271,16 +271,16 @@ export function AgentForm({
 
             <Col xs={24} lg={10}>
               <Card title={t('form.credentials')} bordered={false}>
-                <Form.Item label="API Key" name="api_key">
+                <Form.Item label={t('form.apiKey')} name="api_key">
                   <Input.Password placeholder={t('form.apiKeyPlaceholder')} />
                 </Form.Item>
 
-                <Form.Item label="Tools JSON" name="tools_json">
-                  <Input.TextArea rows={8} placeholder='e.g. {"shell":{"enabled":true}}' />
+                <Form.Item label={t('form.toolsJson')} name="tools_json">
+                  <Input.TextArea rows={8} placeholder={t('form.toolsPlaceholder')} />
                 </Form.Item>
 
-                <Form.Item label="Metadata JSON" name="metadata_json">
-                  <Input.TextArea rows={8} placeholder='e.g. {"owner":"platform-team"}' />
+                <Form.Item label={t('form.metadataJson')} name="metadata_json">
+                  <Input.TextArea rows={8} placeholder={t('form.metadataPlaceholder')} />
                 </Form.Item>
               </Card>
             </Col>

@@ -500,6 +500,12 @@
       "unknownStatus": "Unknown",
       "benchmark": "Benchmark",
       "allAgents": "全部 Agent"
+    },
+    "runPriority": {
+      "p0": "最高优先级，用于紧急人工验证。",
+      "p1": "高优先级，用于人工触发运行。",
+      "p2": "默认优先级，用于常规启动。",
+      "p3": "较低优先级，用于后台排队。"
     }
   },
   "form": {
@@ -852,7 +858,9 @@
       "recommendedCount": "{{count}} 个推荐模板",
       "sourceMeta": "Source {{id}} · 更新于 {{time}}",
       "selected": "已选中",
-      "selectSource": "选择这个 Source"
+      "selectSource": "选择这个 Source",
+      "gitSource": "Git Source",
+      "zipSource": "ZIP Source"
     },
     "templateStep": {
       "titleStep2": "2. 选择 Benchmark 模板",

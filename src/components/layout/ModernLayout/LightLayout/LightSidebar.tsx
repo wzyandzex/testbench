@@ -1,5 +1,6 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import {
   sidebarStyle,
@@ -22,6 +23,7 @@ interface LightSidebarProps {
 }
 
 export const LightSidebar = memo<LightSidebarProps>(({ collapsed = false, onToggle }) => {
+  const { t } = useTranslation('nav');
   const navigate = useNavigate();
   const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -33,8 +35,9 @@ export const LightSidebar = memo<LightSidebarProps>(({ collapsed = false, onTogg
         currentOrgId: currentOrg?.org_id,
         hasMultipleOrgs,
         dashboardPath: '/dashboard-v2',
+        t: (key) => t(key),
       }),
-    [currentOrg?.org_id, hasMultipleOrgs]
+    [currentOrg?.org_id, hasMultipleOrgs, t]
   );
   const mainNavItems = navigation.mainline;
   const otherNavItems = [...navigation.operations, ...navigation.compatibility];
@@ -96,7 +99,7 @@ export const LightSidebar = memo<LightSidebarProps>(({ collapsed = false, onTogg
       {/* 主导航 */}
       {!collapsed && (
         <div style={{ marginBottom: 24 }}>
-          <div style={sidebarGroupTitleStyle}>Main</div>
+          <div style={sidebarGroupTitleStyle}>{t('groups.main')}</div>
           {mainNavItems.map(renderMenuItem)}
         </div>
       )}
@@ -136,7 +139,7 @@ export const LightSidebar = memo<LightSidebarProps>(({ collapsed = false, onTogg
       {/* 其他导航 */}
       {!collapsed && (
         <div style={{ marginBottom: 24 }}>
-          <div style={sidebarGroupTitleStyle}>Operations</div>
+          <div style={sidebarGroupTitleStyle}>{t('groups.operations')}</div>
           {otherNavItems.map(renderMenuItem)}
         </div>
       )}

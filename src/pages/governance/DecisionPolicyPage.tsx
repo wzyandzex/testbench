@@ -317,7 +317,7 @@ export default function DecisionPolicyPage() {
             <Row gutter={24}>
               <Col span={12}>
                 <Text strong style={{ display: 'block', marginBottom: 8 }}>
-                  <Tag color="red" style={{ marginRight: 4 }}>{t('decision.untrusted')}</Tag>Untrusted ({e.untrusted_reason_priority.length})
+                  <Tag color="red" style={{ marginRight: 4 }}>{t('decision.untrusted')}</Tag>{t('decision.untrustedWithCount', { count: e.untrusted_reason_priority.length })}
                 </Text>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                   {e.untrusted_reason_priority.map((r, i) => (
@@ -327,7 +327,7 @@ export default function DecisionPolicyPage() {
               </Col>
               <Col span={12}>
                 <Text strong style={{ display: 'block', marginBottom: 8 }}>
-                  <Tag color="warning" style={{ marginRight: 4 }}>{t('decision.watch')}</Tag>Watch ({e.watch_reason_priority.length})
+                  <Tag color="warning" style={{ marginRight: 4 }}>{t('decision.watch')}</Tag>{t('decision.watchWithCount', { count: e.watch_reason_priority.length })}
                 </Text>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                   {e.watch_reason_priority.map((r, i) => (
@@ -353,8 +353,8 @@ export default function DecisionPolicyPage() {
               dataSource={Object.entries(e.primary_action_by_reason)}
               pagination={false}
               columns={[
-                { title: 'Reason', dataIndex: 0, width: 280, render: (r: string) => <Text code>{getReasonLabel(r)}</Text> },
-                { title: 'Action', dataIndex: 1, width: 150, render: (a: string) => <Tag color={GOVERNANCE_ACTIONS[a as keyof typeof GOVERNANCE_ACTIONS]?.color}>{GOVERNANCE_ACTIONS[a as keyof typeof GOVERNANCE_ACTIONS]?.label || a}</Tag> },
+                { title: t('decision.columns.reason'), dataIndex: 0, width: 280, render: (r: string) => <Text code>{getReasonLabel(r)}</Text> },
+                { title: t('decision.columns.action'), dataIndex: 1, width: 150, render: (a: string) => <Tag color={GOVERNANCE_ACTIONS[a as keyof typeof GOVERNANCE_ACTIONS]?.color}>{GOVERNANCE_ACTIONS[a as keyof typeof GOVERNANCE_ACTIONS]?.label || a}</Tag> },
               ]}
             />
 
@@ -396,7 +396,7 @@ export default function DecisionPolicyPage() {
                 <Row gutter={24}>
                   <Col span={12}>
                     <Text strong style={{ display: 'block', marginBottom: 8 }}>
-                      <Tag color="red">{t('decision.untrusted')}</Tag> Untrusted ({untrustedReasons.length})
+                      <Tag color="red">{t('decision.untrusted')}</Tag> {t('decision.untrustedWithCount', { count: untrustedReasons.length })}
                     </Text>
                     <SortableReasonList
                       items={untrustedReasons} color="error"
@@ -407,7 +407,7 @@ export default function DecisionPolicyPage() {
                   </Col>
                   <Col span={12}>
                     <Text strong style={{ display: 'block', marginBottom: 8 }}>
-                      <Tag color="warning">{t('decision.watch')}</Tag> Watch ({watchReasons.length})
+                      <Tag color="warning">{t('decision.watch')}</Tag> {t('decision.watchWithCount', { count: watchReasons.length })}
                     </Text>
                     <SortableReasonList
                       items={watchReasons} color="warning"
@@ -459,7 +459,7 @@ export default function DecisionPolicyPage() {
                     pagination={false}
                     columns={[
                       {
-                        title: 'Reason', dataIndex: 0, width: 250,
+                        title: t('decision.columns.reason'), dataIndex: 0, width: 250,
                         render: (reason: string) => {
                           const used = new Set(Object.keys(actionByReason));
                           return (
@@ -482,7 +482,7 @@ export default function DecisionPolicyPage() {
                         },
                       },
                       {
-                        title: 'Action', dataIndex: 1, width: 180,
+                        title: t('decision.columns.action'), dataIndex: 1, width: 180,
                         render: (action: string, entry: [string, string]) => (
                           <Select
                             size="small" value={action} style={{ width: '100%' }}

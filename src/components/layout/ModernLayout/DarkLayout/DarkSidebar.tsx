@@ -31,8 +31,9 @@ export const DarkSidebar = memo<DarkSidebarProps>(({ collapsed = false, onToggle
         hasMultipleOrgs,
         dashboardPath: '/dashboard-v2',
         isAdmin,
+        t: (key) => t(key),
       }),
-    [currentOrg?.org_id, hasMultipleOrgs, isAdmin]
+    [currentOrg?.org_id, hasMultipleOrgs, isAdmin, t]
   );
   const quickActions = navigation.quickActions;
   const otherNavItems = [...navigation.operations, ...navigation.compatibility, ...navigation.admin];
@@ -95,7 +96,7 @@ export const DarkSidebar = memo<DarkSidebarProps>(({ collapsed = false, onToggle
               marginBottom: 8,
               paddingLeft: 4,
             }}>
-              Quick Actions
+              {t('groups.quickActions')}
             </div>
             {quickActions.map((action, index) => {
               const active = isActive(action.path);
@@ -131,7 +132,7 @@ export const DarkSidebar = memo<DarkSidebarProps>(({ collapsed = false, onToggle
               marginBottom: 8,
               paddingLeft: 4,
             }}>
-              Navigation
+              {t('groups.navigation')}
             </div>
             {otherNavItems.map((item: WorkspaceNavigationItem) => {
               const active = isActive(item.path);
@@ -245,7 +246,7 @@ export const DarkSidebar = memo<DarkSidebarProps>(({ collapsed = false, onToggle
           )})}
           <div
             onClick={() => handleNavigate('/batch')}
-            title="Batch"
+            title={t('batch')}
             style={{
               display: 'flex',
               alignItems: 'center',

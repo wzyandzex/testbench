@@ -26,7 +26,7 @@ interface DarkNavbarProps {
 export const DarkNavbar = memo<DarkNavbarProps>(({ onMenuClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t } = useTranslation('nav');
   const theme = useUiStore((s) => s.theme);
   const setTheme = useUiStore((s) => s.setTheme);
   const notificationCount = useUiStore((s) => s.notificationCount);
@@ -40,8 +40,9 @@ export const DarkNavbar = memo<DarkNavbarProps>(({ onMenuClick }) => {
         currentOrgId: currentOrg?.org_id,
         hasMultipleOrgs,
         dashboardPath: '/dashboard-v2',
+        t: (key) => t(key),
       }),
-    [currentOrg?.org_id, hasMultipleOrgs]
+    [currentOrg?.org_id, hasMultipleOrgs, t]
   );
   const navItems = navigation.navbar;
 
@@ -67,20 +68,20 @@ export const DarkNavbar = memo<DarkNavbarProps>(({ onMenuClick }) => {
     {
       key: 'profile',
       icon: <UserOutlined />,
-      label: t('nav.profile'),
+      label: t('profile'),
       onClick: () => navigate('/settings'),
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
-      label: t('nav.settings'),
+      label: t('settings'),
       onClick: () => navigate('/settings'),
     },
     { type: 'divider' as const },
     {
       key: 'logout',
       icon: <LogoutOutlined />,
-      label: t('nav.logout'),
+      label: t('logout'),
       onClick: handleLogout,
     },
   ];
@@ -128,6 +129,7 @@ export const DarkNavbar = memo<DarkNavbarProps>(({ onMenuClick }) => {
         {/* 主题切换 */}
         <div
           onClick={handleThemeToggle}
+          title={theme === 'dark' ? t('theme.switchToLight') : t('theme.switchToDark')}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -219,7 +221,7 @@ export const DarkNavbar = memo<DarkNavbarProps>(({ onMenuClick }) => {
               style={{ backgroundColor: 'rgba(102, 126, 234, 0.3)' }}
             />
             <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: 14, fontWeight: 500 }}>
-              {user?.username || 'User'}
+              {user?.username || t('user.fallbackName')}
             </span>
           </div>
         </Dropdown>

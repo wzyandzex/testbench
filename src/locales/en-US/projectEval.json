@@ -241,7 +241,10 @@
     "hasAuthoritativeTruth": "Current result has authoritative truth, can proceed with repair directly.",
     "compatFallback": "Current conclusion relies on compatibility fallback. Please prioritize explicit evidence during Repair.",
     "fillScopeFirst": "Please fill in scope, constraints, acceptance criteria and verification method before entering planning.",
-    "viewPlanEvidence": "You can continue viewing plan, evidence and lifecycle details via tabs below."
+    "viewPlanEvidence": "You can continue viewing plan, evidence and lifecycle details via tabs below.",
+    "openRelated": "Open Related Page",
+    "checkFallback": "Please check Report and Explain first, as current conclusion relies on fallback metadata.",
+    "fallbackRepair": "Current conclusion relies on compatibility fallback. Please prioritize explicit evidence during Repair."
   },
   "report": {
     "fallbackMetadata": "This run is still using fallback outcome metadata.",
@@ -253,7 +256,11 @@
     "noComplianceGapDesc": "Current agent execution satisfies all required contract checks.",
     "profilingFallback": "Project profiling fell back to minimum viable result.",
     "conclusion": "Current conclusion",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "fallbackNotice": "This run is still using fallback outcome metadata.",
+    "hasError": "This run reported an error.",
+    "knownProductGaps": "Known Product Gaps",
+    "whySplit": "Why split this way"
   },
   "capability": {
     "title": "Current Capability Snapshot",
@@ -262,7 +269,9 @@
     "gap": "Has gaps",
     "unavailable": "Unavailable",
     "notRequired": "Not required",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "snapshot": "Current capability snapshot",
+    "whatNext": "What happens next"
   },
   "productGap": {
     "title": "Known Product Gaps",

@@ -18,7 +18,10 @@
     "missingId": "缺少 Agent ID",
     "missingIdSub": "当前路由没有可展示的 Agent 标识。",
     "missingEditId": "缺少 Agent ID",
-    "missingEditIdSub": "当前路由没有可编辑的 Agent 标识。"
+    "missingEditIdSub": "当前路由没有可编辑的 Agent 标识。",
+    "modelConfig": "模型配置",
+    "tools": "工具配置",
+    "metadata": "元数据"
   },
   "tabs": {
     "overview": "概览",
@@ -106,7 +109,16 @@
     "apiKeyPlaceholder": "为空则不改动 / 不设置",
     "apiKeyHasKey": "当前 Agent 已配置密钥。此处留空表示保留现有密钥，填写新值表示覆盖更新。",
     "apiKeyNoKey": "当前 Agent 尚未配置密钥。此处填写后将由后端加密存储。",
-    "keyProcessing": "密钥处理"
+    "keyProcessing": "密钥处理",
+    "temperature": "Temperature（温度）",
+    "maxTokens": "最大 Tokens",
+    "topP": "Top P（采样阈值）",
+    "topK": "Top K（候选数量）",
+    "apiKey": "API Key",
+    "toolsJson": "工具配置 JSON",
+    "toolsPlaceholder": "例如: {\"shell\":{\"enabled\":true}}",
+    "metadataJson": "元数据 JSON",
+    "metadataPlaceholder": "例如: {\"owner\":\"platform-team\"}"
   },
   "toolProfile": {
     "default": "默认",

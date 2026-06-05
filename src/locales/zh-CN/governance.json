@@ -205,6 +205,13 @@
       "evidence_aging": "证据老化",
       "authoritative_evidence": "权威证据",
       "no_follow_on_action_required": "无需后续操作"
+    },
+    "breadcrumbRoot": "治理策略",
+    "untrustedWithCount": "不可信（{{count}}）",
+    "watchWithCount": "观察（{{count}}）",
+    "columns": {
+      "reason": "原因",
+      "action": "动作"
     }
   },
   "overview": {
@@ -388,13 +395,14 @@
     "page": {
       "title": "LLM Quality 检查",
       "subtitle": "触发 LLM 质量检查、查看 Job 状态和管理检查任务",
-      "breadcrumb": "LLM Quality"
+      "breadcrumb": "LLM 质量",
+      "benchmarks": "评测任务"
     },
     "report": {
-      "title": "LLM Quality 报告",
+      "title": "LLM 质量报告",
       "breadcrumb": "报告",
       "jobLabel": "Job",
-      "reportLabel": "Report",
+      "reportLabel": "报告",
       "overview": "报告概览",
       "noReport": "暂无报告",
       "callSucceeded": "成功",
@@ -403,44 +411,44 @@
       "aggregateTitle": "汇总统计",
       "diffTitle": "与上次报告对比",
       "firstReport": "首次报告，无对比数据",
-      "history": "报告历史 ({{count}})",
-      "findingsCard": "Report Findings ({{count}})"
+      "history": "报告历史（{{count}}）",
+      "findingsCard": "报告发现（{{count}}）"
     },
     "summary": {
-      "total": "Total",
+      "total": "总数",
       "pending": "等待中",
       "processing": "处理中",
       "completed": "已完成",
       "failed": "失败",
       "cancelled": "已取消",
-      "running": "Running",
-      "terminal": "Terminal"
+      "running": "运行中",
+      "terminal": "已结束"
     },
     "aggregate": {
-      "totalCases": "Total Cases",
+      "totalCases": "总 Cases",
       "critical": "严重",
       "high": "高",
       "medium": "中",
       "low": "低",
       "info": "信息",
-      "findings": "Findings",
-      "avgScore": "Avg Score"
+      "findings": "发现数",
+      "avgScore": "平均分"
     },
     "diff": {
-      "scoreDelta": "Score 变化",
+      "scoreDelta": "分数变化",
       "changedCases": "变化 Cases",
       "added": "新增",
       "removed": "移除",
       "newHighRisk": "新增高风险",
       "resolvedHighRisk": "解决高风险",
-      "riskLabel": "Risk:",
-      "decisionLabel": "Decision:"
+      "riskLabel": "风险：",
+      "decisionLabel": "决策："
     },
     "jobList": {
       "title": "Job 列表",
       "statusFilter": "状态筛选",
-      "runningGroup": "运行中 (Running)",
-      "terminalGroup": "已结束 (Terminal)",
+      "runningGroup": "运行中",
+      "terminalGroup": "已结束",
       "triggerBtn": "触发检查",
       "totalCount": "共 {{count}} 条",
       "actions": {
@@ -454,7 +462,10 @@
         "started": "开始",
         "completed": "完成",
         "created": "创建",
-        "action": "操作"
+        "action": "操作",
+        "id": "ID",
+        "model": "模型",
+        "strict": "严格模式"
       }
     },
     "trigger": {
@@ -462,15 +473,20 @@
       "modelRequired": "请选择模型",
       "modelPlaceholder": "选择 LLM 模型",
       "dimensionsPlaceholder": "选择评估维度 (默认全部)",
-      "scopeFull": "Full (全部用例)",
-      "scopeDelta": "Delta (增量用例)",
-      "caseKeysLabel": "Case Keys (可选，每行一个)",
+      "scopeFull": "全量（全部用例）",
+      "scopeDelta": "增量（变化用例）",
+      "caseKeysLabel": "Case Keys（可选）",
       "caseKeysPlaceholder": "输入 case_key 后回车",
       "maxCasesPlaceholder": "最大用例数",
-      "idempotencyLabel": "Idempotency Key (可选)",
+      "idempotencyLabel": "幂等 Key（可选）",
       "idempotencyPlaceholder": "幂等键，防止重复触发",
       "triggerOk": "LLM 质量检查已触发",
-      "triggerFail": "触发失败"
+      "triggerFail": "触发失败",
+      "modelLabel": "模型",
+      "dimensionsLabel": "评估维度",
+      "scopeLabel": "范围",
+      "maxCasesLabel": "最大 Cases",
+      "strictModeLabel": "严格模式"
     },
     "messages": {
       "fetchJobsFailed": "获取 Job 列表失败",
@@ -499,6 +515,27 @@
       "detail": "详情",
       "confidence": "置信度",
       "suggestion": "建议"
+    },
+    "labels": {
+      "yes": "是",
+      "no": "否",
+      "ok": "成功",
+      "fail": "失败",
+      "risk": "风险",
+      "score": "分数",
+      "authority": "权威性",
+      "model": "模型",
+      "provider": "Provider",
+      "cost": "成本",
+      "latency": "延迟",
+      "llmCall": "LLM 调用",
+      "decision": "决策",
+      "block": "阻断",
+      "warn": "警告",
+      "pass": "通过",
+      "case": "Case",
+      "findings": "发现",
+      "summary": "摘要"
     }
   }
 }

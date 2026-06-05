@@ -50,21 +50,23 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 function StateTag({ value, kind = 'state' }: { value?: string; kind?: 'state' | 'status' }) {
+  const { t } = useTranslation('admin');
   if (!value) return <Tag>-</Tag>;
   const colors = kind === 'state' ? ACCEPTED_STATE_COLORS : STATUS_COLORS;
-  return <Tag color={colors[value] ?? 'default'}>{value}</Tag>;
+  return <Tag color={colors[value] ?? 'default'}>{t(`targetAcceptance.states.${value}`, { defaultValue: value })}</Tag>;
 }
 
 function JsonPreview({ value, max = 600 }: { value: unknown; max?: number }) {
+  const { t } = useTranslation('admin');
   if (value == null) return <Text type="secondary">—</Text>;
   let str = '';
   try {
     str = typeof value === 'string' ? value : JSON.stringify(value, null, 2);
   } catch {
-    return <Text type="secondary">[unparseable]</Text>;
+    return <Text type="secondary">{t('targetAcceptance.detail.unparseable')}</Text>;
   }
   if (str.length > max) {
-    str = str.slice(0, max) + '\n... (truncated)';
+    str = str.slice(0, max) + `\n${t('targetAcceptance.detail.truncated')}`;
   }
   return (
     <pre
@@ -161,7 +163,7 @@ function RunsTab() {
 
   const columns: ColumnsType<RunSummaryView> = [
     {
-      title: 'Surface / Kind',
+      title: t('targetAcceptance.columns.surfaceKind'),
       key: 'surface',
       width: 200,
       render: (_, r) => (
@@ -174,42 +176,42 @@ function RunsTab() {
       ),
     },
     {
-      title: 'Env',
+      title: t('targetAcceptance.columns.env'),
       dataIndex: 'environment_label',
       key: 'environment_label',
       width: 100,
       render: (v: string) => <Tag>{v || '-'}</Tag>,
     },
     {
-      title: 'Status',
+      title: t('targetAcceptance.columns.status'),
       dataIndex: 'status',
       key: 'status',
       width: 100,
       render: (v: string) => <StateTag value={v} kind="status" />,
     },
     {
-      title: 'Classification',
+      title: t('targetAcceptance.columns.classification'),
       dataIndex: 'classification',
       key: 'classification',
       width: 140,
     },
     {
-      title: 'Accepted',
+      title: t('targetAcceptance.columns.accepted'),
       dataIndex: 'accepted_state',
       key: 'accepted_state',
       width: 120,
       render: (v: string) => <StateTag value={v} />,
     },
     {
-      title: 'Verdict',
+      title: t('targetAcceptance.columns.verdict'),
       dataIndex: 'verdict_passed',
       key: 'verdict_passed',
       width: 90,
       render: (v?: boolean) =>
-        v == null ? <Tag>-</Tag> : v ? <Tag color="green">PASS</Tag> : <Tag color="red">FAIL</Tag>,
+        v == null ? <Tag>-</Tag> : v ? <Tag color="green">{t('targetAcceptance.verdict.pass')}</Tag> : <Tag color="red">{t('targetAcceptance.verdict.fail')}</Tag>,
     },
     {
-      title: 'Generated',
+      title: t('targetAcceptance.columns.generated'),
       dataIndex: 'generated_at',
       key: 'generated_at',
       width: 170,
@@ -243,28 +245,28 @@ function RunsTab() {
             initialValues={filters}
           >
             <Form.Item name="target_surface">
-              <Input placeholder="target_surface" size="small" allowClear style={{ width: 160 }} />
+              <Input placeholder={t('targetAcceptance.filters.targetSurface')} size="small" allowClear style={{ width: 160 }} />
             </Form.Item>
             <Form.Item name="contract_kind">
-              <Input placeholder="contract_kind" size="small" allowClear style={{ width: 140 }} />
+              <Input placeholder={t('targetAcceptance.filters.contractKind')} size="small" allowClear style={{ width: 140 }} />
             </Form.Item>
             <Form.Item name="scope_kind">
-              <Input placeholder="scope_kind" size="small" allowClear style={{ width: 120 }} />
+              <Input placeholder={t('targetAcceptance.filters.scopeKind')} size="small" allowClear style={{ width: 120 }} />
             </Form.Item>
             <Form.Item name="environment_label">
-              <Input placeholder="env" size="small" allowClear style={{ width: 100 }} />
+              <Input placeholder={t('targetAcceptance.filters.environment')} size="small" allowClear style={{ width: 100 }} />
             </Form.Item>
             <Form.Item name="accepted_state">
               <Select
-                placeholder="accepted_state"
+                placeholder={t('targetAcceptance.filters.acceptedState')}
                 size="small"
                 allowClear
                 style={{ width: 140 }}
                 options={[
-                  { value: 'accepted', label: 'accepted' },
-                  { value: 'rejected', label: 'rejected' },
-                  { value: 'pending', label: 'pending' },
-                  { value: 'needs_review', label: 'needs_review' },
+                  { value: 'accepted', label: t('targetAcceptance.states.accepted') },
+                  { value: 'rejected', label: t('targetAcceptance.states.rejected') },
+                  { value: 'pending', label: t('targetAcceptance.states.pending') },
+                  { value: 'needs_review', label: t('targetAcceptance.states.needs_review') },
                 ]}
               />
             </Form.Item>
@@ -300,7 +302,7 @@ function RunsTab() {
       />
 
       <Drawer
-        title={detail ? `Run · ${detail.id}` : t('targetAcceptance.drawer.titleFallback')}
+        title={detail ? t('targetAcceptance.drawer.title', { id: detail.id }) : t('targetAcceptance.drawer.titleFallback')}
         width={720}
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
@@ -316,26 +318,26 @@ function RunsTab() {
         {detail && (
           <>
             <Descriptions size="small" column={2} bordered>
-              <Descriptions.Item label="Surface">{detail.target_surface}</Descriptions.Item>
-              <Descriptions.Item label="Contract">{detail.contract_kind}</Descriptions.Item>
-              <Descriptions.Item label="Scope">{detail.scope_kind}</Descriptions.Item>
-              <Descriptions.Item label="Env">{detail.environment_label}</Descriptions.Item>
-              <Descriptions.Item label="Source">
+              <Descriptions.Item label={t('targetAcceptance.detail.surface')}>{detail.target_surface}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.contract')}>{detail.contract_kind}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.scope')}>{detail.scope_kind}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.env')}>{detail.environment_label}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.source')}>
                 {detail.source_kind} {detail.source_ref ? `(${detail.source_ref})` : ''}
               </Descriptions.Item>
-              <Descriptions.Item label="External Run">{detail.external_run_id || '-'}</Descriptions.Item>
-              <Descriptions.Item label="Git Revision">{detail.git_revision || '-'}</Descriptions.Item>
-              <Descriptions.Item label="Status">
+              <Descriptions.Item label={t('targetAcceptance.detail.externalRun')}>{detail.external_run_id || '-'}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.gitRevision')}>{detail.git_revision || '-'}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.status')}>
                 <StateTag value={detail.status} kind="status" />
               </Descriptions.Item>
-              <Descriptions.Item label="Accepted State">
+              <Descriptions.Item label={t('targetAcceptance.detail.acceptedState')}>
                 <StateTag value={detail.accepted_state} />
               </Descriptions.Item>
-              <Descriptions.Item label="Accepted By">{detail.accepted_by || '-'}</Descriptions.Item>
-              <Descriptions.Item label="Generated">
+              <Descriptions.Item label={t('targetAcceptance.detail.acceptedBy')}>{detail.accepted_by || '-'}</Descriptions.Item>
+              <Descriptions.Item label={t('targetAcceptance.detail.generated')}>
                 {new Date(detail.generated_at).toLocaleString()}
               </Descriptions.Item>
-              <Descriptions.Item label="Recorded">
+              <Descriptions.Item label={t('targetAcceptance.detail.recorded')}>
                 {new Date(detail.recorded_at).toLocaleString()}
               </Descriptions.Item>
             </Descriptions>
@@ -343,31 +345,31 @@ function RunsTab() {
             {detail.narrative_summary && (
               <>
                 <Title level={5} style={{ marginTop: 16 }}>
-                  Narrative
+                  {t('targetAcceptance.detail.narrative')}
                 </Title>
                 <Paragraph>{detail.narrative_summary}</Paragraph>
               </>
             )}
 
             <Title level={5} style={{ marginTop: 16 }}>
-              Assumptions
+              {t('targetAcceptance.detail.assumptions')}
             </Title>
             <JsonPreview value={detail.assumptions} />
 
             <Title level={5} style={{ marginTop: 16 }}>
-              Normalized Facts
+              {t('targetAcceptance.detail.normalizedFacts')}
             </Title>
             <JsonPreview value={detail.normalized_facts} />
 
             <Title level={5} style={{ marginTop: 16 }}>
-              Artifact Manifest
+              {t('targetAcceptance.detail.artifactManifest')}
             </Title>
             <JsonPreview value={detail.artifact_manifest} />
 
             {comparison && (
               <>
                 <Title level={5} style={{ marginTop: 16 }}>
-                  Comparison to Baseline
+                  {t('targetAcceptance.detail.comparisonToBaseline')}
                 </Title>
                 <JsonPreview value={comparison} max={2000} />
               </>
@@ -410,7 +412,7 @@ function BaselinesTab() {
 
   const columns: ColumnsType<BaselineSummaryView> = [
     {
-      title: 'Surface / Kind',
+      title: t('targetAcceptance.columns.surfaceKind'),
       key: 'surface',
       width: 240,
       render: (_, b) => (
@@ -422,11 +424,11 @@ function BaselinesTab() {
         </Space>
       ),
     },
-    { title: 'Env', dataIndex: 'environment_label', key: 'environment_label', width: 120 },
-    { title: 'Run ID', dataIndex: 'acceptance_run_id', key: 'acceptance_run_id', width: 240 },
-    { title: 'Promoted By', dataIndex: 'promoted_by', key: 'promoted_by', width: 160 },
+    { title: t('targetAcceptance.columns.env'), dataIndex: 'environment_label', key: 'environment_label', width: 120 },
+    { title: t('targetAcceptance.columns.runId'), dataIndex: 'acceptance_run_id', key: 'acceptance_run_id', width: 240 },
+    { title: t('targetAcceptance.columns.promotedBy'), dataIndex: 'promoted_by', key: 'promoted_by', width: 160 },
     {
-      title: 'Promoted At',
+      title: t('targetAcceptance.columns.promotedAt'),
       dataIndex: 'promoted_at',
       key: 'promoted_at',
       width: 180,

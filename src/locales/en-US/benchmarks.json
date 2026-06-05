@@ -500,6 +500,12 @@
       "unknownStatus": "Unknown",
       "benchmark": "Benchmark",
       "allAgents": "All Agents"
+    },
+    "runPriority": {
+      "p0": "Highest priority for urgent manual validation.",
+      "p1": "High priority for operator-triggered runs.",
+      "p2": "Default priority for routine launches.",
+      "p3": "Lower priority for background queueing."
     }
   },
   "form": {
@@ -852,7 +858,9 @@
       "recommendedCount": "{{count}} recommended templates",
       "sourceMeta": "Source {{id}} · updated {{time}}",
       "selected": "Selected",
-      "selectSource": "Select this source"
+      "selectSource": "Select this source",
+      "gitSource": "Git Source",
+      "zipSource": "ZIP Source"
     },
     "templateStep": {
       "titleStep2": "2. Pick benchmark template",

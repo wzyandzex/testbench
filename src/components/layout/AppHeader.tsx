@@ -22,7 +22,7 @@ const { useToken } = theme;
 
 export function AppHeader() {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t } = useTranslation('nav');
   const sidebarCollapsed = useUiStore((state) => state.sidebarCollapsed);
   const toggleSidebar = useUiStore((state) => state.toggleSidebar);
   const notificationCount = useUiStore((state) => state.notificationCount);
@@ -47,7 +47,7 @@ export function AppHeader() {
     {
       key: 'profile',
       icon: <UserOutlined />,
-      label: t('nav.profile'),
+      label: t('profile'),
       onClick: () => navigate('/settings'),
     },
     {
@@ -56,7 +56,7 @@ export function AppHeader() {
     {
       key: 'logout',
       icon: <LogoutOutlined />,
-      label: t('nav.logout'),
+      label: t('logout'),
       onClick: handleLogout,
     },
   ], [t, navigate, handleLogout]);
@@ -93,7 +93,7 @@ export function AppHeader() {
           icon={isDark ? <SunOutlined /> : <MoonOutlined />}
           onClick={toggleTheme}
           style={{ fontSize: 16, width: 40, height: 40, borderRadius: token.borderRadiusLG, color: token.colorTextSecondary }}
-          title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          title={isDark ? t('theme.switchToLight') : t('theme.switchToDark')}
         />
 
         <WSStatusDot />

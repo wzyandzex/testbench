@@ -24,7 +24,7 @@ interface LightNavbarProps {
 export const LightNavbar = memo<LightNavbarProps>(({ onMenuClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t } = useTranslation('nav');
   const notificationCount = useUiStore((s) => s.notificationCount);
   const user = useAuthStore((s) => s.user);
   const clearAuth = useAuthStore((s) => s.clearAuth);
@@ -36,8 +36,9 @@ export const LightNavbar = memo<LightNavbarProps>(({ onMenuClick }) => {
         currentOrgId: currentOrg?.org_id,
         hasMultipleOrgs,
         dashboardPath: '/dashboard-v2',
+        t: (key) => t(key),
       }),
-    [currentOrg?.org_id, hasMultipleOrgs]
+    [currentOrg?.org_id, hasMultipleOrgs, t]
   );
   const navItems = navigation.navbar;
 
@@ -55,20 +56,20 @@ export const LightNavbar = memo<LightNavbarProps>(({ onMenuClick }) => {
     {
       key: 'profile',
       icon: <UserOutlined />,
-      label: t('nav.profile'),
+      label: t('profile'),
       onClick: () => navigate('/settings'),
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
-      label: t('nav.settings'),
+      label: t('settings'),
       onClick: () => navigate('/settings'),
     },
     { type: 'divider' as const },
     {
       key: 'logout',
       icon: <LogoutOutlined />,
-      label: t('nav.logout'),
+      label: t('logout'),
       onClick: handleLogout,
     },
   ];
@@ -165,7 +166,7 @@ export const LightNavbar = memo<LightNavbarProps>(({ onMenuClick }) => {
               style={{ backgroundColor: '#f3f4f6', color: '#666666' }}
             />
             <span style={{ color: '#111111', fontSize: 14, fontWeight: 500 }}>
-              {user?.username || 'User'}
+              {user?.username || t('user.fallbackName')}
             </span>
           </div>
         </Dropdown>

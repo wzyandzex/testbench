@@ -526,12 +526,67 @@
     },
     "drawer": {
       "titleFallback": "Run Detail",
-      "loading": "Loading…"
+      "loading": "Loading…",
+      "title": "Run · {{id}}"
     },
     "messages": {
       "loadFailed": "Load failed: {{error}}",
       "loadDetailFailed": "Failed to load detail: {{error}}",
       "compareFailed": "Compare failed: {{error}}"
+    },
+    "columns": {
+      "surfaceKind": "Surface / Kind",
+      "env": "Env",
+      "status": "Status",
+      "classification": "Classification",
+      "accepted": "Accepted",
+      "verdict": "Verdict",
+      "generated": "Generated",
+      "runId": "Run ID",
+      "promotedBy": "Promoted By",
+      "promotedAt": "Promoted At"
+    },
+    "filters": {
+      "targetSurface": "target_surface",
+      "contractKind": "contract_kind",
+      "scopeKind": "scope_kind",
+      "environment": "env",
+      "acceptedState": "accepted_state"
+    },
+    "states": {
+      "accepted": "accepted",
+      "rejected": "rejected",
+      "pending": "pending",
+      "needs_review": "needs_review",
+      "passed": "passed",
+      "failed": "failed",
+      "running": "running",
+      "unknown": "unknown"
+    },
+    "verdict": {
+      "pass": "PASS",
+      "fail": "FAIL"
+    },
+    "detail": {
+      "surface": "Surface",
+      "contract": "Contract",
+      "scope": "Scope",
+      "env": "Env",
+      "source": "Source",
+      "externalRun": "External Run",
+      "gitRevision": "Git Revision",
+      "status": "Status",
+      "acceptedState": "Accepted State",
+      "acceptedBy": "Accepted By",
+      "generated": "Generated",
+      "recorded": "Recorded",
+      "narrative": "Narrative",
+      "assumptions": "Assumptions",
+      "normalizedFacts": "Normalized Facts",
+      "artifactManifest": "Artifact Manifest",
+      "comparisonToBaseline": "Comparison to Baseline",
+      "unparseable": "[unparseable]",
+      "truncated": "... (truncated)"
     }
   }
 }

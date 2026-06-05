@@ -36,10 +36,10 @@
     "continuityNotice": "当前 Repair run 是带着 continuity 上下文打开的。",
     "loadFailed": "无法加载该 Repair Run。",
     "urlHint": "你可以通过这个稳定 URL 跟踪当前 Repair 工作流，并在需要时跳回来源评估或 Replay 后的评估。",
-    "repairTaskCard": "Repair task",
-    "triggerSnapshotCard": "Trigger snapshot",
-    "latestPlanLabel": "Latest Plan",
-    "approvedPlanLabel": "Approved Plan"
+    "repairTaskCard": "Repair 任务",
+    "triggerSnapshotCard": "触发快照",
+    "latestPlanLabel": "最新计划",
+    "approvedPlanLabel": "已批准计划"
   },
   "plan": {
     "version": "版本",
@@ -86,5 +86,19 @@
   "bool": {
     "yes": "是",
     "no": "否"
+  },
+  "labels": {
+    "dashboard": "仪表盘",
+    "repairRun": "Repair Run",
+    "repairRuns": "Repair Runs",
+    "runId": "Run ID",
+    "agentId": "Agent ID",
+    "planHash": "Plan hash",
+    "sourceExecution": "来源执行",
+    "scope": "范围",
+    "replay": "Replay",
+    "projectEval": "Project Eval",
+    "replayEval": "Replay Eval",
+    "unknownCase": "未知 Case"
   }
 }

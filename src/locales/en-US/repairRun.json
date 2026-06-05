@@ -86,5 +86,19 @@
   "bool": {
     "yes": "Yes",
     "no": "No"
+  },
+  "labels": {
+    "dashboard": "Dashboard",
+    "repairRun": "Repair Run",
+    "repairRuns": "Repair Runs",
+    "runId": "Run ID",
+    "agentId": "Agent ID",
+    "planHash": "Plan hash",
+    "sourceExecution": "Source execution",
+    "scope": "Scope",
+    "replay": "Replay",
+    "projectEval": "Project Eval",
+    "replayEval": "Replay Eval",
+    "unknownCase": "unknown case"
   }
 }

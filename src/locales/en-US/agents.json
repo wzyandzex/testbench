@@ -18,7 +18,10 @@
     "missingId": "Missing Agent ID",
     "missingIdSub": "No Agent ID found in the current route.",
     "missingEditId": "Missing Agent ID",
-    "missingEditIdSub": "No editable Agent ID found in the current route."
+    "missingEditIdSub": "No editable Agent ID found in the current route.",
+    "modelConfig": "Model Config",
+    "tools": "Tools",
+    "metadata": "Metadata"
   },
   "tabs": {
     "overview": "Overview",
@@ -106,7 +109,16 @@
     "apiKeyPlaceholder": "Leave empty to keep current / not set",
     "apiKeyHasKey": "This Agent has an API key configured. Leave empty to keep the current key, or enter a new value to overwrite.",
     "apiKeyNoKey": "This Agent has no API key. Enter one to have it encrypted and stored by the backend.",
-    "keyProcessing": "Key Processing"
+    "keyProcessing": "Key Processing",
+    "temperature": "Temperature",
+    "maxTokens": "Max Tokens",
+    "topP": "Top P",
+    "topK": "Top K",
+    "apiKey": "API Key",
+    "toolsJson": "Tools JSON",
+    "toolsPlaceholder": "e.g. {\"shell\":{\"enabled\":true}}",
+    "metadataJson": "Metadata JSON",
+    "metadataPlaceholder": "e.g. {\"owner\":\"platform-team\"}"
   },
   "toolProfile": {
     "default": "Default",

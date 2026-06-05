@@ -510,11 +510,11 @@
     }
   },
   "targetAcceptance": {
-    "title": "Target System Acceptance",
-    "description": "系统级评测验收：查看 Runs 状态与判定结果，对比 Run 与 Baseline 之间的差异，管理已晋升的 Baseline 集合。",
+    "title": "目标系统验收",
+    "description": "系统级评测验收：查看 Run 状态与判定结果，对比 Run 与 Baseline 差异，管理已晋升的 Baseline 集合。",
     "tabs": {
-      "runs": "Runs",
-      "baselines": "Baselines"
+      "runs": "运行记录",
+      "baselines": "基线集合"
     },
     "filter": {
       "submit": "筛选",
@@ -522,16 +522,71 @@
     },
     "actions": {
       "detail": "详情",
-      "compare": "Compare to baseline"
+      "compare": "对比 Baseline"
     },
     "drawer": {
-      "titleFallback": "Run Detail",
-      "loading": "加载中…"
+      "titleFallback": "Run 详情",
+      "loading": "加载中…",
+      "title": "Run · {{id}}"
     },
     "messages": {
       "loadFailed": "加载失败: {{error}}",
       "loadDetailFailed": "详情加载失败: {{error}}",
-      "compareFailed": "Compare 失败: {{error}}"
+      "compareFailed": "对比失败: {{error}}"
+    },
+    "columns": {
+      "surfaceKind": "目标 / 类型",
+      "env": "环境",
+      "status": "状态",
+      "classification": "分类",
+      "accepted": "验收状态",
+      "verdict": "判定",
+      "generated": "生成时间",
+      "runId": "Run ID",
+      "promotedBy": "晋升人",
+      "promotedAt": "晋升时间"
+    },
+    "filters": {
+      "targetSurface": "目标域",
+      "contractKind": "合同类型",
+      "scopeKind": "范围类型",
+      "environment": "环境",
+      "acceptedState": "验收状态"
+    },
+    "states": {
+      "accepted": "已验收",
+      "rejected": "已拒绝",
+      "pending": "待处理",
+      "needs_review": "待复核",
+      "passed": "通过",
+      "failed": "失败",
+      "running": "运行中",
+      "unknown": "未知"
+    },
+    "verdict": {
+      "pass": "通过",
+      "fail": "失败"
+    },
+    "detail": {
+      "surface": "目标域",
+      "contract": "合同",
+      "scope": "范围",
+      "env": "环境",
+      "source": "来源",
+      "externalRun": "外部 Run",
+      "gitRevision": "Git 修订",
+      "status": "状态",
+      "acceptedState": "验收状态",
+      "acceptedBy": "验收人",
+      "generated": "生成时间",
+      "recorded": "记录时间",
+      "narrative": "叙述摘要",
+      "assumptions": "前提假设",
+      "normalizedFacts": "标准化事实",
+      "artifactManifest": "产物清单",
+      "comparisonToBaseline": "与 Baseline 对比",
+      "unparseable": "[无法解析]",
+      "truncated": "...（已截断）"
     }
   }
 }

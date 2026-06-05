@@ -155,7 +155,7 @@ export default function LLMQualityReportPage() {
     <div style={{ padding: '0 24px 24px' }}>
       <Breadcrumb style={{ marginBottom: 24 }} items={[
         { title: <HomeOutlined />, href: '/dashboard' },
-        { title: <span>Benchmarks</span>, href: '/benchmarks' },
+        { title: <span>{t('llmQuality.page.benchmarks')}</span>, href: '/benchmarks' },
         { title: <span>{benchmarkId?.slice(0, 8)}...</span>, href: `/benchmarks/${benchmarkId}` },
         { title: <span>{t('llmQuality.page.breadcrumb')}</span>, href: `/benchmarks/${benchmarkId}/llm-quality` },
         { title: <span>{t('llmQuality.report.breadcrumb')}</span> },
@@ -180,22 +180,22 @@ export default function LLMQualityReportPage() {
             {/* Overview Row */}
             <Row gutter={16} style={{ marginBottom: 16 }}>
               <Col span={3}>
-                <Statistic title="Risk" valueRender={() => riskTag(report.overall_risk)} />
+                <Statistic title={t('llmQuality.labels.risk')} valueRender={() => riskTag(report.overall_risk)} />
               </Col>
-              <Col span={3}><Statistic title="Score" value={report.score} suffix="/ 100" /></Col>
+              <Col span={3}><Statistic title={t('llmQuality.labels.score')} value={report.score} suffix="/ 100" /></Col>
               <Col span={3}>
-                <Statistic title="Authority" valueRender={() => (
+                <Statistic title={t('llmQuality.labels.authority')} valueRender={() => (
                   <Tag color={report.authority_status === 'authoritative' ? 'success' : 'warning'}>
                     {report.authority_status || '-'}
                   </Tag>
                 )} />
               </Col>
-              <Col span={3}><Statistic title="Model" value={report.resolved_model || report.model} valueStyle={{ fontSize: 14 }} /></Col>
-              <Col span={3}><Statistic title="Provider" value={report.provider_name || '-'} valueStyle={{ fontSize: 14 }} /></Col>
-              <Col span={3}><Statistic title="Cost" value={`$${report.cost_usd.toFixed(4)}`} valueStyle={{ fontSize: 14 }} /></Col>
-              <Col span={3}><Statistic title="Latency" value={`${(report.latency_ms / 1000).toFixed(1)}s`} valueStyle={{ fontSize: 14 }} /></Col>
+              <Col span={3}><Statistic title={t('llmQuality.labels.model')} value={report.resolved_model || report.model} valueStyle={{ fontSize: 14 }} /></Col>
+              <Col span={3}><Statistic title={t('llmQuality.labels.provider')} value={report.provider_name || '-'} valueStyle={{ fontSize: 14 }} /></Col>
+              <Col span={3}><Statistic title={t('llmQuality.labels.cost')} value={`$${report.cost_usd.toFixed(4)}`} valueStyle={{ fontSize: 14 }} /></Col>
+              <Col span={3}><Statistic title={t('llmQuality.labels.latency')} value={`${(report.latency_ms / 1000).toFixed(1)}s`} valueStyle={{ fontSize: 14 }} /></Col>
               <Col span={3}>
-                <Statistic title="LLM Call" valueRender={() => (
+                <Statistic title={t('llmQuality.labels.llmCall')} valueRender={() => (
                   <Tag color={report.llm_call_succeeded ? 'success' : 'error'}>
                     {report.llm_call_succeeded ? t('llmQuality.report.callSucceeded') : t('llmQuality.report.callFailed')}
                   </Tag>
@@ -282,9 +282,9 @@ export default function LLMQualityReportPage() {
           <Select allowClear placeholder={t('llmQuality.cases.riskFilter')} style={{ width: 120 }} value={caseRiskFilter}
             onChange={(v) => setCaseRiskFilter(v)}
             options={Object.entries(LLM_QUALITY_RISK_CONFIG).map(([key, cfg]) => ({ value: key, label: cfg.label }))} />
-          <Select allowClear placeholder="Decision" style={{ width: 120 }} value={caseDecisionFilter}
+          <Select allowClear placeholder={t('llmQuality.labels.decision')} style={{ width: 120 }} value={caseDecisionFilter}
             onChange={(v) => setCaseDecisionFilter(v)}
-            options={[{ value: 'block', label: 'Block' }, { value: 'warn', label: 'Warn' }, { value: 'pass', label: 'Pass' }]} />
+            options={[{ value: 'block', label: t('llmQuality.labels.block') }, { value: 'warn', label: t('llmQuality.labels.warn') }, { value: 'pass', label: t('llmQuality.labels.pass') }]} />
           <Space><Text>{t('llmQuality.cases.changedOnly')}</Text><Switch size="small" checked={caseChangedOnly} onChange={(v) => setCaseChangedOnly(v)} /></Space>
           <Button onClick={() => fetchCases(1)}>{t('llmQuality.cases.filterBtn')}</Button>
         </div>
@@ -309,7 +309,7 @@ export default function LLMQualityReportPage() {
           }}
           columns={[
             {
-              title: 'Case', width: 180,
+              title: t('llmQuality.labels.case'), width: 180,
               render: (_: unknown, r: BenchmarkLLMQualityCaseReport) => (
                 <Space direction="vertical" size={0}>
                   <Text strong style={{ fontSize: 12 }}>{r.case_key}</Text>
@@ -319,24 +319,24 @@ export default function LLMQualityReportPage() {
             },
             { title: '#', dataIndex: 'case_index', width: 40 },
             {
-              title: 'Risk', dataIndex: 'risk', width: 80,
+              title: t('llmQuality.labels.risk'), dataIndex: 'risk', width: 80,
               render: (v: string) => riskTag(v),
             },
-            { title: 'Score', dataIndex: 'score', width: 60 },
+            { title: t('llmQuality.labels.score'), dataIndex: 'score', width: 60 },
             {
-              title: 'Authority', dataIndex: 'authority_status', width: 90,
+              title: t('llmQuality.labels.authority'), dataIndex: 'authority_status', width: 90,
               render: (v?: string) => v ? <Tag color={v === 'authoritative' ? 'success' : 'warning'}>{v}</Tag> : '-',
             },
             {
               title: 'LLM', dataIndex: 'llm_call_succeeded', width: 60,
-              render: (v: boolean) => <Tag color={v ? 'success' : 'error'}>{v ? 'OK' : 'Fail'}</Tag>,
+              render: (v: boolean) => <Tag color={v ? 'success' : 'error'}>{v ? t('llmQuality.labels.ok') : t('llmQuality.labels.fail')}</Tag>,
             },
             {
-              title: 'Findings', width: 70,
+              title: t('llmQuality.labels.findings'), width: 70,
               render: (_: unknown, r: BenchmarkLLMQualityCaseReport) => r.findings?.length ?? 0,
             },
             {
-              title: 'Summary', dataIndex: 'summary', ellipsis: true,
+              title: t('llmQuality.labels.summary'), dataIndex: 'summary', ellipsis: true,
               render: (v?: string) => v ? <Tooltip title={v}><Text ellipsis>{v}</Text></Tooltip> : '-',
             },
           ]}
@@ -362,26 +362,26 @@ export default function LLMQualityReportPage() {
                   title: t('llmQuality.jobList.columns.created'), dataIndex: 'created_at', width: 150,
                   render: (v: string) => dayjs(v).format('YYYY-MM-DD HH:mm'),
                 },
-                { title: 'Model', dataIndex: 'model', width: 120, ellipsis: true },
+                { title: t('llmQuality.labels.model'), dataIndex: 'model', width: 120, ellipsis: true },
                 {
-                  title: 'Risk', dataIndex: 'overall_risk', width: 80,
+                  title: t('llmQuality.labels.risk'), dataIndex: 'overall_risk', width: 80,
                   render: (v: string) => riskTag(v),
                 },
-                { title: 'Score', dataIndex: 'score', width: 60 },
+                { title: t('llmQuality.labels.score'), dataIndex: 'score', width: 60 },
                 {
-                  title: 'Authority', dataIndex: 'authority_status', width: 100,
+                  title: t('llmQuality.labels.authority'), dataIndex: 'authority_status', width: 100,
                   render: (v?: string) => v ? <Tag color={v === 'authoritative' ? 'success' : 'warning'}>{v}</Tag> : '-',
                 },
                 {
-                  title: 'Findings', width: 70,
+                  title: t('llmQuality.labels.findings'), width: 70,
                   render: (_: unknown, r: BenchmarkLLMQualityReport) => r.findings?.length ?? 0,
                 },
                 {
-                  title: 'Cost', dataIndex: 'cost_usd', width: 80,
+                  title: t('llmQuality.labels.cost'), dataIndex: 'cost_usd', width: 80,
                   render: (v: number) => `$${v.toFixed(4)}`,
                 },
                 {
-                  title: 'Latency', dataIndex: 'latency_ms', width: 80,
+                  title: t('llmQuality.labels.latency'), dataIndex: 'latency_ms', width: 80,
                   render: (v: number) => `${(v / 1000).toFixed(1)}s`,
                 },
               ]}

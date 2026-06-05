@@ -201,7 +201,7 @@ export default function LLMQualityPage() {
     <div style={{ padding: '0 24px 24px' }}>
       <Breadcrumb style={{ marginBottom: 24 }} items={[
         { title: <HomeOutlined />, href: '/dashboard' },
-        { title: <span>Benchmarks</span>, href: '/benchmarks' },
+        { title: <span>{t('llmQuality.page.benchmarks')}</span>, href: '/benchmarks' },
         { title: <span>{benchmarkId?.slice(0, 8)}...</span>, href: `/benchmarks/${benchmarkId}` },
         { title: <span>{t('llmQuality.page.breadcrumb')}</span> },
       ]} />
@@ -267,10 +267,10 @@ export default function LLMQualityPage() {
           scroll={{ x: 1200 }}
           columns={[
             {
-              title: 'ID', dataIndex: 'id', width: 100,
+              title: t('llmQuality.jobList.columns.id'), dataIndex: 'id', width: 100,
               render: (v: string) => <Text code style={{ fontSize: 11 }}>{v.slice(0, 8)}</Text>,
             },
-            { title: 'Model', dataIndex: 'model', width: 120, ellipsis: true },
+            { title: t('llmQuality.jobList.columns.model'), dataIndex: 'model', width: 120, ellipsis: true },
             {
               title: t('llmQuality.jobList.columns.status'), dataIndex: 'status', width: 100,
               render: (v: LLMQualityJobStatus) => {
@@ -279,8 +279,8 @@ export default function LLMQualityPage() {
               },
             },
             {
-              title: 'Strict', dataIndex: 'strict_mode', width: 60,
-              render: (v: boolean) => v ? <Tag color="red">Yes</Tag> : <Tag>No</Tag>,
+              title: t('llmQuality.jobList.columns.strict'), dataIndex: 'strict_mode', width: 80,
+              render: (v: boolean) => v ? <Tag color="red">{t('llmQuality.labels.yes')}</Tag> : <Tag>{t('llmQuality.labels.no')}</Tag>,
             },
             {
               title: t('llmQuality.jobList.columns.error'), dataIndex: 'error_message', width: 200, ellipsis: true,
@@ -333,15 +333,15 @@ export default function LLMQualityPage() {
         width={560}
       >
         <Form form={form} layout="vertical" style={{ marginTop: 16 }}>
-          <Form.Item name="model" label="Model" rules={[{ required: true, message: t('llmQuality.trigger.modelRequired') }]}>
+          <Form.Item name="model" label={t('llmQuality.trigger.modelLabel')} rules={[{ required: true, message: t('llmQuality.trigger.modelRequired') }]}>
             <Select placeholder={t('llmQuality.trigger.modelPlaceholder')} showSearch
               options={capabilities?.allowed_models?.map((m) => ({ value: m, label: m })) ?? []} />
           </Form.Item>
-          <Form.Item name="dimensions" label="Dimensions">
+          <Form.Item name="dimensions" label={t('llmQuality.trigger.dimensionsLabel')}>
             <Select mode="multiple" placeholder={t('llmQuality.trigger.dimensionsPlaceholder')}
               options={capabilities?.dimension_catalog?.map((d) => ({ value: d.name, label: `${d.name} (${d.cost_class})` })) ?? []} />
           </Form.Item>
-          <Form.Item name="scope" label="Scope">
+          <Form.Item name="scope" label={t('llmQuality.trigger.scopeLabel')}>
             <Radio.Group>
               <Radio value="full">{t('llmQuality.trigger.scopeFull')}</Radio>
               <Radio value="delta">{t('llmQuality.trigger.scopeDelta')}</Radio>
@@ -352,12 +352,12 @@ export default function LLMQualityPage() {
               <Form.Item name="case_keys" label={t('llmQuality.trigger.caseKeysLabel')}>
                 <Select mode="tags" placeholder={t('llmQuality.trigger.caseKeysPlaceholder')} style={{ width: '100%' }} />
               </Form.Item>
-              <Form.Item name="max_cases" label="Max Cases">
+              <Form.Item name="max_cases" label={t('llmQuality.trigger.maxCasesLabel')}>
                 <InputNumber min={1} max={1000} placeholder={t('llmQuality.trigger.maxCasesPlaceholder')} style={{ width: '100%' }} />
               </Form.Item>
             </>
           )}
-          <Form.Item name="strict_mode" label="Strict Mode" valuePropName="checked">
+          <Form.Item name="strict_mode" label={t('llmQuality.trigger.strictModeLabel')} valuePropName="checked">
             <Switch />
           </Form.Item>
           <Form.Item name="idempotency_key" label={t('llmQuality.trigger.idempotencyLabel')}>

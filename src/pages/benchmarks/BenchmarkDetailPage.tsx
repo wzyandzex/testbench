@@ -360,12 +360,12 @@ const DEFAULT_BENCHMARK_RUN_PRIORITY: BenchmarkRunPriority = 'p2';
 const BENCHMARK_RUN_PRIORITY_OPTIONS: Array<{
   value: BenchmarkRunPriority;
   label: string;
-  description: string;
+  descriptionKey: string;
 }> = [
-  { value: 'p0', label: 'P0', description: 'Highest priority for urgent manual validation.' },
-  { value: 'p1', label: 'P1', description: 'High priority for operator-triggered runs.' },
-  { value: 'p2', label: 'P2', description: 'Default priority for routine launches.' },
-  { value: 'p3', label: 'P3', description: 'Lower priority for background queueing.' },
+  { value: 'p0', label: 'P0', descriptionKey: 'detail.runPriority.p0' },
+  { value: 'p1', label: 'P1', descriptionKey: 'detail.runPriority.p1' },
+  { value: 'p2', label: 'P2', descriptionKey: 'detail.runPriority.p2' },
+  { value: 'p3', label: 'P3', descriptionKey: 'detail.runPriority.p3' },
 ];
 
 type ExecutionChartPoint = {
@@ -2560,7 +2560,7 @@ export default function BenchmarkDetailPage() {
               onChange={(value) => setRunPriority(value)}
               options={BENCHMARK_RUN_PRIORITY_OPTIONS.map((option) => ({
                 value: option.value,
-                label: `${option.label} · ${option.description}`,
+                label: `${option.label} · ${t(option.descriptionKey)}`,
               }))}
             />
           </div>

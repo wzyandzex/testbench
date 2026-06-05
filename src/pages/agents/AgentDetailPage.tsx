@@ -219,7 +219,7 @@ export function AgentDetailPage() {
                 },
                 {
                   key: 'apiKey',
-                  label: 'API Key',
+                  label: t('form.apiKey'),
                   children: currentAgent.has_api_key ? t('configured') : t('notConfigured'),
                 },
                 {
@@ -343,17 +343,17 @@ export function AgentDetailPage() {
       children: (
         <Row gutter={[24, 24]}>
           <Col span={24}>
-            <Card title="Model Config" bordered={false}>
+            <Card title={t('detail.modelConfig')} bordered={false}>
               {renderJSON(currentAgent.model_config)}
             </Card>
           </Col>
           <Col span={24}>
-            <Card title="Tools" bordered={false}>
+            <Card title={t('detail.tools')} bordered={false}>
               {renderJSON(currentAgent.tools)}
             </Card>
           </Col>
           <Col span={24}>
-            <Card title="Metadata" bordered={false}>
+            <Card title={t('detail.metadata')} bordered={false}>
               {renderJSON(currentAgent.metadata)}
             </Card>
           </Col>

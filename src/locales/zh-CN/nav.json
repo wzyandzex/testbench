@@ -21,5 +21,35 @@
   "admin": "管理后台",
   "analyzer": "分析器",
   "preview": "预览",
-  "benchmarkQuality": "评测质量"
+  "benchmarkQuality": "评测质量",
+  "qualityTrends": "质量趋势",
+  "comparisons": "Arena 对比",
+  "shares": "共享报告",
+  "templates": "报告模板",
+  "legacySWE": "旧版 SWE",
+  "defaultAgent": "默认 Agent",
+  "orgTemplates": "组织模板",
+  "targetAcceptance": "目标验收",
+  "benchmarkTags": "评测标签",
+  "systemOps": "系统运维",
+  "auditLogs": "审计日志",
+  "dlq": "死信队列",
+  "costModels": "成本模型",
+  "users": "用户管理",
+  "groups": {
+    "mainline": "主线",
+    "operations": "运营",
+    "compatibility": "兼容",
+    "admin": "系统管理",
+    "main": "主导航",
+    "quickActions": "快捷操作",
+    "navigation": "导航"
+  },
+  "theme": {
+    "switchToLight": "切换到浅色模式",
+    "switchToDark": "切换到深色模式"
+  },
+  "user": {
+    "fallbackName": "用户"
+  }
 }

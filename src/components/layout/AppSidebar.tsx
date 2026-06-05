@@ -1,6 +1,7 @@
 import { Layout, Menu, Typography, theme } from 'antd';
 import type { MenuProps } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import {
   buildWorkspaceNavigation,
@@ -35,6 +36,7 @@ function toGroupedMenuItems(
 export function AppSidebar({ collapsed = false }: AppSidebarProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation('nav');
   const themeMode = useUiStore((state) => state.theme);
   const currentOrg = useWorkspaceStore((state) => state.currentOrg);
   const hasMultipleOrgs = useWorkspaceStore((state) => state.hasMultipleOrgs());
@@ -46,6 +48,7 @@ export function AppSidebar({ collapsed = false }: AppSidebarProps) {
     hasMultipleOrgs,
     dashboardPath: '/dashboard',
     isAdmin,
+    t: (key) => t(key),
   });
   const allItems = [
     ...navigation.mainline,
@@ -56,10 +59,10 @@ export function AppSidebar({ collapsed = false }: AppSidebarProps) {
   ];
   const selectedKey = resolveActiveNavigationKey(location.pathname, allItems);
   const groupedItems = toGroupedMenuItems([
-    { key: 'mainline', label: 'Mainline', items: toMenuItems(navigation.mainline) },
-    { key: 'operations', label: 'Operations', items: toMenuItems(navigation.operations) },
-    { key: 'compatibility', label: 'Compatibility', items: toMenuItems(navigation.compatibility) },
-    { key: 'admin', label: 'System Admin', items: toMenuItems(navigation.admin) },
+    { key: 'mainline', label: t('groups.mainline'), items: toMenuItems(navigation.mainline) },
+    { key: 'operations', label: t('groups.operations'), items: toMenuItems(navigation.operations) },
+    { key: 'compatibility', label: t('groups.compatibility'), items: toMenuItems(navigation.compatibility) },
+    { key: 'admin', label: t('groups.admin'), items: toMenuItems(navigation.admin) },
   ]);
 
   return (

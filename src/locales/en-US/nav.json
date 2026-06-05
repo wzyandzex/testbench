@@ -21,5 +21,35 @@
   "admin": "Admin",
   "analyzer": "Analyzer",
   "preview": "Preview",
-  "benchmarkQuality": "Benchmark Quality"
+  "benchmarkQuality": "Benchmark Quality",
+  "qualityTrends": "Quality Trends",
+  "comparisons": "Arena",
+  "shares": "Shared Reports",
+  "templates": "Report Templates",
+  "legacySWE": "Legacy SWE",
+  "defaultAgent": "Default Agent",
+  "orgTemplates": "Org Templates",
+  "targetAcceptance": "Target Acceptance",
+  "benchmarkTags": "Benchmark Tags",
+  "systemOps": "System Ops",
+  "auditLogs": "Audit Logs",
+  "dlq": "DLQ",
+  "costModels": "Cost Models",
+  "users": "Users",
+  "groups": {
+    "mainline": "Mainline",
+    "operations": "Operations",
+    "compatibility": "Compatibility",
+    "admin": "System Admin",
+    "main": "Main",
+    "quickActions": "Quick Actions",
+    "navigation": "Navigation"
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "user": {
+    "fallbackName": "User"
+  }
 }

@@ -241,7 +241,10 @@
     "hasAuthoritativeTruth": "当前结果已经具备 authoritative truth，可以直接沿结论继续修复。",
     "fallbackRepair": "当前结论依赖兼容回退，Repair 时请优先补齐显式证据。",
     "fillScopeFirst": "请补齐 scope、约束、验收标准和验证方式，再进入 planning。",
-    "viewPlanEvidence": "可以通过下方页签继续查看计划、证据和 lifecycle 细节。"
+    "viewPlanEvidence": "可以通过下方页签继续查看计划、证据和 lifecycle 细节。",
+    "openRelatedPage": "打开相关页面",
+    "fallbackWarning": "请先查看 Report 和 Explain，因为当前结论仍然依赖 fallback 元数据。",
+    "compatFallback": "当前结论依赖兼容回退，Repair 时请优先补齐显式证据。"
   },
   "report": {
     "fallbackNotice": "这个 run 仍然在使用回退的 outcome 元数据。",
@@ -252,7 +255,12 @@
     "noComplianceGapDesc": "当前 agent 执行满足已返回的必需合约检查。",
     "profilingFallback": "Project profiling 已回退到最小可用结果。",
     "knownProductGaps": "当前已知产品缺口",
-    "whySplit": "为什么要这样拆分"
+    "whySplit": "为什么要这样拆分",
+    "fallbackMetadata": "这个 run 仍然在使用回退的 outcome 元数据。",
+    "fallbackReason": "回退原因",
+    "runError": "这个 run 报告了错误。",
+    "conclusion": "结论",
+    "unknown": "未知"
   },
   "capability": {
     "satisfied": "已满足",
@@ -262,7 +270,8 @@
     "notRequired": "非必需",
     "unknown": "未知",
     "snapshot": "当前能力快照",
-    "whatNext": "接下来会发生什么"
+    "whatNext": "接下来会发生什么",
+    "title": "能力检查"
   },
   "profile": {
     "framework": "框架",
@@ -760,7 +769,9 @@
       "readyTitle": "当前窗口没有缺失本次执行验证的 run。",
       "readyDesc": "聚合权威口径已按当前 run 的可执行 validation evidence 收紧。",
       "missingTitle": "{{count}} 个 run 缺失本次执行验证。",
-      "missingDesc": "这些结果只能作为诊断或证据不足看待；当前窗口还有 {{cases}} 个已选 Case 缺少本次执行验证支撑。"
+      "missingDesc": "这些结果只能作为诊断或证据不足看待；当前窗口还有 {{cases}} 个已选 Case 缺少本次执行验证支撑。",
+      "missingTitle_plural": "{{count}} 个 run 缺失本次执行验证。",
+      "missingDesc_plural": "这些结果只能作为诊断或证据不足看待；当前窗口还有 {{cases}} 个已选 Case 缺少本次执行验证支撑。"
     },
     "trend": {
       "date": "日期"
@@ -936,7 +947,8 @@
         "pin": "在 run 浏览器中固定这个视图",
         "makeDefault": "设为此可见性范围下的默认视图",
         "captureHint": "保存视图会记录当前筛选条件和默认 run 卡片列。选择视图后仍然可以临时覆盖筛选条件。",
-        "customCount": "当前组织中你已有 {{count}} 个自定义保存视图。"
+        "customCount": "当前组织中你已有 {{count}} 个自定义保存视图。",
+        "customCount_plural": "当前组织中你已有 {{count}} 个自定义保存视图。"
       }
     },
     "queueViews": {
@@ -2873,5 +2885,12 @@
   "recommendation": {
     "recommended": "推荐",
     "selected": "已选择"
+  },
+  "productGap": {
+    "title": "当前已知产品缺口",
+    "whySplit": "为什么要这样拆分"
+  },
+  "whatNext": {
+    "title": "接下来会发生什么"
   }
 }

@@ -116,10 +116,10 @@ function renderPlan(plan: RepairPlan | undefined, title: string) {
             <Space direction="vertical" size={12} style={{ width: '100%' }}>
               <Descriptions size="small" column={1} bordered>
                 <Descriptions.Item label={i18next.t('repairRun:plan.version')}>{plan.version ?? '-'}</Descriptions.Item>
-                <Descriptions.Item label="Plan hash">{plan.plan_hash || '-'}</Descriptions.Item>
-                <Descriptions.Item label="Source execution">{plan.source_execution_id || '-'}</Descriptions.Item>
+                <Descriptions.Item label={i18next.t('repairRun:labels.planHash')}>{plan.plan_hash || '-'}</Descriptions.Item>
+                <Descriptions.Item label={i18next.t('repairRun:labels.sourceExecution')}>{plan.source_execution_id || '-'}</Descriptions.Item>
                 <Descriptions.Item label={i18next.t('repairRun:plan.summary')}>{plan.summary || '-'}</Descriptions.Item>
-                <Descriptions.Item label="Scope">
+                <Descriptions.Item label={i18next.t('repairRun:labels.scope')}>
                   {plan.scope_paths?.length ? (
                     <Space wrap>
                       {plan.scope_paths.map((path) => (
@@ -452,7 +452,7 @@ export default function RepairRunPage() {
   const listColumns = useMemo<TableProps<RepairRunSummary>['columns']>(
     () => [
       {
-        title: 'Run ID',
+        title: t('labels.runId'),
         dataIndex: 'id',
         key: 'id',
         width: 160,
@@ -476,7 +476,7 @@ export default function RepairRunPage() {
         render: (value?: string) => value || '-',
       },
       {
-        title: 'Replay',
+        title: t('labels.replay'),
         dataIndex: 'replay_status',
         key: 'replay_status',
         width: 140,
@@ -485,14 +485,14 @@ export default function RepairRunPage() {
         ),
       },
       {
-        title: 'Project Eval',
+        title: t('labels.projectEval'),
         dataIndex: 'project_eval_run_id',
         key: 'project_eval_run_id',
         width: 180,
         render: (value?: string) => renderIdentifierLink(value, () => openProjectEval(value)),
       },
       {
-        title: 'Replay Eval',
+        title: t('labels.replayEval'),
         dataIndex: 'replay_project_eval_run_id',
         key: 'replay_project_eval_run_id',
         width: 180,
@@ -523,11 +523,11 @@ export default function RepairRunPage() {
     return (
       <div style={{ padding: '0 24px 24px' }}>
         <PageHeader
-          title="Repair Run"
+          title={t('labels.repairRun')}
           description={t('list.detailDesc')}
           breadcrumb={[
-            { title: 'Dashboard' },
-            { title: 'Repair Runs' },
+            { title: t('labels.dashboard') },
+            { title: t('labels.repairRuns') },
             { title: routeRunID },
           ]}
           extra={
@@ -563,10 +563,10 @@ export default function RepairRunPage() {
             description={
               <Space wrap>
                 {routeContext.project_eval_run_id && (
-                  <Tag color="blue">Project Eval: {routeContext.project_eval_run_id}</Tag>
+                  <Tag color="blue">{t('labels.projectEval')}: {routeContext.project_eval_run_id}</Tag>
                 )}
                 {routeContext.replay_project_eval_run_id && (
-                  <Tag color="purple">Replay Eval: {routeContext.replay_project_eval_run_id}</Tag>
+                  <Tag color="purple">{t('labels.replayEval')}: {routeContext.replay_project_eval_run_id}</Tag>
                 )}
               </Space>
             }
@@ -645,8 +645,8 @@ export default function RepairRunPage() {
 
             <Card title={t('detail.lifecycle')}>
               <Descriptions size="small" column={2} bordered>
-                <Descriptions.Item label="Run ID">{detailRun.id}</Descriptions.Item>
-                <Descriptions.Item label="Agent ID">{detailRun.agent_id || '-'}</Descriptions.Item>
+                <Descriptions.Item label={t('labels.runId')}>{detailRun.id}</Descriptions.Item>
+                <Descriptions.Item label={t('labels.agentId')}>{detailRun.agent_id || '-'}</Descriptions.Item>
                 <Descriptions.Item label={t('detail.status')}>
                   {RUN_STATE_CONFIG[detailRun.state]?.label || detailRun.state}
                 </Descriptions.Item>
@@ -659,7 +659,7 @@ export default function RepairRunPage() {
                 </Descriptions.Item>
                 <Descriptions.Item label={t('detail.dispatchStatus')}>{detailRun.dispatch_status || '-'}</Descriptions.Item>
                 <Descriptions.Item label={t('detail.retryable')}>{detailRun.retryable ? t('bool.yes') : t('bool.no')}</Descriptions.Item>
-                <Descriptions.Item label="Project Eval" span={2}>
+                <Descriptions.Item label={t('labels.projectEval')} span={2}>
                   {sourceProjectEvalPath ? (
                     <Space wrap>
                       <Button type="link" style={{ paddingInline: 0 }} onClick={() => navigate(sourceProjectEvalPath)}>
@@ -682,7 +682,7 @@ export default function RepairRunPage() {
                     '-'
                   )}
                 </Descriptions.Item>
-                <Descriptions.Item label="Replay Eval" span={2}>
+                <Descriptions.Item label={t('labels.replayEval')} span={2}>
                   {replayProjectEvalPath ? (
                     <Space wrap>
                       <Button type="link" style={{ paddingInline: 0 }} onClick={() => navigate(replayProjectEvalPath)}>
@@ -729,7 +729,7 @@ export default function RepairRunPage() {
                   <Descriptions.Item label={t('detail.taskGoal')}>
                     {detailRun.repair_task.objective || '-'}
                   </Descriptions.Item>
-                  <Descriptions.Item label="Scope">
+                  <Descriptions.Item label={i18next.t('repairRun:labels.scope')}>
                     {detailRun.repair_task.scope_paths?.length ? (
                       <Space wrap>
                         {detailRun.repair_task.scope_paths.map((path) => (
@@ -764,7 +764,7 @@ export default function RepairRunPage() {
                   <Descriptions.Item label={t('detail.summary')}>
                     {detailRun.trigger_snapshot.summary || '-'}
                   </Descriptions.Item>
-                  <Descriptions.Item label="Scope">
+                  <Descriptions.Item label={i18next.t('repairRun:labels.scope')}>
                     {detailRun.trigger_snapshot.scope_paths?.length ? (
                       <Space wrap>
                         {detailRun.trigger_snapshot.scope_paths.map((path) => (
@@ -780,7 +780,7 @@ export default function RepairRunPage() {
                       <Space wrap>
                         {detailRun.trigger_snapshot.selected_cases.map((selectedCase, index) => (
                           <Tag key={`${selectedCase.case_key || 'case'}-${index}`}>
-                            {selectedCase.case_key || 'unknown case'}
+                            {selectedCase.case_key || t('labels.unknownCase')}
                           </Tag>
                         ))}
                       </Space>
@@ -803,9 +803,9 @@ export default function RepairRunPage() {
   return (
     <div style={{ padding: '0 24px 24px' }}>
       <PageHeader
-        title="Repair Runs"
+        title={t('labels.repairRuns')}
         description={t('list.repairViewDesc')}
-        breadcrumb={[{ title: 'Dashboard' }, { title: 'Repair Runs' }]}
+        breadcrumb={[{ title: t('labels.dashboard') }, { title: 'Repair Runs' }]}
         extra={
           <Space wrap>
             <Button icon={<ReloadOutlined />} onClick={() => void fetchList()}>
@@ -828,7 +828,7 @@ export default function RepairRunPage() {
             <Space wrap>
               {routeContext.project_eval_run_id && (
                 <>
-                  <Tag color="blue">Project Eval: {routeContext.project_eval_run_id}</Tag>
+                  <Tag color="blue">{t('labels.projectEval')}: {routeContext.project_eval_run_id}</Tag>
                   <Button size="small" onClick={() => openProjectEval(routeContext.project_eval_run_id)}>
                     {t('actions.openSourceProjectEval')}
                   </Button>
@@ -836,7 +836,7 @@ export default function RepairRunPage() {
               )}
               {routeContext.replay_project_eval_run_id && (
                 <>
-                  <Tag color="purple">Replay Eval: {routeContext.replay_project_eval_run_id}</Tag>
+                  <Tag color="purple">{t('labels.replayEval')}: {routeContext.replay_project_eval_run_id}</Tag>
                   <Button size="small" onClick={() => openProjectEval(routeContext.replay_project_eval_run_id)}>
                     {t('actions.openReplayProjectEval')}
                   </Button>
@@ -933,10 +933,10 @@ export default function RepairRunPage() {
                 description={(
                   <Space wrap>
                     {routeContext.project_eval_run_id && (
-                      <Tag color="blue">Project Eval: {routeContext.project_eval_run_id}</Tag>
+                      <Tag color="blue">{t('labels.projectEval')}: {routeContext.project_eval_run_id}</Tag>
                     )}
                     {routeContext.replay_project_eval_run_id && (
-                      <Tag color="purple">Replay Eval: {routeContext.replay_project_eval_run_id}</Tag>
+                      <Tag color="purple">{t('labels.replayEval')}: {routeContext.replay_project_eval_run_id}</Tag>
                     )}
                   </Space>
                 )}
@@ -944,7 +944,7 @@ export default function RepairRunPage() {
             )}
             <div>
               <Text strong style={{ display: 'block', marginBottom: 4 }}>
-                Agent ID
+                {t('labels.agentId')}
               </Text>
               <Input
                 data-testid="repair-run-agent-id-input"

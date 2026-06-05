@@ -206,6 +206,12 @@
       "evidence_aging": "Evidence aging",
       "authoritative_evidence": "Authoritative evidence",
       "no_follow_on_action_required": "No follow-on action required"
+    },
+    "untrustedWithCount": "Untrusted ({{count}})",
+    "watchWithCount": "Watch ({{count}})",
+    "columns": {
+      "reason": "Reason",
+      "action": "Action"
     }
   },
   "overview": {
@@ -389,7 +395,8 @@
     "page": {
       "title": "LLM Quality Check",
       "subtitle": "Trigger LLM quality checks, view job status, and manage check tasks",
-      "breadcrumb": "LLM Quality"
+      "breadcrumb": "LLM Quality",
+      "benchmarks": "Benchmarks"
     },
     "report": {
       "title": "LLM Quality Report",
@@ -455,7 +462,10 @@
         "started": "Started",
         "completed": "Completed",
         "created": "Created",
-        "action": "Actions"
+        "action": "Actions",
+        "id": "ID",
+        "model": "Model",
+        "strict": "Strict"
       }
     },
     "trigger": {
@@ -471,7 +481,12 @@
       "idempotencyLabel": "Idempotency Key (optional)",
       "idempotencyPlaceholder": "Idempotency key to prevent duplicate triggers",
       "triggerOk": "LLM quality check triggered",
-      "triggerFail": "Trigger failed"
+      "triggerFail": "Trigger failed",
+      "modelLabel": "Model",
+      "dimensionsLabel": "Dimensions",
+      "scopeLabel": "Scope",
+      "maxCasesLabel": "Max Cases",
+      "strictModeLabel": "Strict Mode"
     },
     "messages": {
       "fetchJobsFailed": "Failed to fetch job list",
@@ -500,6 +515,27 @@
       "detail": "Detail",
       "confidence": "Confidence",
       "suggestion": "Suggestion"
+    },
+    "labels": {
+      "yes": "Yes",
+      "no": "No",
+      "ok": "OK",
+      "fail": "Fail",
+      "risk": "Risk",
+      "score": "Score",
+      "authority": "Authority",
+      "model": "Model",
+      "provider": "Provider",
+      "cost": "Cost",
+      "latency": "Latency",
+      "llmCall": "LLM Call",
+      "decision": "Decision",
+      "block": "Block",
+      "warn": "Warn",
+      "pass": "Pass",
+      "case": "Case",
+      "findings": "Findings",
+      "summary": "Summary"
     }
   }
 }

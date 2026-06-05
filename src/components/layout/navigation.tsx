@@ -48,11 +48,18 @@ export interface WorkspaceNavigationModel {
 
 export type WorkspaceMenuItems = NonNullable<MenuProps['items']>;
 
+type NavigationTranslator = (key: string) => string;
+
 interface BuildWorkspaceNavigationOptions {
   currentOrgId?: string;
   dashboardPath?: string;
   hasMultipleOrgs?: boolean;
   isAdmin?: boolean;
+  t?: NavigationTranslator;
+}
+
+function defaultNavTranslator(key: string): string {
+  return String(i18next.t(`nav:${key}`));
 }
 
 function createNavigationItem(
@@ -73,39 +80,40 @@ export function buildWorkspaceNavigation(
   options: BuildWorkspaceNavigationOptions = {}
 ): WorkspaceNavigationModel {
   const { currentOrgId, dashboardPath = '/dashboard', hasMultipleOrgs = false, isAdmin = false } = options;
+  const t = options.t ?? defaultNavTranslator;
 
   const mainline = [
-    createNavigationItem(dashboardPath, 'Dashboard', dashboardPath, <DashboardOutlined />),
-    createNavigationItem('/benchmarks', 'Benchmarks', '/benchmarks', <ExperimentOutlined />),
+    createNavigationItem(dashboardPath, t('dashboard'), dashboardPath, <DashboardOutlined />),
+    createNavigationItem('/benchmarks', t('benchmarks'), '/benchmarks', <ExperimentOutlined />),
     createNavigationItem(
       '/project-eval',
-      'Project Eval',
+      t('projectEval'),
       '/project-eval',
       <DeploymentUnitOutlined />
     ),
-    createNavigationItem('/repair-runs', 'Repair Runs', '/repair-runs', <ToolOutlined />),
-    createNavigationItem('/governance', 'Governance', '/governance', <SafetyCertificateOutlined />),
+    createNavigationItem('/repair-runs', t('repairRun'), '/repair-runs', <ToolOutlined />),
+    createNavigationItem('/governance', t('governance'), '/governance', <SafetyCertificateOutlined />),
   ];
 
   const operations = [
-    createNavigationItem('/executions', 'Executions', '/executions', <PlayCircleOutlined />),
-    createNavigationItem('/agents', 'Agents', '/agents', <RobotOutlined />),
-    createNavigationItem('/batch', 'Batch', '/batch', <AppstoreOutlined />),
-    createNavigationItem('/metrics', 'Metrics', '/metrics', <LineChartOutlined />),
-    createNavigationItem('/quality-trends', 'Quality Trends', '/quality-trends', <RiseOutlined />),
-    createNavigationItem('/comparisons', i18next.t('comparisons:navLabel'), '/comparisons', <DiffOutlined />),
-    createNavigationItem('/scheduler', 'Scheduler', '/scheduler', <ScheduleOutlined />),
-    createNavigationItem('/import', 'Import', '/import', <CloudUploadOutlined />),
-    createNavigationItem('/cost', 'Cost', '/cost', <DollarOutlined />),
-    createNavigationItem('/shares', 'Shares', '/shares', <ShareAltOutlined />),
-    createNavigationItem('/report-templates', 'Templates', '/report-templates', <FileTextOutlined />),
+    createNavigationItem('/executions', t('executions'), '/executions', <PlayCircleOutlined />),
+    createNavigationItem('/agents', t('agents'), '/agents', <RobotOutlined />),
+    createNavigationItem('/batch', t('batch'), '/batch', <AppstoreOutlined />),
+    createNavigationItem('/metrics', t('metrics'), '/metrics', <LineChartOutlined />),
+    createNavigationItem('/quality-trends', t('qualityTrends'), '/quality-trends', <RiseOutlined />),
+    createNavigationItem('/comparisons', t('comparisons'), '/comparisons', <DiffOutlined />),
+    createNavigationItem('/scheduler', t('scheduler'), '/scheduler', <ScheduleOutlined />),
+    createNavigationItem('/import', t('import'), '/import', <CloudUploadOutlined />),
+    createNavigationItem('/cost', t('cost'), '/cost', <DollarOutlined />),
+    createNavigationItem('/shares', t('shares'), '/shares', <ShareAltOutlined />),
+    createNavigationItem('/report-templates', t('templates'), '/report-templates', <FileTextOutlined />),
   ];
 
   if (hasMultipleOrgs) {
     operations.push(
       createNavigationItem(
         '/organizations',
-        'Organizations',
+        t('organizations'),
         currentOrgId ? `/organizations/${currentOrgId}` : '/organizations',
         <TeamOutlined />
       )
@@ -113,61 +121,61 @@ export function buildWorkspaceNavigation(
   }
 
   const compatibility = runtimeConfig.features.legacySWEEnabled
-    ? [createNavigationItem('/swe', 'Legacy SWE', '/swe', <BugOutlined />)]
+    ? [createNavigationItem('/swe', t('legacySWE'), '/swe', <BugOutlined />)]
     : [];
 
   const admin: WorkspaceNavigationItem[] = isAdmin
     ? [
         createNavigationItem(
           '/admin/default-agent-template',
-          'Default Agent',
+          t('defaultAgent'),
           '/admin/default-agent-template',
           <RobotOutlined />
         ),
         createNavigationItem(
           '/admin/org-templates',
-          'Org Templates',
+          t('orgTemplates'),
           '/admin/org-templates',
           <AppstoreOutlined />
         ),
         createNavigationItem(
           '/admin/target-acceptance',
-          'Target Acceptance',
+          t('targetAcceptance'),
           '/admin/target-acceptance',
           <SafetyCertificateOutlined />
         ),
         createNavigationItem(
           '/admin/benchmark-tags',
-          'Benchmark Tags',
+          t('benchmarkTags'),
           '/admin/benchmark-tags',
           <ExperimentOutlined />
         ),
         createNavigationItem(
           '/admin/system-ops',
-          'System Ops',
+          t('systemOps'),
           '/admin/system-ops',
           <ToolOutlined />
         ),
         createNavigationItem(
           '/admin/audit-logs',
-          'Audit Logs',
+          t('auditLogs'),
           '/admin/audit-logs',
           <AuditOutlined />
         ),
-        createNavigationItem('/admin/dlq', 'DLQ', '/admin/dlq', <WarningOutlined />),
+        createNavigationItem('/admin/dlq', t('dlq'), '/admin/dlq', <WarningOutlined />),
         createNavigationItem(
           '/admin/cost-models',
-          'Cost Models',
+          t('costModels'),
           '/admin/cost-models',
           <DollarOutlined />
         ),
-        createNavigationItem('/admin/users', 'Users', '/admin/users', <UserSwitchOutlined />),
+        createNavigationItem('/admin/users', t('users'), '/admin/users', <UserSwitchOutlined />),
       ]
     : [];
 
   const bottom = [
-    createNavigationItem('/notifications', 'Notifications', '/notifications', <BellOutlined />),
-    createNavigationItem('/settings', 'Settings', '/settings', <SettingOutlined />),
+    createNavigationItem('/notifications', t('notifications'), '/notifications', <BellOutlined />),
+    createNavigationItem('/settings', t('settings'), '/settings', <SettingOutlined />),
   ];
 
   return {
