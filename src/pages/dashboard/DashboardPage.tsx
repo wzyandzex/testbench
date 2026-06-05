@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { Row, Col, Card, Button, Table, Space, Progress, Typography, Avatar, Dropdown, Spin } from 'antd';
+import { Row, Col, Card, Button, Table, Space, Progress, Typography, Avatar, Dropdown, Spin, Grid } from 'antd';
 import {
   ExperimentOutlined,
   PlayCircleOutlined,
@@ -14,7 +14,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ReactECharts from 'echarts-for-react';
-import type { MenuProps } from 'antd';
+import type { MenuProps, TableProps } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
@@ -62,6 +62,77 @@ const dashboardThemeCSS = `
 
   [data-theme='dark'] .dashboard-page .ant-empty-description {
     color: rgba(255, 255, 255, 0.52);
+  }
+
+  .dashboard-page {
+    min-width: 0;
+  }
+
+  .dashboard-page .ant-row,
+  .dashboard-page .ant-col {
+    min-width: 0;
+  }
+
+  .dashboard-recent-card {
+    overflow: hidden;
+  }
+
+  .dashboard-recent-card .ant-card-head-title,
+  .dashboard-recent-card .ant-card-extra {
+    min-width: 0;
+  }
+
+  .dashboard-recent-table .ant-table {
+    min-width: 100%;
+  }
+
+  .dashboard-recent-table .ant-table-cell {
+    vertical-align: middle;
+  }
+
+  .dashboard-recent-table .ant-table-thead > tr > th,
+  .dashboard-recent-table .ant-table-tbody > tr > td {
+    white-space: nowrap;
+  }
+
+  .dashboard-recent-main-cell,
+  .dashboard-recent-agent-cell {
+    min-width: 0;
+  }
+
+  .dashboard-recent-progress {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-page {
+      padding: 20px 16px !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .dashboard-page {
+      padding: 16px 12px !important;
+    }
+
+    .dashboard-recent-card .ant-card-head {
+      padding-inline: 16px;
+    }
+
+    .dashboard-recent-card .ant-card-head-wrapper {
+      flex-wrap: wrap;
+      row-gap: 8px;
+    }
+
+    .dashboard-recent-card .ant-card-extra {
+      margin-inline-start: 0;
+      width: 100%;
+    }
+
+    .dashboard-recent-card .ant-card-extra .ant-btn {
+      width: 100%;
+    }
   }
 `;
 
@@ -310,7 +381,10 @@ function RecentExecutions({ delay = 0, data, loading }: RecentExecutionsProps) {
   const { t } = useTranslation('dashboard');
   const tokens = useThemeTokens();
   const isDark = useIsDark();
+  const screens = Grid.useBreakpoint();
   const cardStyle = useMemo(() => createCardStyle(tokens, isDark), [isDark, tokens]);
+  const isCompact = !screens.md;
+  const tableScrollX = isCompact ? 560 : 920;
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), delay);
@@ -328,49 +402,89 @@ function RecentExecutions({ delay = 0, data, loading }: RecentExecutionsProps) {
     return `${(ms / 60000).toFixed(1)}${t('minutes')}`;
   };
 
-  const columns = [
+  const renderBenchmark = (record: ExecutionRecord) => {
+    const benchmarkId = record.benchmark_id || '-';
+    const agentId = record.agent_id || '-';
+
+    return (
+      <div className="dashboard-recent-main-cell">
+        <Text
+          ellipsis={{ tooltip: benchmarkId }}
+          style={{
+            display: 'block',
+            maxWidth: isCompact ? 220 : 190,
+            fontWeight: 500,
+            color: tokens.text.primary,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {benchmarkId}
+        </Text>
+        {isCompact && (
+          <Text
+            ellipsis={{ tooltip: agentId }}
+            style={{
+              display: 'block',
+              maxWidth: 220,
+              marginTop: 2,
+              fontSize: 12,
+              color: tokens.text.secondary,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {agentId}
+          </Text>
+        )}
+      </div>
+    );
+  };
+
+  const renderStatus = (status: string) => {
+    const color = statusColors[status] || '#d9d9d9';
+    const text = statusLabelKeys[status] ? t(statusLabelKeys[status]) : status;
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minWidth: 64, padding: '4px 10px', borderRadius: 20, fontSize: 13, fontWeight: 500, border: `1px solid ${color}40`, background: `${color}15`, color, whiteSpace: 'nowrap' }}>
+        {text}
+      </span>
+    );
+  };
+
+  const columns: TableProps<ExecutionRecord>['columns'] = [
     {
       title: t('table.benchmark'), dataIndex: 'benchmark_id', key: 'benchmark',
-      render: (v: string) => <Text style={{ fontWeight: 500, color: tokens.text.primary }}>{v ? v.slice(0, 12) + '...' : '-'}</Text>,
+      width: isCompact ? 260 : 220,
+      render: (_: string, record: ExecutionRecord) => renderBenchmark(record),
     },
     {
-      title: t('table.agent'), dataIndex: 'agent_id', key: 'agent', width: 140,
+      title: t('table.agent'), dataIndex: 'agent_id', key: 'agent', width: 150, responsive: ['md'],
       render: (v: string) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Avatar size={24} style={{ background: tokens.bg.tertiary, color: tokens.text.secondary }}>{v ? v.charAt(0).toUpperCase() : '?'}</Avatar>
-          <Text style={{ fontSize: 13, color: tokens.text.secondary }}>{v ? v.slice(0, 8) + '...' : '-'}</Text>
+        <div className="dashboard-recent-agent-cell" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Avatar size={24} style={{ flex: '0 0 auto', background: tokens.bg.tertiary, color: tokens.text.secondary }}>{v ? v.charAt(0).toUpperCase() : '?'}</Avatar>
+          <Text ellipsis={{ tooltip: v || '-' }} style={{ display: 'block', maxWidth: 96, fontSize: 13, color: tokens.text.secondary, whiteSpace: 'nowrap' }}>{v || '-'}</Text>
         </div>
       ),
     },
     {
-      title: t('table.status'), dataIndex: 'status', key: 'status', width: 100,
-      render: (status: string) => {
-        const color = statusColors[status] || '#d9d9d9';
-        const text = statusLabelKeys[status] ? t(statusLabelKeys[status]) : status;
-        return (
-          <span style={{ padding: '4px 12px', borderRadius: 20, fontSize: 13, fontWeight: 500, border: `1px solid ${color}40`, background: `${color}15`, color }}>
-            {text}
-          </span>
-        );
-      },
+      title: t('table.status'), dataIndex: 'status', key: 'status', width: 108,
+      render: renderStatus,
     },
     {
-      title: t('table.progress'), key: 'progress', width: 140,
+      title: t('table.progress'), key: 'progress', width: 132, responsive: ['lg'],
       render: (_: unknown, record: ExecutionRecord) => {
         const pct = record.total_steps ? Math.round((record.steps_taken || 0) / record.total_steps * 100) : 0;
-        return <Progress percent={pct} size="small" strokeColor={statusColors[record.status]} showInfo={false} style={{ maxWidth: 100 }} />;
+        return <Progress className="dashboard-recent-progress" percent={pct} size="small" strokeColor={statusColors[record.status]} showInfo={false} />;
       },
     },
     {
-      title: t('table.duration'), dataIndex: 'duration', key: 'duration', width: 100,
+      title: t('table.duration'), dataIndex: 'duration', key: 'duration', width: 96, responsive: ['md'],
       render: (v: number) => <Text style={{ fontSize: 13, fontFamily: 'SFMono-Regular, Consolas, monospace', color: tokens.text.secondary }}>{formatDuration(v)}</Text>,
     },
     {
-      title: t('table.startTime'), dataIndex: 'started_at', key: 'started_at', width: 120,
+      title: t('table.startTime'), dataIndex: 'started_at', key: 'started_at', width: 120, responsive: ['xl'],
       render: (v: string) => <Text style={{ fontSize: 13, color: tokens.text.tertiary }}>{v ? dayjs(v).fromNow() : '-'}</Text>,
     },
     {
-      title: t('table.action'), key: 'action', width: 80,
+      title: t('table.action'), key: 'action', width: 72, align: 'center',
       render: (_: unknown, record: ExecutionRecord) => (
         <Dropdown menu={{ items: actionMenuItems, onClick: () => navigate(`/executions/${record.id}`) }} trigger={['click']}>
           <Button type="text" icon={<MoreOutlined />} style={{ color: tokens.text.tertiary }} />
@@ -393,16 +507,23 @@ function RecentExecutions({ delay = 0, data, loading }: RecentExecutionsProps) {
         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
         ...cardStyle,
       }}
-      styles={{ body: { padding: '16px 24px 24px' } }}
+      className="dashboard-recent-card"
+      styles={{
+        header: { padding: isCompact ? '0 16px' : '0 24px' },
+        body: { padding: isCompact ? '12px 12px 16px' : '16px 24px 24px', overflow: 'hidden' },
+      }}
       extra={<Button type="primary" size="small" icon={<PlusOutlined />} onClick={() => navigate('/benchmarks/create')}>{t('actions.newTask')}</Button>}
     >
       <Table
+        className="dashboard-recent-table"
         columns={columns}
         dataSource={data}
         rowKey="id"
         pagination={false}
         size="small"
         loading={loading}
+        tableLayout="fixed"
+        scroll={{ x: tableScrollX }}
         onRow={() => ({
           style: { transition: 'all 0.2s', cursor: 'pointer' },
           onMouseEnter: (e) => { e.currentTarget.style.background = tokens.bg.tertiary; },
@@ -532,15 +653,15 @@ export default function DashboardPage() {
       )}
 
       {/* Trend chart */}
-      <Row gutter={20} style={{ marginBottom: 32 }}>
+      <Row gutter={[20, 20]} style={{ marginBottom: 32 }}>
         <Col span={24}>
           <TrendChart delay={300} dates={trendDates} executions={trendExecutions} />
         </Col>
       </Row>
 
       {/* Quick actions + recent executions */}
-      <Row gutter={20}>
-        <Col xs={24} lg={8}>
+      <Row gutter={[20, 20]}>
+        <Col xs={24} lg={8} style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 16, fontSize: 16, fontWeight: 600, color: tokens.text.primary }}>{t('quickActions')}</div>
           <Space direction="vertical" size={16} style={{ width: '100%' }}>
             {quickActions.map((action, index) => (
@@ -548,7 +669,7 @@ export default function DashboardPage() {
             ))}
           </Space>
         </Col>
-        <Col xs={24} lg={16}>
+        <Col xs={24} lg={16} style={{ minWidth: 0 }}>
           <RecentExecutions delay={550} data={recentExecutions} loading={recentLoading} />
         </Col>
       </Row>

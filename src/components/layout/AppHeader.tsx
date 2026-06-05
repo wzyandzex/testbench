@@ -1,4 +1,4 @@
-import { Layout, Button, Avatar, Dropdown, Badge, Space, theme } from 'antd';
+import { Layout, Button, Avatar, Dropdown, Badge, Space, theme, Grid } from 'antd';
 import type { MenuProps } from 'antd';
 import {
   MenuFoldOutlined,
@@ -30,6 +30,10 @@ export function AppHeader() {
   const setTheme = useUiStore((state) => state.setTheme);
   const user = useAuthStore((state) => state.user);
   const clearAuth = useAuthStore((state) => state.clearAuth);
+  const screens = Grid.useBreakpoint();
+  const isCompact = !screens.md;
+  const isNarrow = !screens.sm;
+  const effectiveSidebarCollapsed = isCompact || sidebarCollapsed;
   
   const { token } = useToken();
   const isDark = themeMode === 'dark';
@@ -62,7 +66,7 @@ export function AppHeader() {
   ], [t, navigate, handleLogout]);
 
   const headerStyle = useMemo(() => ({
-    padding: '0 24px',
+    padding: isCompact ? '0 12px' : '0 24px',
     background: isDark ? '#141414' : '#ffffff', // Use a slightly defined background 
     borderBottom: `1px solid ${token.colorBorderSecondary}`,
     display: 'flex',
@@ -73,21 +77,21 @@ export function AppHeader() {
     zIndex: 10,
     boxShadow: isDark ? '0 1px 4px 0 rgba(0, 0, 0, 0.5)' : '0 1px 4px 0 rgba(0, 0, 0, 0.05)',
     transition: 'background 0.3s cubic-bezier(0.2, 0, 0, 1) 0s, box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1) 0s',
-  }), [token.colorBorderSecondary, isDark]);
+  }), [isCompact, token.colorBorderSecondary, isDark]);
 
   return (
     <Header style={headerStyle}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: isCompact ? 8 : 16, minWidth: 0 }}>
         <Button
           type="text"
-          icon={sidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          icon={effectiveSidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           onClick={toggleSidebar}
           style={{ fontSize: 16, width: 40, height: 40, borderRadius: token.borderRadiusLG, color: token.colorText }}
         />
-        <OrgSwitcher />
+        {!isCompact && <OrgSwitcher />}
       </div>
 
-      <Space size="middle" align="center">
+      <Space size={isCompact ? 8 : 'middle'} align="center" style={{ minWidth: 0 }}>
         <Button
           type="text"
           icon={isDark ? <SunOutlined /> : <MoonOutlined />}
@@ -96,7 +100,7 @@ export function AppHeader() {
           title={isDark ? t('theme.switchToLight') : t('theme.switchToDark')}
         />
 
-        <WSStatusDot />
+        {!isNarrow && <WSStatusDot />}
 
         <LanguageSwitcher />
 
@@ -112,7 +116,7 @@ export function AppHeader() {
         <Dropdown menu={{ items: menuItems }} placement="bottomRight" arrow={{ pointAtCenter: true }}>
           <Space style={{ cursor: 'pointer', padding: '4px 8px', borderRadius: token.borderRadiusLG, transition: 'background 0.3s' }}>
             <Avatar size="small" icon={<UserOutlined />} src={user?.avatar} style={{ backgroundColor: token.colorPrimary, color: '#fff' }} />
-            <span style={{ color: token.colorText, fontWeight: 500 }}>{user?.username}</span>
+            {!isCompact && <span style={{ color: token.colorText, fontWeight: 500 }}>{user?.username}</span>}
           </Space>
         </Dropdown>
       </Space>
