@@ -5,7 +5,7 @@
 
 import { memo, useState, useCallback, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
-import { DatePicker, Select, Space, Button, Card, Radio } from 'antd';
+import { DatePicker, Select, Button, Card, Radio, Grid } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 import type { EChartsOption } from 'echarts';
 import dayjs from 'dayjs';
@@ -51,6 +51,8 @@ const ExecutionChart = memo(function ExecutionChart({
   const [selectedAgents, setSelectedAgents] = useState<string[]>(agents.map((a) => a.id));
   const [chartType, setChartType] = useState<ChartType>('line');
   const chartRef = useRef<ReactECharts>(null);
+  const screens = Grid.useBreakpoint();
+  const isCompact = !screens.md;
 
   const resolvedTitle = title ?? t('components.viz.chart.title');
   const TIME_RANGES = useMemo(
@@ -67,6 +69,49 @@ const ExecutionChart = memo(function ExecutionChart({
   const tokens = useThemeTokens();
   const echartsTheme = useEchartsTheme();
   const toolbarStyle = useToolbarStyle();
+  const responsiveToolbarStyle: React.CSSProperties = {
+    ...toolbarStyle,
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    gap: 12,
+  };
+  const filterControlsStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    flex: '1 1 560px',
+    flexWrap: 'wrap',
+    gap: 12,
+    minWidth: 0,
+    maxWidth: '100%',
+  };
+  const controlGroupStyle: React.CSSProperties = {
+    flex: '0 0 auto',
+    maxWidth: '100%',
+    whiteSpace: 'nowrap',
+  };
+  const fluidControlStyle: React.CSSProperties = {
+    flex: isCompact ? '1 1 100%' : '0 1 auto',
+    minWidth: isCompact ? 0 : 180,
+    maxWidth: '100%',
+  };
+  const rangePickerStyle: React.CSSProperties = {
+    width: isCompact ? '100%' : 280,
+    maxWidth: '100%',
+  };
+  const agentSelectStyle: React.CSSProperties = {
+    width: isCompact ? '100%' : 190,
+    minWidth: isCompact ? 0 : 150,
+    maxWidth: '100%',
+  };
+  const radioGroupStyle: React.CSSProperties = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    maxWidth: '100%',
+  };
+  const exportButtonStyle: React.CSSProperties = {
+    flex: '0 0 auto',
+    whiteSpace: 'nowrap',
+  };
 
   // 处理时间范围变化
   const handleTimeRangeChange = useCallback(
@@ -294,8 +339,8 @@ const ExecutionChart = memo(function ExecutionChart({
       styles={{ body: { padding: 0 } }}
     >
       {/* 工具栏 */}
-      <div style={toolbarStyle}>
-        <Space size={12}>
+      <div style={responsiveToolbarStyle}>
+        <div style={filterControlsStyle}>
           {showTimeRange && (
             <Radio.Group
               value={timeRange}
@@ -303,6 +348,7 @@ const ExecutionChart = memo(function ExecutionChart({
               optionType="button"
               buttonStyle="solid"
               size="small"
+              style={{ ...controlGroupStyle, ...radioGroupStyle }}
             >
               {TIME_RANGES.map((range) => (
                 <Radio.Button key={range.value} value={range.value}>
@@ -313,39 +359,44 @@ const ExecutionChart = memo(function ExecutionChart({
           )}
 
           {showTimeRange && (
-            <RangePicker
-              size="small"
-              showTime
-              onChange={handleDatePickerChange}
-              style={{ width: 280 }}
-            />
+            <div style={fluidControlStyle}>
+              <RangePicker
+                size="small"
+                showTime
+                onChange={handleDatePickerChange}
+                style={rangePickerStyle}
+              />
+            </div>
           )}
 
           {showAgents && (
-            <Select
-              mode="multiple"
-              value={selectedAgents}
-              onChange={handleAgentChange}
-              options={agents.map((a) => ({ label: a.name, value: a.id }))}
-              placeholder={t('components.viz.chart.agentPlaceholder')}
-              size="small"
-              style={{ minWidth: 150 }}
-              maxTagCount={2}
-            />
+            <div style={fluidControlStyle}>
+              <Select
+                mode="multiple"
+                value={selectedAgents}
+                onChange={handleAgentChange}
+                options={agents.map((a) => ({ label: a.name, value: a.id }))}
+                placeholder={t('components.viz.chart.agentPlaceholder')}
+                size="small"
+                style={agentSelectStyle}
+                maxTagCount={isCompact ? 1 : 2}
+              />
+            </div>
           )}
 
           <Radio.Group
             value={chartType}
             onChange={handleChartTypeChange}
             size="small"
+            style={{ ...controlGroupStyle, ...radioGroupStyle }}
           >
             <Radio.Button value="line">{t('components.viz.chart.chartLine')}</Radio.Button>
             <Radio.Button value="area">{t('components.viz.chart.chartArea')}</Radio.Button>
             <Radio.Button value="bar">{t('components.viz.chart.chartBar')}</Radio.Button>
           </Radio.Group>
-        </Space>
+        </div>
 
-        <Button size="small" onClick={handleExportImage}>
+        <Button size="small" onClick={handleExportImage} style={exportButtonStyle}>
           {t('components.viz.chart.exportImage')}
         </Button>
       </div>
